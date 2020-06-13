@@ -5,7 +5,7 @@ title: "PnP PowerShell Commands for SPFx Extension Application Customizer"
 subtitle:
 description:
 image:
-optimized_image: /assets/img/Blogs/Blog3/2nd.PNG
+optimized_image: /assets/img/Blogs/Blog4/2nd.PNG
 category:
 tags:
   - SharePoint
@@ -41,7 +41,7 @@ Get all the SPFx Extension application customizers present in the site collectio
 ```js
 Get-PnPApplicationCustomizer     
 ```
-![placeholder](/assets/img/Blogs/Blog3/2nd.PNG)
+![placeholder](/assets/img/Blogs/Blog4/2nd.PNG)
 
 ## Add
 
@@ -51,12 +51,12 @@ Add an SPFx Extension application customizer
 Add-PnPApplicationCustomizer -Title "CollabFooter" -ClientSideComponentId 87b7c035-6112-4ad2-b33a-f302211976e7 -ClientSideComponentProperties "{`"testMessage`":`"Test message`",`"Bottom`":`"ThisisforTesting`"}"       
 ```
 
-![placeholder](/assets/img/Blogs/Blog3/5th.PNG)
+![placeholder](/assets/img/Blogs/Blog4/5th.PNG)
 
 #### <ins>Note</ins>
 We can get ClientSideComponentId from the .manifest.json file as displayed in the screenshot below
 
-![placeholder](/assets/img/Blogs/Blog3/4th_1.PNG)
+![placeholder](/assets/img/Blogs/Blog4/4th_1.PNG)
 
 ## Update
 
@@ -68,9 +68,9 @@ For example, if we create a footer for all the site collection in our tenant and
 Set-PnPApplicationCustomizer -ClientSideComponentId 87b7c035-6112-4ad2-b33a-f302211976e7 -Scope web -ClientSideComponentProperties "{`"testMessage`":`"Test message`",`"Bottom`":`"Thistextisupdated`"}"        
 ```
 
-![placeholder](/assets/img/Blogs/Blog3/6th.PNG)
+![placeholder](/assets/img/Blogs/Blog4/6th.PNG)
 
-![placeholder](/assets/img/Blogs/Blog3/7th.PNG)
+![placeholder](/assets/img/Blogs/Blog4/7th.PNG)
 
 ## Remove
 
@@ -80,4 +80,4 @@ To remove the SPFx application customizers, use the below command:
 Remove-PnPApplicationCustomizer -ClientSideComponentId 87b7c035-6112-4ad2-b33a-f302211976e7 -Scope web         
 ```
 
-![placeholder](/assets/img/Blogs/Blog3/8th.PNG)
+![placeholder](/assets/img/Blogs/Blog4/8th.PNG)

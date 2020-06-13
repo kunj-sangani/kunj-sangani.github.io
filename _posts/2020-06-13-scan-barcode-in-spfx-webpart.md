@@ -5,7 +5,7 @@ title: "Scan Barcode In SPFx WebPart"
 subtitle:
 description:
 image:
-optimized_image: /assets/img/Blogs/Blog3/Demo.gif
+optimized_image: /assets/img/Blogs/Blog3/BARCODE.jpg
 category:
 tags:
   - SharePoint

@@ -4,7 +4,7 @@ layout: post
 title: "Create Multilingual Communication Sites Pages SharePoint Online"
 subtitle:
 description:
-image:
+image: /assets/img/Blogs/Blog5/Image_4.png
 optimized_image: /assets/img/Blogs/Blog5/Image_4.png
 category:
 tags:
