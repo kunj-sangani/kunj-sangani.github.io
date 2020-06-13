@@ -8,6 +8,7 @@ image:
 optimized_image: /assets/img/Blogs/Blog2/DifferentObjects.PNG
 category:
 tags:
+  - SharePoint
 author:
 paginate: false
 ---
@@ -27,15 +28,15 @@ Go to SiteCollection Settings.
 
 Select the Manage Site Feature:
 
-![placeholder](/assets/img/Blogs/Blog2/SiteSettings_1.PNG "Large example image")
+![placeholder](/assets/img/Blogs/Blog2/SiteSettings_1.PNG)
 
 Enable the feature Named Spaces (Preview):
 
-![placeholder](/assets/img/Blogs/Blog2/FeatureEnable_1.PNG "Large example image")
+![placeholder](/assets/img/Blogs/Blog2/FeatureEnable_1.PNG)
 
 Go back to Site Collection Home Pages and click on the + New. This would open the dropdown:
 
-![placeholder](/assets/img/Blogs/Blog2/NewScopes.PNG "Large example image")
+![placeholder](/assets/img/Blogs/Blog2/NewScopes.PNG)
 
 Select Space (Preview) to create a new SharePoint Space. Currently, we have 4 different Structures:
 
@@ -44,11 +45,11 @@ Select Space (Preview) to create a new SharePoint Space. Currently, we have 4 di
 * Arch
 * Terrace
 
-![placeholder](/assets/img/Blogs/Blog2/NewScope.PNG "Large example image")
+![placeholder](/assets/img/Blogs/Blog2/NewScope.PNG)
 
 We change the background of the new Sharepoint Space:
 
-![placeholder](/assets/img/Blogs/Blog2/DifferentBackground.PNG "Large example image")
+![placeholder](/assets/img/Blogs/Blog2/DifferentBackground.PNG)
  
 Currently, we can add 9 different types of objects:
 
@@ -62,6 +63,6 @@ Currently, we can add 9 different types of objects:
 * Text
 * Video
 
-![placeholder](/assets/img/Blogs/Blog2/DifferentObjects.PNG "Large example image")
+![placeholder](/assets/img/Blogs/Blog2/DifferentObjects.PNG)
 
 We can use Spaces in Multiple VR structures and can create 3D catalogs as well.
