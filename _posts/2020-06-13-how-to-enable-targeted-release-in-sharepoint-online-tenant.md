@@ -5,7 +5,7 @@ title: "How To Enable Targeted Release In SharePoint Online Tenant"
 subtitle:
 description:
 image: 
-optimized_image: /assets/img/Blogs/Blog1/f.png
+optimized_image: /assets/img/Blogs/Blog1/f.PNG
 category:
 tags:
   - SharePoint
