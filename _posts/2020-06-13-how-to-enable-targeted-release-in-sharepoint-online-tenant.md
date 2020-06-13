@@ -5,7 +5,7 @@ title: "How To Enable Targeted Release In SharePoint Online Tenant"
 subtitle:
 description:
 image: 
-optimized_image: /assets/img/Blogs/Blog1/f.png
+optimized_image: https://github.com/kunj-sangani/kunj-sangani.github.io/blob/master/assets/img/Blogs/Blog1/f.png
 category:
 tags:
   - SharePoint
@@ -24,37 +24,37 @@ For changing Release preference in Microsoft365 Tenant follow the below steps.
 
 Login with the tenant admin account
 
-![1st Image](/assets/img/Blogs/Blog1/a.png)
+![1st Image](https://github.com/kunj-sangani/kunj-sangani.github.io/blob/master/assets/img/Blogs/Blog1/a.png)
 
 ## Step 2
 
 Navigate to the Microsoft365 Tenant admin center
 
-![2nd Image](/assets/img/Blogs/Blog1/b.png)
+![2nd Image](https://github.com/kunj-sangani/kunj-sangani.github.io/blob/master/assets/img/Blogs/Blog1/b.png)
 
 ## Step 3
 
 Click on show all to see all the navigations in admin center
 
-![3rd Image](/assets/img/Blogs/Blog1/c.png)
+![3rd Image](https://github.com/kunj-sangani/kunj-sangani.github.io/blob/master/assets/img/Blogs/Blog1/c.png)
 
 ## Step 4
 
 Expand the settings section and select the setting tab inside it to get all the relevant settings for M365 Tenant.
 
-![4th Image](/assets/img/Blogs/Blog1/d.png)
+![4th Image](https://github.com/kunj-sangani/kunj-sangani.github.io/blob/master/assets/img/Blogs/Blog1/d.png)
 
 ## Step 5
 
 Select the organization Profile Tab and click on release preferences.
 
-![5th Image](/assets/img/Blogs/Blog1/e.png)
+![5th Image](https://github.com/kunj-sangani/kunj-sangani.github.io/blob/master/assets/img/Blogs/Blog1/e.png)
 
 ## Step 6
 
 There are three options in the release preference --  let us go through it in detail.
 
-![6th Image](/assets/img/Blogs/Blog1/f.png)
+![6th Image](https://github.com/kunj-sangani/kunj-sangani.github.io/blob/master/assets/img/Blogs/Blog1/f.png)
 
 * Standart release for everyone
   This should be used for Production Tenant where we would not require any new updates other than the stable updates.
