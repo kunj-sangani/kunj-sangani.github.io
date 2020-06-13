@@ -56,7 +56,7 @@ Add-PnPApplicationCustomizer -Title "CollabFooter" -ClientSideComponentId 87b7c0
 #### <ins>Note</ins>
 We can get ClientSideComponentId from the .manifest.json file as displayed in the screenshot below
 
-![placeholder](/assets/img/Blogs/Blog4/4th_1.PNG)
+![placeholder](/assets/img/Blogs/Blog4/4th_1.png)
 
 ## Update
 
