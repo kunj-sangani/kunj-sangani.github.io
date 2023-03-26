@@ -183,15 +183,17 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         cursorChar = "|"
         duration = -1
     [params.verification]
-        google = ""
+        google = "jMfmROPrNA8I8xBiubmmdlfIC2USgp2fvsM8MK6cL6o"
     [params.seo]
         image = "/images/avatar.png"
         thumbnailUrl = "/images/avatar.png"
     [params.analytics]
-        enable = false
+        enable = true
         [params.analytics.google]
             id = ""
             anonymizeIP = true
+        [params.analytics.yandexMetrica]
+            id = "92955204"
     [params.cookieconsent]
         enable = false
         [params.cookieconsent.content]
