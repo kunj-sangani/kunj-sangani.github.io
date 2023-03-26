@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Function And Class Component In React With SPFx - Kunj Sangani</title><meta name="Description" content="Understanding the different types of components in React and their usage."><meta property="og:title" content="Function And Class Component In React With SPFx" />
+<meta property="og:description" content="Understanding the different types of components in React and their usage." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/2020/08/function-and-class-component-in-react-with-sp-fx/" /><meta property="og:image" content="http://example.org/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-08-31T21:57:40+08:00" />
+<meta property="article:modified_time" content="2020-08-31T21:57:40+08:00" /><meta property="og:site_name" content="Kunj Sangani" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/avatar.png"/>
+
+<meta name="twitter:title" content="Function And Class Component In React With SPFx"/>
+<meta name="twitter:description" content="Understanding the different types of components in React and their usage."/>
+<meta name="application-name" content="Kunj Sangani">
+<meta name="apple-mobile-web-app-title" content="Kunj Sangani"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/2020/08/function-and-class-component-in-react-with-sp-fx/" /><link rel="prev" href="http://example.org/2020/08/update-profile-picture-using-graph-api-in-sp-fx/" /><link rel="next" href="http://example.org/2020/09/working-with-timezone-in-sp-fx/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Function And Class Component In React With SPFx",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/2020\/08\/function-and-class-component-in-react-with-sp-fx\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "http:\/\/example.org\/images\/avatar.png",
+                            "width":  960 ,
+                            "height":  960 
+                        }],"genre": "posts","keywords": "SPFx, SharePoint Online, React","wordcount":  816 ,
+        "url": "http:\/\/example.org\/2020\/08\/function-and-class-component-in-react-with-sp-fx\/","datePublished": "2020-08-31T21:57:40+08:00","dateModified": "2020-08-31T21:57:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Kunj Sangani","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/example.org\/images\/avatar.png",
+                    "width":  960 ,
+                    "height":  960 
+                }},"author": {
+                "@type": "Person",
+                "name": "Kunj Sangani"
+            },"description": "Understanding the different types of components in React and their usage."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Function And Class Component In React With SPFx</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://www.linkedin.com/in/kunj-sangani/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kunj Sangani</a></span>&nbsp;<span class="post-category">included in <a href="/categories/spfx/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>SPFx</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-Aug-31">2020-Aug-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;816 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#difference">Difference</a></li>
+    <li><a href="#benefits">Benefits</a></li>
+    <li><a href="#how-to-use-in-sharepoint-framework-spfx">How to use in SharePoint Framework (SPFx)</a></li>
+    <li><a href="#how-to-create-a-functional-component-in-spfx">How to create a functional component in SPFx</a></li>
+    <li><a href="#how-to-create-a-class-component-in-spfx">How to create a class component in SPFx</a></li>
+    <li><a href="#how-to-use-it-and-render-the-component">How to use it and render the component</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="introduction">Introduction</h2>
+<p>In this article, we will learn the different types of components that we can create in React</p>
+<p>We will also learn which should be used in which conditions.</p>
+<p>React provides us two different types of components:</p>
+<ol>
+<li>Function component</li>
+<li>Class component</li>
+</ol>
+<p>React documentation for different components can be found in the below <a href="https://reactjs.org/docs/components-and-props.html#function-and-class-components" target="_blank" rel="noopener noreffer ">link</a>.</p>
+<h2 id="difference">Difference</h2>
+<p><strong>Function component</strong></p>
+<ol>
+<li>In the syntax point of view, we do not write class for function component rather we create it as a function</li>
+<li>It only accepts props as an argument</li>
+<li>We can not use state with functional component i.e. setState() and hence functional component are also known as stateless components</li>
+<li>In the Functional component, we can not use Lifecycle Hooks.</li>
+</ol>
+<p><strong>Class component</strong></p>
+<ol>
+<li>In syntax point of view, we write a class which inherits from React.component</li>
+<li>It accepts both props as well as state</li>
+<li>We can use state and hence it is also known as stateful components</li>
+<li>In class component, we can use Lifecycle Hooks like componentDidMount, the component will unmount</li>
+</ol>
+<h2 id="benefits">Benefits</h2>
+<p><strong>Benefits functional component</strong></p>
+<ol>
+<li>As we cannot use lifecycle-hooks and state, it is easy to read and test a functional component</li>
+<li>We end up writing less code and hence it is easy to read and understand</li>
+<li>Performance boosting</li>
+<li>We can use State Hook for storing local data to the component</li>
+</ol>
+<p><strong>Benefits class component</strong></p>
+<ol>
+<li>If we want to control the lifecycle of the component we should use class component</li>
+<li>We can store local data in the state which can be used in the component</li>
+<li>It keeps tracks in changes to the data in the state, and reacts if there is any change in it</li>
+</ol>
+<h2 id="how-to-use-in-sharepoint-framework-spfx">How to use in SharePoint Framework (SPFx)</h2>
+<p>For SPFx, let&rsquo;s create a new solution for SPFx using the below command (Assuming the development environment is set up for SPFx)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mkdir reactComponents
+</span></span><span class="line"><span class="cl">cd reactComponents
+</span></span><span class="line"><span class="cl">yo @microsoft/sharepoint
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Select different values which are asked while creating the solution, as mentioned below:</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/function-and-class-component-in-react-with-spfx/Images/Clipboard01.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/function-and-class-component-in-react-with-spfx/Images/Clipboard01.png, https://f4n3x6c5.stackpathcdn.com/article/function-and-class-component-in-react-with-spfx/Images/Clipboard01.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/function-and-class-component-in-react-with-spfx/Images/Clipboard01.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/function-and-class-component-in-react-with-spfx/Images/Clipboard01.png"
+        title="Function and class component in react with SPFx" /></p>
+<p>Let&rsquo;s open the code in Visual studio code and create functional and class components in SPFx</p>
+<p><strong>Note</strong></p>
+<p>By default, the component which is created for the web part is a class component</p>
+<h2 id="how-to-create-a-functional-component-in-spfx">How to create a functional component in SPFx</h2>
+<p>Open the file present in the solution in the below path</p>
+<p>src -&gt; web parts -&gt; understandComponent -&gt; components</p>
+<p>Now to create a functional component, we can add below code in UnderstandComponent.tsx:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">export interface IUnderstandFunctionComponentProps {    
+</span></span><span class="line"><span class="cl">title: string;    
+</span></span><span class="line"><span class="cl">}    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">export const UnderstandFunctionComponent: React.FunctionComponent&lt;IUnderstandFunctionComponentProps&gt; = (props: IUnderstandFunctionComponentProps) =&gt; {    
+</span></span><span class="line"><span class="cl">return (    
+</span></span><span class="line"><span class="cl">&lt;h1&gt;{props.title}&lt;/h1&gt;    
+</span></span><span class="line"><span class="cl">);    
+</span></span><span class="line"><span class="cl">};    
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>As we can see in the above code, we are not creating a class, rather it is just a function in typescript which has a type as React.FunctionComponent</p>
+<p>In this component, we are accepting the title as a parameter and displaying it with tag.</p>
+<h2 id="how-to-create-a-class-component-in-spfx">How to create a class component in SPFx</h2>
+<p>Now to create a class component, we can add below code in UnderstandComponent.tsx:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">export interface IUnderstandStateComponentProps {    
+</span></span><span class="line"><span class="cl">title: string;    
+</span></span><span class="line"><span class="cl">}    
+</span></span><span class="line"><span class="cl">export interface IUnderstandStateComponentState {    
+</span></span><span class="line"><span class="cl">count: number;    
+</span></span><span class="line"><span class="cl">}    
+</span></span><span class="line"><span class="cl">class UnderstandStateComponent extends React.Component  
+</span></span><span class="line"><span class="cl">&lt;IUnderstandStateComponentProps, IUnderstandStateComponentState&gt; {    
+</span></span><span class="line"><span class="cl">constructor(props: IUnderstandStateComponentProps) {    
+</span></span><span class="line"><span class="cl">super(props);    
+</span></span><span class="line"><span class="cl">this.state = {    
+</span></span><span class="line"><span class="cl">count: 0    
+</span></span><span class="line"><span class="cl">};    
+</span></span><span class="line"><span class="cl">}    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">public render(): React.ReactElement  
+</span></span><span class="line"><span class="cl">&lt;IUnderstandStateComponentProps&gt; {    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">return (    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;div&gt;  
+</span></span><span class="line"><span class="cl">&lt;h1&gt;{this.props.title}&lt;/h1&gt;  
+</span></span><span class="line"><span class="cl">&lt;div&gt;{this.state.count}&lt;/div&gt;  
+</span></span><span class="line"><span class="cl">&lt;button onClick={() =&gt; this.setState({ count: this.state.count + 1 })}&gt;Add&lt;/button&gt;  
+</span></span><span class="line"><span class="cl">&lt;/div&gt;    
+</span></span><span class="line"><span class="cl">);    
+</span></span><span class="line"><span class="cl">}    
+</span></span><span class="line"><span class="cl">}  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>From the above code, we can understand that we have created a class named UnderstandStateComponent which is inheriting from React.Component</p>
+<p>In this component, we are using the title as property and count as a state and this count would increase on click on the Add button. We can use constructor as this is not a function but a class.</p>
+<h2 id="how-to-use-it-and-render-the-component">How to use it and render the component</h2>
+<p>Using function or class component has the same syntax and is very easy to use we can update the render method in our component with the below code:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">export default class UnderstandComponent extends React.Component  
+</span></span><span class="line"><span class="cl">&lt;IUnderstandComponentProps, {}&gt; {    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">public render(): React.ReactElement  
+</span></span><span class="line"><span class="cl">&lt;IUnderstandComponentProps&gt; {    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">return (    
+</span></span><span class="line"><span class="cl">&lt;div className={styles.understandComponent}&gt;  
+</span></span><span class="line"><span class="cl">&lt;div className={styles.container}&gt;  
+</span></span><span class="line"><span class="cl">&lt;div className={styles.row}&gt;  
+</span></span><span class="line"><span class="cl">&lt;UnderstandFunctionComponent title=&#34;This is a function component&#34;\&gt;&lt;/UnderstandFunctionComponent&gt;  
+</span></span><span class="line"><span class="cl">&lt;UnderstandStateComponent title=&#34;This is a class compoent&#34;\&gt;&lt;/UnderstandStateComponent&gt;  
+</span></span><span class="line"><span class="cl">&lt;/div&gt;  
+</span></span><span class="line"><span class="cl">&lt;/div&gt;  
+</span></span><span class="line"><span class="cl">&lt;/div&gt;    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">);    
+</span></span><span class="line"><span class="cl">}    
+</span></span><span class="line"><span class="cl">}  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>As we can see from the above code, we are using both the component in a similar manner and we are passing the props value also in a similar manner hence in terms of component rendering both are similar.</p>
+<p><strong>Outcome</strong></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/function-and-class-component-in-react-with-spfx/Images/OutcomeunderstandcomponentSPFx.gif"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/function-and-class-component-in-react-with-spfx/Images/OutcomeunderstandcomponentSPFx.gif, https://f4n3x6c5.stackpathcdn.com/article/function-and-class-component-in-react-with-spfx/Images/OutcomeunderstandcomponentSPFx.gif 1.5x, https://f4n3x6c5.stackpathcdn.com/article/function-and-class-component-in-react-with-spfx/Images/OutcomeunderstandcomponentSPFx.gif 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/function-and-class-component-in-react-with-spfx/Images/OutcomeunderstandcomponentSPFx.gif"
+        title="Image" /></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Hence, we should use the function component when we want to use it as a presentation component, which does not store any data value but only displays as per the values passed in the property. If we want to store data, we should use class component, which helps us have all lifecycle hooks</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-Aug-31</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2020/08/function-and-class-component-in-react-with-sp-fx/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://example.org/2020/08/function-and-class-component-in-react-with-sp-fx/" data-title="Function And Class Component In React With SPFx" data-via="sanganikunj" data-hashtags="SPFx,SharePoint Online,React"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/2020/08/function-and-class-component-in-react-with-sp-fx/" data-hashtag="SPFx"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://example.org/2020/08/function-and-class-component-in-react-with-sp-fx/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="http://example.org/2020/08/function-and-class-component-in-react-with-sp-fx/" data-title="Function And Class Component In React With SPFx" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/spfx/">SPFx</a>,&nbsp;<a href="/tags/sharepoint-online/">SharePoint Online</a>,&nbsp;<a href="/tags/react/">React</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020/08/update-profile-picture-using-graph-api-in-sp-fx/" class="prev" rel="prev" title="Update Profile Picture Using Graph API In SPFx"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Update Profile Picture Using Graph API In SPFx</a>
+            <a href="/2020/09/working-with-timezone-in-sp-fx/" class="next" rel="next" title="Working With Timezone In SPFx">Working With Timezone In SPFx<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Kunj Sangani</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"search":{"algoliaAppID":"1X7YJ8VWPT","algoliaIndex":"index.en","algoliaSearchKey":"00a0369aedac90b4135d976a8a7b12b8","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

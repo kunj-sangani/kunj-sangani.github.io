@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Create ASP.NET Core API w/ Azure AD Auth &amp; consume in SPFx. - Kunj Sangani</title><meta name="Description" content="This article shows the basic Markdown syntax and format."><meta property="og:title" content="Create ASP.NET Core API w/ Azure AD Auth &amp; consume in SPFx." />
+<meta property="og:description" content="This article shows the basic Markdown syntax and format." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/2020/10/create-asp-net-core-api-w-azure-ad-auth-consume-in-sp-fx/" /><meta property="og:image" content="http://example.org/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-10-13T21:57:40+08:00" />
+<meta property="article:modified_time" content="2020-10-07T21:57:40+08:00" /><meta property="og:site_name" content="Kunj Sangani" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/avatar.png"/>
+
+<meta name="twitter:title" content="Create ASP.NET Core API w/ Azure AD Auth &amp; consume in SPFx."/>
+<meta name="twitter:description" content="This article shows the basic Markdown syntax and format."/>
+<meta name="application-name" content="Kunj Sangani">
+<meta name="apple-mobile-web-app-title" content="Kunj Sangani"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/2020/10/create-asp-net-core-api-w-azure-ad-auth-consume-in-sp-fx/" /><link rel="prev" href="http://example.org/2020/10/outgoing-web-hook-in-teams-using-yeoman-teams-generator/" /><link rel="next" href="http://example.org/2021/08/creating-free-tier-aws-account-with-free-s-3-storage-account/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Create ASP.NET Core API w/ Azure AD Auth \u0026 consume in SPFx.",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/2020\/10\/create-asp-net-core-api-w-azure-ad-auth-consume-in-sp-fx\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "http:\/\/example.org\/images\/avatar.png",
+                            "width":  960 ,
+                            "height":  960 
+                        }],"genre": "posts","keywords": "SPFx, WebAPI, Azure AD, MSAL.js","wordcount":  945 ,
+        "url": "http:\/\/example.org\/2020\/10\/create-asp-net-core-api-w-azure-ad-auth-consume-in-sp-fx\/","datePublished": "2020-10-13T21:57:40+08:00","dateModified": "2020-10-07T21:57:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Kunj Sangani","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/example.org\/images\/avatar.png",
+                    "width":  960 ,
+                    "height":  960 
+                }},"author": {
+                "@type": "Person",
+                "name": "Kunj Sangani"
+            },"description": "This article shows the basic Markdown syntax and format."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Create ASP.NET Core API w/ Azure AD Auth & consume in SPFx.</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://www.linkedin.com/in/kunj-sangani/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kunj Sangani</a></span>&nbsp;<span class="post-category">included in <a href="/categories/spfx/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>SPFx</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-Oct-13">2020-Oct-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;945 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#aspnet-core-web-api">ASP.NET Core Web API </a></li>
+    <li><a href="#consume-the-web-api-using-spfx">Consume the web API using SPFx</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="introduction">Introduction</h2>
+<p>The practice of creating Custom APIs using ASP.NET core is increasing day by day as ASP.NET core is platform agnostic and is based on the C# language. Securing your API is very important as we do not want everyone to access the data, hence we will explore Azure AD based authentication in ASP.NET Core Web API and consume the API using SharePoint Framework.</p>
+<p>There are two aspects to this article:</p>
+<ol>
+<li>Creating ASP.NET Core web API secured using Azure AD</li>
+<li>Consuming the API in SharePoint Framework</li>
+</ol>
+<p>Let us first understand how we can create a secure web API.</p>
+<h2 id="aspnet-core-web-api">ASP.NET Core Web API </h2>
+<p>To create ASP.NET Core web API we can use .NET Core CLI or Visual Studio. In this article we will use Visual Studio to create a Web API.</p>
+<p>Open Visual Studio and select Create a New Project.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/1_CreateProject.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/1_CreateProject.png, https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/1_CreateProject.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/1_CreateProject.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/1_CreateProject.png"
+        title="Create An ASP.NET Core API With Azure AD Authentication And Consuming It In SPFx" /></p>
+<p>From the available template select ASP.NET Core Web Application as the type of the Project with C# as language</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/2_SelectProjectType.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/2_SelectProjectType.png, https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/2_SelectProjectType.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/2_SelectProjectType.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/2_SelectProjectType.png"
+        title="Create An ASP.NET Core API With Azure AD Authentication And Consuming It In SPFx" /></p>
+<p>Provide the project name as &ldquo;SecuredWebAPI&rdquo; and click on create</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/3_ProjectName.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/3_ProjectName.png, https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/3_ProjectName.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/3_ProjectName.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/3_ProjectName.png"
+        title="Create An ASP.NET Core API With Azure AD Authentication And Consuming It In SPFx" /></p>
+<p>In the next Screen Select API and then change the authentication type from No Authentication to Work or School Accounts. Provide the domain name of your tenant and click on OK login with tenant admin user if not already logged in.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/4_AuthType.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/4_AuthType.png, https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/4_AuthType.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/4_AuthType.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/4_AuthType.png"
+        title="Create An ASP.NET Core API With Azure AD Authentication And Consuming It In SPFx" /></p>
+<p>Internally when the API gets created there is an Azure AD application which also gets created as displayed in the image below</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/5_AzureAD.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/5_AzureAD.png, https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/5_AzureAD.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/5_AzureAD.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/5_AzureAD.png"
+        title="Create An ASP.NET Core API With Azure AD Authentication And Consuming It In SPFx" /></p>
+<p>In this Azure AD Application there is another thing called Expose an API which also has an entry with Scope configured. This is created by Visual Studio itself for our convenience. </p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/6_AzureADScopes.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/6_AzureADScopes.png, https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/6_AzureADScopes.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/6_AzureADScopes.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/6_AzureADScopes.png"
+        title="Create An ASP.NET Core API With Azure AD Authentication And Consuming It In SPFx" /></p>
+<p>We need to update the code in startup.cs so that it will accept a valid audience and valid Issuers. To do that update the below code in ConfigureServices method, comment the services.AddAuthentication line and replace it with the below code which will include valid audience and valid Issuers. We will also enable CORS as we will be consuming the Web API in SharePoint which would have a different domain.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">services.AddCors();  
+</span></span><span class="line"><span class="cl">services.AddAuthentication(sharedoptions =&gt;  
+</span></span><span class="line"><span class="cl">{  
+</span></span><span class="line"><span class="cl">sharedoptions.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+</span></span><span class="line"><span class="cl">}).AddJwtBearer(options =&gt;  
+</span></span><span class="line"><span class="cl">{  
+</span></span><span class="line"><span class="cl">options.Authority = &#34;https://login.microsoftonline.com/52d05dd6-9e21-494f-8502-77658dbe16b8&#34;;  
+</span></span><span class="line"><span class="cl">options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters  
+</span></span><span class="line"><span class="cl">{  
+</span></span><span class="line"><span class="cl">ValidAudiences = new List&lt;string&gt; { &#34;https://testinglala.onmicrosoft.com/SecuredWebAPI&#34; },  
+</span></span><span class="line"><span class="cl">// set the following issuers if you want to support both V1 and V2 issuers  
+</span></span><span class="line"><span class="cl">ValidIssuers = new List&lt;string&gt; { &#34;https://sts.windows.net/52d05dd6-9e21-494f-8502-77658dbe16b8/&#34;,&#34;https://login.microsoftonline.com/52d05dd6-9e21-494f-8502-77658dbe16b8/v2.0&#34; }  
+</span></span><span class="line"><span class="cl">};  
+</span></span><span class="line"><span class="cl">});  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now let us start the web API and test it in Postman to check whether it is authenticating or not.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/7_GraphCAll.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/7_GraphCAll.png, https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/7_GraphCAll.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/7_GraphCAll.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/7_GraphCAll.png"
+        title="Create An ASP.NET Core API With Azure AD Authentication And Consuming It In SPFx" /></p>
+<p>As displayed in the image the API provides us 401 Unauthorized as the output code</p>
+<h2 id="consume-the-web-api-using-spfx">Consume the web API using SPFx</h2>
+<p>To consume the web API in SPFx let us first create an SPFx solution.</p>
+<p>Use the below code in Node.js command prompt to create SPFx solution.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">md callSecuredAPIGraph  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">cd callSecuredAPIGraph  
+</span></span><span class="line"><span class="cl">yo @microsoft/sharepoint   
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Select the below answers when prompted with questions as displayed in the image below.</p>
+<p>We will use MSAL.js to fetch the token and use that token to call our web API. This token would be a bearer token so let us add the dependency of MSAL.js using the below command.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">npm install msal --save  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now update the below code in the WebPart.ts file.</p>
+<p>Import the reference to MSAL.js using the below code:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import \* as Msal from &#39;msal&#39;;  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Add the below variable as constants as we will not update those (Please update the clientId, authority and redirectUri as per your tenant and application id in azure ad and tenant Id):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">const msalConfig = {  
+</span></span><span class="line"><span class="cl">auth: {  
+</span></span><span class="line"><span class="cl">clientId: &#39;914a7422-244b-4684-9e47-6f020d014967&#39;,  
+</span></span><span class="line"><span class="cl">authority: &#34;https://login.microsoftonline.com/52d05dd6-9e21-494f-8502-77658dbe16b8&#34;,  
+</span></span><span class="line"><span class="cl">redirectUri: &#39;https://testinglala.sharepoint.com/\_layouts/15/workbench.aspx&#39;  
+</span></span><span class="line"><span class="cl">}  
+</span></span><span class="line"><span class="cl">};  
+</span></span><span class="line"><span class="cl">const msalObj = new Msal.UserAgentApplication(msalConfig);   
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now let us add the below code to fetch the token. We will fetch this before our code gets rendered update the render method with the below code:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public render(): void {  
+</span></span><span class="line"><span class="cl">msalObj.handleRedirectCallback(error1 =&gt; {  
+</span></span><span class="line"><span class="cl">console.log(error1);  
+</span></span><span class="line"><span class="cl">});  
+</span></span><span class="line"><span class="cl">if (!msalObj.getAccount()) {  
+</span></span><span class="line"><span class="cl">msalObj.loginRedirect({  
+</span></span><span class="line"><span class="cl">scopes: \[&#34;https://testinglala.onmicrosoft.com/AzureADCoreAPI/user\_impersonation&#34;\]  
+</span></span><span class="line"><span class="cl">});  
+</span></span><span class="line"><span class="cl">} else {  
+</span></span><span class="line"><span class="cl">msalObj.acquireTokenPopup({  
+</span></span><span class="line"><span class="cl">scopes: \[&#34;https://testinglala.onmicrosoft.com/AzureADCoreAPI/user\_impersonation&#34;\]  
+</span></span><span class="line"><span class="cl">}).then((val) =&gt; {  
+</span></span><span class="line"><span class="cl">console.log(val);  
+</span></span><span class="line"><span class="cl">const element: React.ReactElement &lt; ICallSecuredApiProps &gt; = React.createElement(CallSecuredApi, {  
+</span></span><span class="line"><span class="cl">description: this.properties.description,  
+</span></span><span class="line"><span class="cl">context: this.context,  
+</span></span><span class="line"><span class="cl">accessToken: val.accessToken  
+</span></span><span class="line"><span class="cl">});  
+</span></span><span class="line"><span class="cl">ReactDom.render(element, this.domElement);  
+</span></span><span class="line"><span class="cl">}).catch((error) =&gt; {  
+</span></span><span class="line"><span class="cl">console.log(error);  
+</span></span><span class="line"><span class="cl">});  
+</span></span><span class="line"><span class="cl">}  
+</span></span><span class="line"><span class="cl">}   
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>To fetch the data from Web API let us update our CallSecuredApi.tsx file. Add a state variable response and initialize it with empty array and add below method which would fetch the API data:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public componentDidMount() {  
+</span></span><span class="line"><span class="cl">this.props.context.httpClient.get(&#39;https://localhost:44364/api/values&#39;, HttpClient.configurations.v1, {  
+</span></span><span class="line"><span class="cl">headers: {  
+</span></span><span class="line"><span class="cl">&#39;Authorization&#39;: \`Bearer ${this.props.accessToken}\`  
+</span></span><span class="line"><span class="cl">},  
+</span></span><span class="line"><span class="cl"> method: &#39;GET&#39;  
+</span></span><span class="line"><span class="cl">}).then((response: HttpClientResponse) =&gt; {  
+</span></span><span class="line"><span class="cl">response.json().then((val) =&gt; {  
+</span></span><span class="line"><span class="cl">console.log(val);  
+</span></span><span class="line"><span class="cl">this.setState({  
+</span></span><span class="line"><span class="cl">response: val  
+</span></span><span class="line"><span class="cl">});  
+</span></span><span class="line"><span class="cl">}).catch((erro) =&gt; {  
+</span></span><span class="line"><span class="cl">console.log(erro);  
+</span></span><span class="line"><span class="cl">});  
+</span></span><span class="line"><span class="cl">}).catch((error) =&gt; {  
+</span></span><span class="line"><span class="cl">console.log(error);  
+</span></span><span class="line"><span class="cl">});  
+</span></span><span class="line"><span class="cl">}   
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Update the render method with the below code to display the obtained data from the web API.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public render(): React.ReactElement  
+</span></span><span class="line"><span class="cl">&lt;ICallSecuredApiProps&gt; {    
+</span></span><span class="line"><span class="cl">return (
+</span></span><span class="line"><span class="cl">&lt;div className={styles.callSecuredApi}&gt;  
+</span></span><span class="line"><span class="cl">&lt;div className={styles.container}&gt;  
+</span></span><span class="line"><span class="cl">&lt;div className={styles.row}&gt;  
+</span></span><span class="line"><span class="cl">&lt;div className={styles.column}&gt;  
+</span></span><span class="line"><span class="cl">&lt;span className={styles.title}&gt;Welcome to SharePoint!&lt;/span&gt;    
+</span></span><span class="line"><span class="cl">{this.state.response &amp;&amp; this.state.response.map((val) =&gt; {    
+</span></span><span class="line"><span class="cl">return (  
+</span></span><span class="line"><span class="cl">&lt;div&gt;{val}&lt;/div&gt;);    
+</span></span><span class="line"><span class="cl">})}    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;/div&gt;  
+</span></span><span class="line"><span class="cl">&lt;/div&gt;  
+</span></span><span class="line"><span class="cl">&lt;/div&gt;  
+</span></span><span class="line"><span class="cl">&lt;/div&gt;    
+</span></span><span class="line"><span class="cl">);    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">}     
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now we can start our SPFx solution using the below code</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">gulp serve  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Outcome</strong></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/Outcome.gif"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/Outcome.gif, https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/Outcome.gif 1.5x, https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/Outcome.gif 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/Images/Outcome.gif"
+        title="Create An ASP.NET Core API With Azure AD Authentication And Consuming It In SPFx" /></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Securing Web API in ASP.NET core is very easy and consuming it in SPFx using MSAL.js gives us a good opportunity to create an end to end solution for enterprise which is scalable. We can leverage ASP.NET core API which can help us to create robust Web API for our desired application.</p>
+<p>Happy Codding !!! </p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-Oct-07</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2020/10/create-asp-net-core-api-w-azure-ad-auth-consume-in-sp-fx/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://example.org/2020/10/create-asp-net-core-api-w-azure-ad-auth-consume-in-sp-fx/" data-title="Create ASP.NET Core API w/ Azure AD Auth &amp; consume in SPFx." data-via="sanganikunj" data-hashtags="SPFx,WebAPI,Azure AD,MSAL.js"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/2020/10/create-asp-net-core-api-w-azure-ad-auth-consume-in-sp-fx/" data-hashtag="SPFx"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://example.org/2020/10/create-asp-net-core-api-w-azure-ad-auth-consume-in-sp-fx/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="http://example.org/2020/10/create-asp-net-core-api-w-azure-ad-auth-consume-in-sp-fx/" data-title="Create ASP.NET Core API w/ Azure AD Auth &amp; consume in SPFx." data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/spfx/">SPFx</a>,&nbsp;<a href="/tags/webapi/">WebAPI</a>,&nbsp;<a href="/tags/azure-ad/">Azure AD</a>,&nbsp;<a href="/tags/msal.js/">MSAL.js</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020/10/outgoing-web-hook-in-teams-using-yeoman-teams-generator/" class="prev" rel="prev" title="Outgoing Web Hook In Teams Using Yeoman Teams Generator"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Outgoing Web Hook In Teams Using Yeoman Teams Generator</a>
+            <a href="/2021/08/creating-free-tier-aws-account-with-free-s-3-storage-account/" class="next" rel="next" title="Creating Free Tier AWS Account With Free S3 Storage Account">Creating Free Tier AWS Account With Free S3 Storage Account<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Kunj Sangani</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"search":{"algoliaAppID":"1X7YJ8VWPT","algoliaIndex":"index.en","algoliaSearchKey":"00a0369aedac90b4135d976a8a7b12b8","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

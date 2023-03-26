@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>SharePoint CSOM For .NET Standard - Kunj Sangani</title><meta name="Description" content="How to connect to SharePoint using the Client-side Object Model for .NET Standard with Azure AD OAuth-based authentication from a .NET Core console application."><meta property="og:title" content="SharePoint CSOM For .NET Standard" />
+<meta property="og:description" content="How to connect to SharePoint using the Client-side Object Model for .NET Standard with Azure AD OAuth-based authentication from a .NET Core console application." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/2020/06/share-point-csom-for-net-standard/" /><meta property="og:image" content="http://example.org/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-06-29T21:57:40+08:00" />
+<meta property="article:modified_time" content="2020-06-29T21:57:40+08:00" /><meta property="og:site_name" content="Kunj Sangani" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/avatar.png"/>
+
+<meta name="twitter:title" content="SharePoint CSOM For .NET Standard"/>
+<meta name="twitter:description" content="How to connect to SharePoint using the Client-side Object Model for .NET Standard with Azure AD OAuth-based authentication from a .NET Core console application."/>
+<meta name="application-name" content="Kunj Sangani">
+<meta name="apple-mobile-web-app-title" content="Kunj Sangani"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/2020/06/share-point-csom-for-net-standard/" /><link rel="prev" href="http://example.org/2020/06/custom-connector-to-connect-graph-api-in-power-apps/" /><link rel="next" href="http://example.org/2020/07/how-to-setup-environment-for-share-point-framework-in-mac-os/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "SharePoint CSOM For .NET Standard",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/2020\/06\/share-point-csom-for-net-standard\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "http:\/\/example.org\/images\/avatar.png",
+                            "width":  960 ,
+                            "height":  960 
+                        }],"genre": "posts","keywords": "SharePoint Online, SharePoint CSOM","wordcount":  1247 ,
+        "url": "http:\/\/example.org\/2020\/06\/share-point-csom-for-net-standard\/","datePublished": "2020-06-29T21:57:40+08:00","dateModified": "2020-06-29T21:57:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Kunj Sangani","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/example.org\/images\/avatar.png",
+                    "width":  960 ,
+                    "height":  960 
+                }},"author": {
+                "@type": "Person",
+                "name": "Kunj Sangani"
+            },"description": "How to connect to SharePoint using the Client-side Object Model for .NET Standard with Azure AD OAuth-based authentication from a .NET Core console application."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">SharePoint CSOM For .NET Standard</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://www.linkedin.com/in/kunj-sangani/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kunj Sangani</a></span>&nbsp;<span class="post-category">included in <a href="/categories/sharepoint-csom/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>SharePoint CSOM</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-Jun-29">2020-Jun-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1247 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#create-azure-ad-application">Create Azure AD Application</a></li>
+    <li><a href="#create-a-net-core-console-application">Create a .Net Core Console Application</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="introduction">Introduction</h2>
+<p>SharePoint has an object model known as Client-side object model (CSOM) which is available for .net framework. It wasn&rsquo;t available for .NET standard, but now Microsoft has provided a much-awaited CSOM for .NET standard.</p>
+<p>With the release of this, we can easily connect to SharePoint using an Azure AD OAuth based approach from .net core applications. </p>
+<p>So to understand how CSOM for .NET standard work let&rsquo;s create a .net core console application and connect to SharePoint and fetch all the items from the list</p>
+<h2 id="create-azure-ad-application">Create Azure AD Application</h2>
+<p><strong>Step 1</strong></p>
+<p>Navigate to <a href="https://portal.azure.com" target="_blank" rel="noopener noreffer ">here</a>.</p>
+<p><strong>Step 2</strong></p>
+<p>Click on Azure Active Directory and click on App registration.</p>
+<p><strong>Step 3</strong></p>
+<p>Click on + New registration to register Azure AD application</p>
+<p><strong>Step 4</strong></p>
+<p>Provide an appropriate name for the application &ndash; we will use NETStandardCSOM.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/sharepoint-csom-for-net-standard/Images/1_RegisterApplication.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/sharepoint-csom-for-net-standard/Images/1_RegisterApplication.png, https://f4n3x6c5.stackpathcdn.com/article/sharepoint-csom-for-net-standard/Images/1_RegisterApplication.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/sharepoint-csom-for-net-standard/Images/1_RegisterApplication.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/sharepoint-csom-for-net-standard/Images/1_RegisterApplication.png"
+        title="SharePoint CSOM For .NET Standard" /></p>
+<p><strong>Step 5</strong></p>
+<p>Navigate to API Permission and select SharePoint for providing appropriate permission. Select delegated permission and check all the required permission. For our demo we will select AllSites.FullControl</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/sharepoint-csom-for-net-standard/Images/2_AddAccess.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/sharepoint-csom-for-net-standard/Images/2_AddAccess.png, https://f4n3x6c5.stackpathcdn.com/article/sharepoint-csom-for-net-standard/Images/2_AddAccess.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/sharepoint-csom-for-net-standard/Images/2_AddAccess.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/sharepoint-csom-for-net-standard/Images/2_AddAccess.png"
+        title="SharePoint CSOM For .NET Standard" /></p>
+<p><strong>Step 6</strong></p>
+<p>Navigate to the authentication section and Under Default Client type select &ldquo;Yes&rdquo;.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/sharepoint-csom-for-net-standard/Images/3_AuthType.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/sharepoint-csom-for-net-standard/Images/3_AuthType.png, https://f4n3x6c5.stackpathcdn.com/article/sharepoint-csom-for-net-standard/Images/3_AuthType.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/sharepoint-csom-for-net-standard/Images/3_AuthType.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/sharepoint-csom-for-net-standard/Images/3_AuthType.png"
+        title="SharePoint CSOM For .NET Standard" /></p>
+<p><strong>Step 7</strong></p>
+<p>Copy the client ID which got generated after creating the Azure AD application</p>
+<h2 id="create-a-net-core-console-application">Create a .Net Core Console Application</h2>
+<p><strong>Step 1</strong></p>
+<p>Navigate to Visual Studio and create a new project with the template as .net core console application and  name the project as NetStandardCSOM.</p>
+<p><strong>Step 2</strong></p>
+<p> Add all the below NuGet packages</p>
+<ul>
+<li>Microsoft.SharePoint online.CSOM - This library is CSOM for .NET Standard</li>
+<li>Newtonsoft.Json</li>
+<li>System.Text.Json</li>
+<li>System.IdentityModel.Token.Jwt</li>
+</ul>
+<p><strong>Step 3</strong></p>
+<p>Add a class file named AuthenticationManager and add the below code.</p>
+<p>This is the actual file where all the magic happens to fetch the token store in the cache so we are using OAuth 2.0 Resource Owner Password Credentials for fetching the token.</p>
+<p>Please replace the client ID which we created in Step 1 in the string name defaultAADAppId.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span><span class="lnt">185
+</span><span class="lnt">186
+</span><span class="lnt">187
+</span><span class="lnt">188
+</span><span class="lnt">189
+</span><span class="lnt">190
+</span><span class="lnt">191
+</span><span class="lnt">192
+</span><span class="lnt">193
+</span><span class="lnt">194
+</span><span class="lnt">195
+</span><span class="lnt">196
+</span><span class="lnt">197
+</span><span class="lnt">198
+</span><span class="lnt">199
+</span><span class="lnt">200
+</span><span class="lnt">201
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">using Microsoft.SharePoint.Client;  
+</span></span><span class="line"><span class="cl">using System;  
+</span></span><span class="line"><span class="cl">using System.Collections.Concurrent;  
+</span></span><span class="line"><span class="cl">using System.Net.Http;  
+</span></span><span class="line"><span class="cl">using System.Security;  
+</span></span><span class="line"><span class="cl">using System.Text;  
+</span></span><span class="line"><span class="cl">using System.Text.Json;  
+</span></span><span class="line"><span class="cl">using System.Threading;  
+</span></span><span class="line"><span class="cl">using System.Threading.Tasks;  
+</span></span><span class="line"><span class="cl">using System.Web;  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">namespace NetStandardCSOM  
+</span></span><span class="line"><span class="cl">{  
+</span></span><span class="line"><span class="cl">    public class AuthenticationManager : IDisposable  
+</span></span><span class="line"><span class="cl">    {  
+</span></span><span class="line"><span class="cl">        private static readonly HttpClient httpClient = new HttpClient();  
+</span></span><span class="line"><span class="cl">        private const string tokenEndpoint = &#34;https://login.microsoftonline.com/common/oauth2/token&#34;;  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">        private const string defaultAADAppId = &#34;3de78f25-cbf5-4ec4-b9af-349c91904dc5&#34;;  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">        // Token cache handling  
+</span></span><span class="line"><span class="cl">        private static readonly SemaphoreSlim semaphoreSlimTokens = new SemaphoreSlim(1);  
+</span></span><span class="line"><span class="cl">        private AutoResetEvent tokenResetEvent = null;  
+</span></span><span class="line"><span class="cl">        private readonly ConcurrentDictionary&lt;string, string&gt; tokenCache = new ConcurrentDictionary&lt;string, string&gt;();  
+</span></span><span class="line"><span class="cl">        private bool disposedValue;  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">        internal class TokenWaitInfo  
+</span></span><span class="line"><span class="cl">        {  
+</span></span><span class="line"><span class="cl">            public RegisteredWaitHandle Handle = null;  
+</span></span><span class="line"><span class="cl">        }  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">        public ClientContext GetContext(Uri web, string userPrincipalName, SecureString userPassword)  
+</span></span><span class="line"><span class="cl">        {  
+</span></span><span class="line"><span class="cl">            var context = new ClientContext(web);  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">            context.ExecutingWebRequest += (sender, e) =&gt;  
+</span></span><span class="line"><span class="cl">            {  
+</span></span><span class="line"><span class="cl">                string accessToken = EnsureAccessTokenAsync(new Uri($&#34;{web.Scheme}://{web.DnsSafeHost}&#34;), userPrincipalName, new System.Net.NetworkCredential(string.Empty, userPassword).Password).GetAwaiter().GetResult();  
+</span></span><span class="line"><span class="cl">                e.WebRequestExecutor.RequestHeaders[&#34;Authorization&#34;] = &#34;Bearer &#34; + accessToken;  
+</span></span><span class="line"><span class="cl">            };  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">            return context;  
+</span></span><span class="line"><span class="cl">        }  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">        public async Task&lt;string&gt; EnsureAccessTokenAsync(Uri resourceUri, string userPrincipalName, string userPassword)  
+</span></span><span class="line"><span class="cl">        {  
+</span></span><span class="line"><span class="cl">            string accessTokenFromCache = TokenFromCache(resourceUri, tokenCache);  
+</span></span><span class="line"><span class="cl">            if (accessTokenFromCache == null)  
+</span></span><span class="line"><span class="cl">            {  
+</span></span><span class="line"><span class="cl">                await semaphoreSlimTokens.WaitAsync().ConfigureAwait(false);  
+</span></span><span class="line"><span class="cl">                try  
+</span></span><span class="line"><span class="cl">                {  
+</span></span><span class="line"><span class="cl">                    // No async methods are allowed in a lock section  
+</span></span><span class="line"><span class="cl">                    string accessToken = await AcquireTokenAsync(resourceUri, userPrincipalName, userPassword).ConfigureAwait(false);  
+</span></span><span class="line"><span class="cl">                    Console.WriteLine($&#34;Successfully requested new access token resource {resourceUri.DnsSafeHost} for user {userPrincipalName}&#34;);  
+</span></span><span class="line"><span class="cl">                    AddTokenToCache(resourceUri, tokenCache, accessToken);  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">                    // Register a thread to invalidate the access token once&#39;s it&#39;s expired  
+</span></span><span class="line"><span class="cl">                    tokenResetEvent = new AutoResetEvent(false);  
+</span></span><span class="line"><span class="cl">                    TokenWaitInfo wi = new TokenWaitInfo();  
+</span></span><span class="line"><span class="cl">                    wi.Handle = ThreadPool.RegisterWaitForSingleObject(  
+</span></span><span class="line"><span class="cl">                        tokenResetEvent,  
+</span></span><span class="line"><span class="cl">                        async (state, timedOut) =&gt;  
+</span></span><span class="line"><span class="cl">                        {  
+</span></span><span class="line"><span class="cl">                            if (!timedOut)  
+</span></span><span class="line"><span class="cl">                            {  
+</span></span><span class="line"><span class="cl">                                TokenWaitInfo wi1 = (TokenWaitInfo)state;  
+</span></span><span class="line"><span class="cl">                                if (wi1.Handle != null)  
+</span></span><span class="line"><span class="cl">                                {  
+</span></span><span class="line"><span class="cl">                                    wi1.Handle.Unregister(null);  
+</span></span><span class="line"><span class="cl">                                }  
+</span></span><span class="line"><span class="cl">                            }  
+</span></span><span class="line"><span class="cl">                            else  
+</span></span><span class="line"><span class="cl">                            {  
+</span></span><span class="line"><span class="cl">                                try  
+</span></span><span class="line"><span class="cl">                                {  
+</span></span><span class="line"><span class="cl">                                    // Take a lock to ensure no other threads are updating the SharePoint Access token at this time  
+</span></span><span class="line"><span class="cl">                                    await semaphoreSlimTokens.WaitAsync().ConfigureAwait(false);  
+</span></span><span class="line"><span class="cl">                                    RemoveTokenFromCache(resourceUri, tokenCache);  
+</span></span><span class="line"><span class="cl">                                    Console.WriteLine($&#34;Cached token for resource {resourceUri.DnsSafeHost} and user {userPrincipalName} expired&#34;);  
+</span></span><span class="line"><span class="cl">                                }  
+</span></span><span class="line"><span class="cl">                                catch (Exception ex)  
+</span></span><span class="line"><span class="cl">                                {  
+</span></span><span class="line"><span class="cl">                                    Console.WriteLine($&#34;Something went wrong during cache token invalidation: {ex.Message}&#34;);  
+</span></span><span class="line"><span class="cl">                                    RemoveTokenFromCache(resourceUri, tokenCache);  
+</span></span><span class="line"><span class="cl">                                }  
+</span></span><span class="line"><span class="cl">                                finally  
+</span></span><span class="line"><span class="cl">                                {  
+</span></span><span class="line"><span class="cl">                                    semaphoreSlimTokens.Release();  
+</span></span><span class="line"><span class="cl">                                }  
+</span></span><span class="line"><span class="cl">                            }  
+</span></span><span class="line"><span class="cl">                        },  
+</span></span><span class="line"><span class="cl">                        wi,  
+</span></span><span class="line"><span class="cl">                        (uint)CalculateThreadSleep(accessToken).TotalMilliseconds,  
+</span></span><span class="line"><span class="cl">                        true  
+</span></span><span class="line"><span class="cl">                    );  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">                    return accessToken;  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">                }  
+</span></span><span class="line"><span class="cl">                finally  
+</span></span><span class="line"><span class="cl">                {  
+</span></span><span class="line"><span class="cl">                    semaphoreSlimTokens.Release();  
+</span></span><span class="line"><span class="cl">                }  
+</span></span><span class="line"><span class="cl">            }  
+</span></span><span class="line"><span class="cl">            else  
+</span></span><span class="line"><span class="cl">            {  
+</span></span><span class="line"><span class="cl">                Console.WriteLine($&#34;Returning token from cache for resource {resourceUri.DnsSafeHost} and user {userPrincipalName}&#34;);  
+</span></span><span class="line"><span class="cl">                return accessTokenFromCache;  
+</span></span><span class="line"><span class="cl">            }  
+</span></span><span class="line"><span class="cl">        }  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">        private async Task&lt;string&gt; AcquireTokenAsync(Uri resourceUri, string username, string password)  
+</span></span><span class="line"><span class="cl">        {  
+</span></span><span class="line"><span class="cl">            string resource = $&#34;{resourceUri.Scheme}://{resourceUri.DnsSafeHost}&#34;;  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">            var clientId = defaultAADAppId;  
+</span></span><span class="line"><span class="cl">            var body = $&#34;resource={resource}&amp;client_id={clientId}&amp;grant_type=password&amp;username={HttpUtility.UrlEncode(username)}&amp;password={HttpUtility.UrlEncode(password)}&#34;;  
+</span></span><span class="line"><span class="cl">            using (var stringContent = new StringContent(body, Encoding.UTF8, &#34;application/x-www-form-urlencoded&#34;))  
+</span></span><span class="line"><span class="cl">            {  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">                var result = await httpClient.PostAsync(tokenEndpoint, stringContent).ContinueWith((response) =&gt;  
+</span></span><span class="line"><span class="cl">                {  
+</span></span><span class="line"><span class="cl">                    return response.Result.Content.ReadAsStringAsync().Result;  
+</span></span><span class="line"><span class="cl">                }).ConfigureAwait(false);  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">                var tokenResult = JsonSerializer.Deserialize&lt;JsonElement&gt;(result);  
+</span></span><span class="line"><span class="cl">                var token = tokenResult.GetProperty(&#34;access_token&#34;).GetString();  
+</span></span><span class="line"><span class="cl">                return token;  
+</span></span><span class="line"><span class="cl">            }  
+</span></span><span class="line"><span class="cl">        }  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">        private static string TokenFromCache(Uri web, ConcurrentDictionary&lt;string, string&gt; tokenCache)  
+</span></span><span class="line"><span class="cl">        {  
+</span></span><span class="line"><span class="cl">            if (tokenCache.TryGetValue(web.DnsSafeHost, out string accessToken))  
+</span></span><span class="line"><span class="cl">            {  
+</span></span><span class="line"><span class="cl">                return accessToken;  
+</span></span><span class="line"><span class="cl">            }  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">            return null;  
+</span></span><span class="line"><span class="cl">        }  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">        private static void AddTokenToCache(Uri web, ConcurrentDictionary&lt;string, string&gt; tokenCache, string newAccessToken)  
+</span></span><span class="line"><span class="cl">        {  
+</span></span><span class="line"><span class="cl">            if (tokenCache.TryGetValue(web.DnsSafeHost, out string currentAccessToken))  
+</span></span><span class="line"><span class="cl">            {  
+</span></span><span class="line"><span class="cl">                tokenCache.TryUpdate(web.DnsSafeHost, newAccessToken, currentAccessToken);  
+</span></span><span class="line"><span class="cl">            }  
+</span></span><span class="line"><span class="cl">            else  
+</span></span><span class="line"><span class="cl">            {  
+</span></span><span class="line"><span class="cl">                tokenCache.TryAdd(web.DnsSafeHost, newAccessToken);  
+</span></span><span class="line"><span class="cl">            }  
+</span></span><span class="line"><span class="cl">        }  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">        private static void RemoveTokenFromCache(Uri web, ConcurrentDictionary&lt;string, string&gt; tokenCache)  
+</span></span><span class="line"><span class="cl">        {  
+</span></span><span class="line"><span class="cl">            tokenCache.TryRemove(web.DnsSafeHost, out string currentAccessToken);  
+</span></span><span class="line"><span class="cl">        }  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">        private static TimeSpan CalculateThreadSleep(string accessToken)  
+</span></span><span class="line"><span class="cl">        {  
+</span></span><span class="line"><span class="cl">            var token = new System.IdentityModel.Tokens.Jwt.JwtSecurityToken(accessToken);  
+</span></span><span class="line"><span class="cl">            var lease = GetAccessTokenLease(token.ValidTo);  
+</span></span><span class="line"><span class="cl">            lease = TimeSpan.FromSeconds(lease.TotalSeconds - TimeSpan.FromMinutes(5).TotalSeconds &gt; 0 ? lease.TotalSeconds - TimeSpan.FromMinutes(5).TotalSeconds : lease.TotalSeconds);  
+</span></span><span class="line"><span class="cl">            return lease;  
+</span></span><span class="line"><span class="cl">        }  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">        private static TimeSpan GetAccessTokenLease(DateTime expiresOn)  
+</span></span><span class="line"><span class="cl">        {  
+</span></span><span class="line"><span class="cl">            DateTime now = DateTime.UtcNow;  
+</span></span><span class="line"><span class="cl">            DateTime expires = expiresOn.Kind == DateTimeKind.Utc ? expiresOn : TimeZoneInfo.ConvertTimeToUtc(expiresOn);  
+</span></span><span class="line"><span class="cl">            TimeSpan lease = expires - now;  
+</span></span><span class="line"><span class="cl">            return lease;  
+</span></span><span class="line"><span class="cl">        }  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">        protected virtual void Dispose(bool disposing)  
+</span></span><span class="line"><span class="cl">        {  
+</span></span><span class="line"><span class="cl">            if (!disposedValue)  
+</span></span><span class="line"><span class="cl">            {  
+</span></span><span class="line"><span class="cl">                if (disposing)  
+</span></span><span class="line"><span class="cl">                {  
+</span></span><span class="line"><span class="cl">                    if (tokenResetEvent != null)  
+</span></span><span class="line"><span class="cl">                    {  
+</span></span><span class="line"><span class="cl">                        tokenResetEvent.Set();  
+</span></span><span class="line"><span class="cl">                        tokenResetEvent.Dispose();  
+</span></span><span class="line"><span class="cl">                    }  
+</span></span><span class="line"><span class="cl">                }  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">                disposedValue = true;  
+</span></span><span class="line"><span class="cl">            }  
+</span></span><span class="line"><span class="cl">        }  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">        public void Dispose()  
+</span></span><span class="line"><span class="cl">        {  
+</span></span><span class="line"><span class="cl">            // Do not change this code. Put cleanup code in &#39;Dispose(bool disposing)&#39; method  
+</span></span><span class="line"><span class="cl">            Dispose(disposing: true);  
+</span></span><span class="line"><span class="cl">            GC.SuppressFinalize(this);  
+</span></span><span class="line"><span class="cl">        }  
+</span></span><span class="line"><span class="cl">    }  
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Step 4</strong></p>
+<p>Now let us use this context and fetch the title of the site collection.</p>
+<p>Replace the below code in Program.cs file.</p>
+<p>Update the URI with the site collection URL for which we require a title.</p>
+<p>Update Username and Password of the User.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">using System;  
+</span></span><span class="line"><span class="cl">using System.Net;  
+</span></span><span class="line"><span class="cl">using System.Security;  
+</span></span><span class="line"><span class="cl">using System.Threading.Tasks;  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">namespace NetStandardCSOM  
+</span></span><span class="line"><span class="cl">{  
+</span></span><span class="line"><span class="cl">    class Program  
+</span></span><span class="line"><span class="cl">    {  
+</span></span><span class="line"><span class="cl">        public static async Task Main(string[] args)  
+</span></span><span class="line"><span class="cl">        {  
+</span></span><span class="line"><span class="cl">            Uri site = new Uri(&#34;https://testinglala.sharepoint.com/&#34;);  
+</span></span><span class="line"><span class="cl">            string user = &#34;&lt;&lt;userName&gt;&gt;;  
+</span></span><span class="line"><span class="cl">            string rawPassword = &lt;&lt;password&gt;&gt;;  
+</span></span><span class="line"><span class="cl">            SecureString password = new SecureString();  
+</span></span><span class="line"><span class="cl">            foreach (char c in rawPassword) password.AppendChar(c);  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">            // Note: The PnP Sites Core AuthenticationManager class also supports this  
+</span></span><span class="line"><span class="cl">            using (var authenticationManager = new AuthenticationManager())  
+</span></span><span class="line"><span class="cl">            using (var context = authenticationManager.GetContext(site, user, password))  
+</span></span><span class="line"><span class="cl">            {  
+</span></span><span class="line"><span class="cl">                context.Load(context.Web, p =&gt; p.Title);  
+</span></span><span class="line"><span class="cl">                await context.ExecuteQueryAsync();  
+</span></span><span class="line"><span class="cl">                Console.WriteLine($&#34;Title: {context.Web.Title}&#34;);  
+</span></span><span class="line"><span class="cl">            }  
+</span></span><span class="line"><span class="cl">        }  
+</span></span><span class="line"><span class="cl">    }  
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Outcome</strong></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/sharepoint-csom-for-net-standard/Images/outcome.gif"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/sharepoint-csom-for-net-standard/Images/outcome.gif, https://f4n3x6c5.stackpathcdn.com/article/sharepoint-csom-for-net-standard/Images/outcome.gif 1.5x, https://f4n3x6c5.stackpathcdn.com/article/sharepoint-csom-for-net-standard/Images/outcome.gif 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/sharepoint-csom-for-net-standard/Images/outcome.gif"
+        title="SharePoint CSOM For .NET Standard" /></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Now with the release of CSOM for .NET Standard, we can use this in Azure Function v2 which is based on .NET core and connect to SharePoint. We can even use it in all other applications which are based on .NET Standard so we can connect to SharePoint from any platform.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-Jun-29</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2020/06/share-point-csom-for-net-standard/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://example.org/2020/06/share-point-csom-for-net-standard/" data-title="SharePoint CSOM For .NET Standard" data-via="sanganikunj" data-hashtags="SharePoint Online,SharePoint CSOM"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/2020/06/share-point-csom-for-net-standard/" data-hashtag="SharePoint Online"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://example.org/2020/06/share-point-csom-for-net-standard/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="http://example.org/2020/06/share-point-csom-for-net-standard/" data-title="SharePoint CSOM For .NET Standard" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/sharepoint-online/">SharePoint Online</a>,&nbsp;<a href="/tags/sharepoint-csom/">SharePoint CSOM</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020/06/custom-connector-to-connect-graph-api-in-power-apps/" class="prev" rel="prev" title="Custom Connector To Connect Graph API In PowerApps"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Custom Connector To Connect Graph API In PowerApps</a>
+            <a href="/2020/07/how-to-setup-environment-for-share-point-framework-in-mac-os/" class="next" rel="next" title="How To Setup Environment For SharePoint Framework In macOS">How To Setup Environment For SharePoint Framework In macOS<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Kunj Sangani</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"search":{"algoliaAppID":"1X7YJ8VWPT","algoliaIndex":"index.en","algoliaSearchKey":"00a0369aedac90b4135d976a8a7b12b8","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

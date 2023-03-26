@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Connect SharePoint Online w/ Azure Function &amp; Certificates. - Kunj Sangani</title><meta name="Description" content="Connecting to SharePoint Online with Azure Function using Certificate-based authentication and PnP Core."><meta property="og:title" content="Connect SharePoint Online w/ Azure Function &amp; Certificates." />
+<meta property="og:description" content="Connecting to SharePoint Online with Azure Function using Certificate-based authentication and PnP Core." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/2021/08/connecting-to-share-point-online-using-certificate-based-authentication-in-azure-function/" /><meta property="og:image" content="http://example.org/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-08-08T21:57:40+08:00" />
+<meta property="article:modified_time" content="2021-08-08T21:57:40+08:00" /><meta property="og:site_name" content="Kunj Sangani" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/avatar.png"/>
+
+<meta name="twitter:title" content="Connect SharePoint Online w/ Azure Function &amp; Certificates."/>
+<meta name="twitter:description" content="Connecting to SharePoint Online with Azure Function using Certificate-based authentication and PnP Core."/>
+<meta name="application-name" content="Kunj Sangani">
+<meta name="apple-mobile-web-app-title" content="Kunj Sangani"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/2021/08/connecting-to-share-point-online-using-certificate-based-authentication-in-azure-function/" /><link rel="prev" href="http://example.org/2021/08/creating-free-tier-aws-account-with-free-s-3-storage-account/" /><link rel="next" href="http://example.org/2021/08/how-to-run-pn-p-power-shell-in-mac-os/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Connect SharePoint Online w/ Azure Function \u0026 Certificates.",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/2021\/08\/connecting-to-share-point-online-using-certificate-based-authentication-in-azure-function\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "http:\/\/example.org\/images\/avatar.png",
+                            "width":  960 ,
+                            "height":  960 
+                        }],"genre": "posts","keywords": "Azure Function, SharePoint Online, Azure AD, Certificate Authentication","wordcount":  1165 ,
+        "url": "http:\/\/example.org\/2021\/08\/connecting-to-share-point-online-using-certificate-based-authentication-in-azure-function\/","datePublished": "2021-08-08T21:57:40+08:00","dateModified": "2021-08-08T21:57:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Kunj Sangani","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/example.org\/images\/avatar.png",
+                    "width":  960 ,
+                    "height":  960 
+                }},"author": {
+                "@type": "Person",
+                "name": "Kunj Sangani"
+            },"description": "Connecting to SharePoint Online with Azure Function using Certificate-based authentication and PnP Core."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Connect SharePoint Online w/ Azure Function & Certificates.</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://www.linkedin.com/in/kunj-sangani/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kunj Sangani</a></span>&nbsp;<span class="post-category">included in <a href="/categories/sharepoint-online/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>SharePoint Online</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-Aug-08">2021-Aug-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1165 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#section-1---creating-certificate-and-azure-ad-application">Section 1 - Creating Certificate and Azure AD application</a></li>
+    <li><a href="#section-2---creating-azure-function-and-using-pnp-core-to-connect-to-sharepoint-online">Section 2 - Creating Azure Function and using PnP Core to connect to SharePoint Online</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="introduction">Introduction</h2>
+<p>In this article, we will understand how we can connect SharePoint Online from Azure Function using Application based authentication.</p>
+<p>Previously we learned to use Azure Access Control (ACS) where we used to create client id and client secret (from _layouts/15/appregnew.aspx) but this method has been retired and is not recommended to use and hence in the new Tenants, ACS app-only access is disabled by default. So to overcome this we can use Certificate-based Authentication for connection to SharePoint online.</p>
+<p>In this article, we will divide the sections into two halves,</p>
+<ol>
+<li>Creating a Certificate that can be used in Azure Active Directory and Azure Function.</li>
+<li>Using PnP Core to Connecting to SharePoint Online using Azure Function.</li>
+</ol>
+<h2 id="section-1---creating-certificate-and-azure-ad-application">Section 1 - Creating Certificate and Azure AD application</h2>
+<p>Let us first understand how we can generate a Certificate for connecting to SharePoint.</p>
+<p><strong>Step 1</strong></p>
+<p>Open PowerShell and run the below command to Install PnP PowerShell,</p>
+<p>(Please note if you already have PnP PowerShell installed skip this step).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Install-Module -Name &#34;PnP.PowerShell&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Step 2</strong></p>
+<p>Once the PnP.PowerShell is Installed we can leverage the command Register-PnPAzureADApp which would help us create a new self-signed certificate that would be linked to an Azure AD application and for the testing purpose it would also be installed to the current user store and hence it is recommended to use the below command with PowerShell running as Administration</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$CertificatePassword=&#34;password&#34;
+</span></span><span class="line"><span class="cl">$Tenant=&#34;testinglala.onmicrosoft.com&#34;
+</span></span><span class="line"><span class="cl">$CertificateOutDir = &#34;.\Certificates&#34;
+</span></span><span class="line"><span class="cl">if (-not ( Test-Path -Path $CertificateOutDir -PathType Container )) {
+</span></span><span class="line"><span class="cl">    md $CertificateOutDir
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">$app = Register-PnPAzureADApp -ApplicationName &#34;ConnectingToSharePointFromAzureFunction&#34; -Tenant $Tenant -OutPath $CertificateOutDir `
+</span></span><span class="line"><span class="cl">    -CertificatePassword (ConvertTo-SecureString -String $CertificatePassword -AsPlainText -Force) `
+</span></span><span class="line"><span class="cl">    -Scopes &#34;SPO.Sites.FullControl.All&#34; `
+</span></span><span class="line"><span class="cl">    -Store CurrentUser -DeviceLogin
+</span></span><span class="line"><span class="cl">Write-Host $app.&#39;AzureAppId/ClientId&#39;
+</span></span><span class="line"><span class="cl">Write-Host $app.&#39;Certificate Thumbprint&#39;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Please change the value of the password as per our requirement even change the value of the tenant name.</p>
+<p>(<strong>Note</strong> - We can even change the scope value as per our requirement as that would add other permission to the Azure AD Application).</p>
+<p>The output of the above command would be two values as displayed in the image below one is the Azure AD application ID and the other one is the certificate thumbprint. Keep both the values handy as we would require these values to connect to SharePoint online using Certificate.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function.png, https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function.png"
+        title="Connecting to SharePoint Online using Certificate based Authentication in Azure Function" /></p>
+<p>Two important files would be created inside the folder named Certificates which would be,</p>
+<p><strong>1) ConnectingToSharePointFromAzureFunction.cer</strong> </p>
+<p>This file is used in the Azure Active Directory Application which we can check by login into our Azure Active Directory and searching for the application with the Client Id obtained from the above PowerShell as displayed in the image below</p>
+<p><strong>2) ConnectingToSharePointFromAzureFunction.pfx</strong></p>
+<p>This file will be used in the Azure Function TLS/SSL Setting which can be uploaded under the Private certificate section we would even require to provide the password which we have set while running the above PowerShell Script</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function1.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function1.png, https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function1.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function1.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function1.png"
+        title="Connecting to SharePoint Online using Certificate based Authentication in Azure Function" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function2.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function2.png, https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function2.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function2.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function2.png"
+        title="Connecting to SharePoint Online using Certificate based Authentication in Azure Function" /></p>
+<h2 id="section-2---creating-azure-function-and-using-pnp-core-to-connect-to-sharepoint-online">Section 2 - Creating Azure Function and using PnP Core to connect to SharePoint Online</h2>
+<p>Follow the below steps to create an Azure Function,</p>
+<p><strong>Step 1</strong></p>
+<p>Open Visual Studio and Click on Create a new project.</p>
+<p><strong>Step 2</strong></p>
+<p>Select Azure Function as the project type as displayed in the image below,</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function3.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function3.png, https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function3.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function3.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function3.png"
+        title="Connecting to SharePoint Online using Certificate based Authentication in Azure Function" /></p>
+<p><strong>Step 3</strong></p>
+<p>Provide appropriate project name and project location and click on Create.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function4.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function4.png, https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function4.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function4.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function4.png"
+        title="Connecting to SharePoint Online using Certificate based Authentication in Azure Function" /></p>
+<p><strong>Step 4</strong></p>
+<p>Select the trigger type for this article. We have to use HTTP trigger but we can leverage any other triggers as well as per our choice.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function5.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function5.png, https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function5.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function5.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function5.png"
+        title="Connecting to SharePoint Online using Certificate based Authentication in Azure Function" /></p>
+<p><strong>Step 5 - Update the local.settings.json</strong></p>
+<p>Once the project is created open local.settings.json and update it with the below JSON.</p>
+<p><strong>Note</strong><br>
+Please update the value of SiteUrl, TenantId, ClientId, CertificateThumbprint, and WEBSITE_LOAD_CERTIFICATES as per the values obtained from the above PowerShell execution.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    &#34;IsEncrypted&#34;: false,
+</span></span><span class="line"><span class="cl">    &#34;Values&#34;: {
+</span></span><span class="line"><span class="cl">    &#34;AzureWebJobsStorage&#34;: &#34;UseDevelopmentStorage=true&#34;,
+</span></span><span class="line"><span class="cl">    &#34;FUNCTIONS_WORKER_RUNTIME&#34;: &#34;dotnet&#34;,
+</span></span><span class="line"><span class="cl">    &#34;SiteUrl&#34;: &#34;https://testinglala.sharepoint.com/sites/Test&#34;,
+</span></span><span class="line"><span class="cl">    &#34;TenantId&#34;: &#34;52d05dd6-9e21-494f-8502-77658dbe16b8&#34;,
+</span></span><span class="line"><span class="cl">    &#34;ClientId&#34;: &#34;1ee21bec-967f-4801-8aa1-a0ebbf86280d&#34;,
+</span></span><span class="line"><span class="cl">    &#34;CertificateThumbPrint&#34;: &#34;F0..............................&#34;,
+</span></span><span class="line"><span class="cl">    &#34;WEBSITE_LOAD_CERTIFICATES&#34;: &#34;F0...............................&#34;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Step 6 - Add required Nuget Package</strong></p>
+<p>Add below Nuger Packages which would be required for extending the Azure Function and connecting SharePoint Online using PnP Core,</p>
+<ol>
+<li>Microsoft.Azure.Functions.Extensions</li>
+<li>PnP.Core.Auth</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function6.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function6.png, https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function6.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function6.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/Connecting%20to%20SharePoint%20Online%20using%20Certificate%20based%20Authentication%20in%20Azure%20Function6.png"
+        title="Connecting to SharePoint Online using Certificate based Authentication in Azure Function" /></p>
+<p><strong>Step 7</strong></p>
+<p>Add AzureFunctionSettings.cs file into the Solution which will help us to get all the configuration for the Azure Function and update it with the below code,</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">using System;
+</span></span><span class="line"><span class="cl">using System.Collections.Generic;
+</span></span><span class="line"><span class="cl">using System.Security.Cryptography.X509Certificates;
+</span></span><span class="line"><span class="cl">using System.Text;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">namespace ConnectSharePointOnline
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">    class AzureFunctionSettings
+</span></span><span class="line"><span class="cl">    {
+</span></span><span class="line"><span class="cl">        public string SiteUrl { get; set; }
+</span></span><span class="line"><span class="cl">        public string TenantId { get; set; }
+</span></span><span class="line"><span class="cl">        public string ClientId { get; set; }
+</span></span><span class="line"><span class="cl">        public StoreName CertificateStoreName { get; set; }
+</span></span><span class="line"><span class="cl">        public StoreLocation CertificateStoreLocation { get; set; }
+</span></span><span class="line"><span class="cl">        public string CertificateThumbprint { get; set; }
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Step 8</strong></p>
+<p>Add a file named Startup.cs which will help us to add DependencyInjection to all the Azure Functions in the solution.</p>
+<p>Update the Startup.cs file with the below code,</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+</span></span><span class="line"><span class="cl">using Microsoft.Extensions.Configuration;
+</span></span><span class="line"><span class="cl">using Microsoft.Extensions.DependencyInjection;
+</span></span><span class="line"><span class="cl">using PnP.Core.Auth;
+</span></span><span class="line"><span class="cl">using System;
+</span></span><span class="line"><span class="cl">using System.Collections.Generic;
+</span></span><span class="line"><span class="cl">using System.Security.Cryptography.X509Certificates;
+</span></span><span class="line"><span class="cl">using System.Text;
+</span></span><span class="line"><span class="cl">[assembly: FunctionsStartup(typeof(ConnectSharePointOnline.Startup))]
+</span></span><span class="line"><span class="cl">namespace ConnectSharePointOnline {
+</span></span><span class="line"><span class="cl">    class Startup: FunctionsStartup {
+</span></span><span class="line"><span class="cl">        public override void Configure(IFunctionsHostBuilder builder) {
+</span></span><span class="line"><span class="cl">            var config = builder.GetContext().Configuration;
+</span></span><span class="line"><span class="cl">            var azureFunctionSettings = new AzureFunctionSettings();
+</span></span><span class="line"><span class="cl">            config.Bind(azureFunctionSettings);
+</span></span><span class="line"><span class="cl">            builder.Services.AddPnPCore(options =&gt; {
+</span></span><span class="line"><span class="cl">                // Disable telemetry because of mixed versions on AppInsights dependencies
+</span></span><span class="line"><span class="cl">                options.DisableTelemetry = true;
+</span></span><span class="line"><span class="cl">                // Configure an authentication provider with certificate (Required for app only)
+</span></span><span class="line"><span class="cl">                var authProvider = new X509CertificateAuthenticationProvider(azureFunctionSettings.ClientId, azureFunctionSettings.TenantId, StoreName.My, StoreLocation.CurrentUser, azureFunctionSettings.CertificateThumbprint);
+</span></span><span class="line"><span class="cl">                // And set it as default
+</span></span><span class="line"><span class="cl">                options.DefaultAuthenticationProvider = authProvider;
+</span></span><span class="line"><span class="cl">                // Add a default configuration with the site configured in app settings
+</span></span><span class="line"><span class="cl">                options.Sites.Add(&#34;Default&#34;, new PnP.Core.Services.Builder.Configuration.PnPCoreSiteOptions {
+</span></span><span class="line"><span class="cl">                    SiteUrl = azureFunctionSettings.SiteUrl,
+</span></span><span class="line"><span class="cl">                        AuthenticationProvider = authProvider
+</span></span><span class="line"><span class="cl">                });
+</span></span><span class="line"><span class="cl">            });
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Step 9</strong></p>
+<p>Update the Function1.cs file where we can connect to SharePoint Online. For this example purpose we will bring all the documents present in the Shared Documents library.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">using System;
+</span></span><span class="line"><span class="cl">using System.IO;
+</span></span><span class="line"><span class="cl">using System.Threading.Tasks;
+</span></span><span class="line"><span class="cl">using Microsoft.AspNetCore.Mvc;
+</span></span><span class="line"><span class="cl">using Microsoft.Azure.WebJobs;
+</span></span><span class="line"><span class="cl">using Microsoft.Azure.WebJobs.Extensions.Http;
+</span></span><span class="line"><span class="cl">using Microsoft.AspNetCore.Http;
+</span></span><span class="line"><span class="cl">using Microsoft.Extensions.Logging;
+</span></span><span class="line"><span class="cl">using Newtonsoft.Json;
+</span></span><span class="line"><span class="cl">using PnP.Core.Services;
+</span></span><span class="line"><span class="cl">using PnP.Core.Model.SharePoint;
+</span></span><span class="line"><span class="cl">using System.Linq;
+</span></span><span class="line"><span class="cl">namespace ConnectSharePointOnline {
+</span></span><span class="line"><span class="cl">    public class Function1 {
+</span></span><span class="line"><span class="cl">        private readonly IPnPContextFactory pnpContextFactory;
+</span></span><span class="line"><span class="cl">        public Function1(IPnPContextFactory pnpContextFactory) {
+</span></span><span class="line"><span class="cl">                this.pnpContextFactory = pnpContextFactory;
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">            [FunctionName(&#34;Function1&#34;)]
+</span></span><span class="line"><span class="cl">        public async Task &lt; IActionResult &gt; Run(
+</span></span><span class="line"><span class="cl">            [HttpTrigger(AuthorizationLevel.Function, &#34;get&#34;, &#34;post&#34;, Route = null)] HttpRequest req, ILogger log) {
+</span></span><span class="line"><span class="cl">            log.LogInformation(&#34;C# HTTP trigger function processed a request.&#34;);
+</span></span><span class="line"><span class="cl">            using(var pnpContext = await pnpContextFactory.CreateAsync(&#34;Default&#34;)) {
+</span></span><span class="line"><span class="cl">                log.LogInformation(&#34;Getting all the shared documents on site.&#34;);
+</span></span><span class="line"><span class="cl">                IList sharedDocuments = await pnpContext.Web.Lists.GetByTitleAsync(&#34;Documents&#34;, l =&gt; l.RootFolder);
+</span></span><span class="line"><span class="cl">                var sharedDocumentsFolder = await sharedDocuments.RootFolder.GetAsync(f =&gt; f.Files);
+</span></span><span class="line"><span class="cl">                var documents = (from d in sharedDocumentsFolder.Files.AsEnumerable() select new {
+</span></span><span class="line"><span class="cl">                    d.Name,
+</span></span><span class="line"><span class="cl">                        d.TimeLastModified,
+</span></span><span class="line"><span class="cl">                        d.UniqueId
+</span></span><span class="line"><span class="cl">                }).ToList();
+</span></span><span class="line"><span class="cl">                return new OkObjectResult(new {
+</span></span><span class="line"><span class="cl">                    documents
+</span></span><span class="line"><span class="cl">                });
+</span></span><span class="line"><span class="cl">            }
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Outcome</strong></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/outcome.gif"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/outcome.gif, https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/outcome.gif 1.5x, https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/outcome.gif 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/outcome.gif"
+        title="https://f4n3x6c5.stackpathcdn.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/Images/outcome.gif" /></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>In this article, we can understand how we can use Application permission to connect to SharePoint online using Certificate-based Authentication in the Azure Active Directory Application.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-Aug-08</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2021/08/connecting-to-share-point-online-using-certificate-based-authentication-in-azure-function/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://example.org/2021/08/connecting-to-share-point-online-using-certificate-based-authentication-in-azure-function/" data-title="Connect SharePoint Online w/ Azure Function &amp; Certificates." data-via="sanganikunj" data-hashtags="Azure Function,SharePoint Online,Azure AD,Certificate Authentication"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/2021/08/connecting-to-share-point-online-using-certificate-based-authentication-in-azure-function/" data-hashtag="Azure Function"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://example.org/2021/08/connecting-to-share-point-online-using-certificate-based-authentication-in-azure-function/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="http://example.org/2021/08/connecting-to-share-point-online-using-certificate-based-authentication-in-azure-function/" data-title="Connect SharePoint Online w/ Azure Function &amp; Certificates." data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/azure-function/">Azure Function</a>,&nbsp;<a href="/tags/sharepoint-online/">SharePoint Online</a>,&nbsp;<a href="/tags/azure-ad/">Azure AD</a>,&nbsp;<a href="/tags/certificate-authentication/">Certificate Authentication</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2021/08/creating-free-tier-aws-account-with-free-s-3-storage-account/" class="prev" rel="prev" title="Creating Free Tier AWS Account With Free S3 Storage Account"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Creating Free Tier AWS Account With Free S3 Storage Account</a>
+            <a href="/2021/08/how-to-run-pn-p-power-shell-in-mac-os/" class="next" rel="next" title="How To Run PnP PowerShell In MacOS">How To Run PnP PowerShell In MacOS<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Kunj Sangani</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"search":{"algoliaAppID":"1X7YJ8VWPT","algoliaIndex":"index.en","algoliaSearchKey":"00a0369aedac90b4135d976a8a7b12b8","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

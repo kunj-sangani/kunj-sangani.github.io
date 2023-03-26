@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>How To Run PnP PowerShell In MacOS - Kunj Sangani</title><meta name="Description" content="Using PowerShell in macOS and automating Microsoft 365 tasks with cross-platform PnP PowerShell."><meta property="og:title" content="How To Run PnP PowerShell In MacOS" />
+<meta property="og:description" content="Using PowerShell in macOS and automating Microsoft 365 tasks with cross-platform PnP PowerShell." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/2021/08/how-to-run-pn-p-power-shell-in-mac-os/" /><meta property="og:image" content="http://example.org/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-08-16T21:57:40+08:00" />
+<meta property="article:modified_time" content="2021-08-16T21:57:40+08:00" /><meta property="og:site_name" content="Kunj Sangani" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/avatar.png"/>
+
+<meta name="twitter:title" content="How To Run PnP PowerShell In MacOS"/>
+<meta name="twitter:description" content="Using PowerShell in macOS and automating Microsoft 365 tasks with cross-platform PnP PowerShell."/>
+<meta name="application-name" content="Kunj Sangani">
+<meta name="apple-mobile-web-app-title" content="Kunj Sangani"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/2021/08/how-to-run-pn-p-power-shell-in-mac-os/" /><link rel="prev" href="http://example.org/2021/08/connecting-to-share-point-online-using-certificate-based-authentication-in-azure-function/" /><link rel="next" href="http://example.org/2022/11/teams-toolkit-for-creating-microsoft-teams-tab/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "How To Run PnP PowerShell In MacOS",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/2021\/08\/how-to-run-pn-p-power-shell-in-mac-os\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "http:\/\/example.org\/images\/avatar.png",
+                            "width":  960 ,
+                            "height":  960 
+                        }],"genre": "posts","keywords": "macOs, PnP PowerShell","wordcount":  490 ,
+        "url": "http:\/\/example.org\/2021\/08\/how-to-run-pn-p-power-shell-in-mac-os\/","datePublished": "2021-08-16T21:57:40+08:00","dateModified": "2021-08-16T21:57:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Kunj Sangani","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/example.org\/images\/avatar.png",
+                    "width":  960 ,
+                    "height":  960 
+                }},"author": {
+                "@type": "Person",
+                "name": "Kunj Sangani"
+            },"description": "Using PowerShell in macOS and automating Microsoft 365 tasks with cross-platform PnP PowerShell."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">How To Run PnP PowerShell In MacOS</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://www.linkedin.com/in/kunj-sangani/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kunj Sangani</a></span>&nbsp;<span class="post-category">included in <a href="/categories/powershell/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>PowerShell</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2021-Aug-16">2021-Aug-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;490 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#step-1---install-homebrew">Step 1 - Install Homebrew</a></li>
+    <li><a href="#step-2---install-powershell">Step 2 - Install PowerShell</a></li>
+    <li><a href="#step-1---register-the-package-source">Step 1 - Register the package source</a></li>
+    <li><a href="#step-2---install-pnp-powershell">Step 2 - Install PnP PowerShell</a></li>
+    <li><a href="#step-3---connect-to-sharepoint-and-get-the-web">Step 3 - Connect to SharePoint and get the web</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="introduction">Introduction</h2>
+<p>There may be requirements where we need to use PowerShell and if we are using macOS then the question becomes how we can use PowerShell in macOS. But with Microsoft&rsquo;s new approach of creating everything open source and cross-platform, we can achieve this very easily. But along with this, we would even have a look at how we can use cross-platform PnP PowerShell to automate our Microsoft 365 related tasks.</p>
+<p>To run PowerShell Script in Mac OS follow the below steps,</p>
+<h2 id="step-1---install-homebrew">Step 1 - Install Homebrew</h2>
+<p>To run PowerShell we need to have Homebrew; it is a package manager which is used for installing packages that are missing in macOS.</p>
+<p>Use the below command in the terminal to install Homebrew,</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/bin/bash -c &#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/how-to-run-pnp-powershell-in-macos/Images/How%20to%20run%20PnP%20PowerShell%20in%20macOS.jpg"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/how-to-run-pnp-powershell-in-macos/Images/How%20to%20run%20PnP%20PowerShell%20in%20macOS.jpg, https://f4n3x6c5.stackpathcdn.com/article/how-to-run-pnp-powershell-in-macos/Images/How%20to%20run%20PnP%20PowerShell%20in%20macOS.jpg 1.5x, https://f4n3x6c5.stackpathcdn.com/article/how-to-run-pnp-powershell-in-macos/Images/How%20to%20run%20PnP%20PowerShell%20in%20macOS.jpg 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/how-to-run-pnp-powershell-in-macos/Images/How%20to%20run%20PnP%20PowerShell%20in%20macOS.jpg"
+        title="How to run PnP PowerShell in macOS" /></p>
+<h2 id="step-2---install-powershell">Step 2 - Install PowerShell</h2>
+<p>Once we have to install Homebrew now we are good to install PowerShell. This is also recommended by Microsoft for more details check the <a href="https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-macos?view=powershell-7" target="_blank" rel="noopener noreffer ">link</a>.</p>
+<p>Use the below command to install PowerShell,</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    brew cask install powershell
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/how-to-run-pnp-powershell-in-macos/Images/How%20to%20run%20PnP%20PowerShell%20in%20macOS1.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/how-to-run-pnp-powershell-in-macos/Images/How%20to%20run%20PnP%20PowerShell%20in%20macOS1.png, https://f4n3x6c5.stackpathcdn.com/article/how-to-run-pnp-powershell-in-macos/Images/How%20to%20run%20PnP%20PowerShell%20in%20macOS1.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/how-to-run-pnp-powershell-in-macos/Images/How%20to%20run%20PnP%20PowerShell%20in%20macOS1.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/how-to-run-pnp-powershell-in-macos/Images/How%20to%20run%20PnP%20PowerShell%20in%20macOS1.png"
+        title="How to run PnP PowerShell in macOS" /></p>
+<p>To test if we have installed properly or not use the below command,</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    pwsh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/how-to-run-pnp-powershell-in-macos/Images/How%20to%20run%20PnP%20PowerShell%20in%20macOS2.jpg"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/how-to-run-pnp-powershell-in-macos/Images/How%20to%20run%20PnP%20PowerShell%20in%20macOS2.jpg, https://f4n3x6c5.stackpathcdn.com/article/how-to-run-pnp-powershell-in-macos/Images/How%20to%20run%20PnP%20PowerShell%20in%20macOS2.jpg 1.5x, https://f4n3x6c5.stackpathcdn.com/article/how-to-run-pnp-powershell-in-macos/Images/How%20to%20run%20PnP%20PowerShell%20in%20macOS2.jpg 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/how-to-run-pnp-powershell-in-macos/Images/How%20to%20run%20PnP%20PowerShell%20in%20macOS2.jpg"
+        title="How to run PnP PowerShell in macOS" /></p>
+<p>Now let us walk through step by step process of using PnP.PowerShell is a cross-platform module for working with Microsoft 365 related activities.</p>
+<h2 id="step-1---register-the-package-source">Step 1 - Register the package source</h2>
+<p>This step is required because we would like to add PowerShell salary as the package source provider so that we can install the module directly without an issue to do so run the below command,</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Register-PackageSource -Name PSNuGet -Location https://www.powershellgallery.com/api/v2 -ProviderName NuGet
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/how-to-run-pnp-powershell-in-macos/Images/How%20to%20run%20PnP%20PowerShell%20in%20macOS3.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/how-to-run-pnp-powershell-in-macos/Images/How%20to%20run%20PnP%20PowerShell%20in%20macOS3.png, https://f4n3x6c5.stackpathcdn.com/article/how-to-run-pnp-powershell-in-macos/Images/How%20to%20run%20PnP%20PowerShell%20in%20macOS3.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/how-to-run-pnp-powershell-in-macos/Images/How%20to%20run%20PnP%20PowerShell%20in%20macOS3.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/how-to-run-pnp-powershell-in-macos/Images/How%20to%20run%20PnP%20PowerShell%20in%20macOS3.png"
+        title="How to run PnP PowerShell in macOS" /></p>
+<p>Now we have set the package source so that we can search for our required PnP.PowerShell module which we can use for our Microsoft 365 related PowerShell activities.</p>
+<h2 id="step-2---install-pnp-powershell">Step 2 - Install PnP PowerShell</h2>
+<p>Now to work with PnP PowerShell we need to install dependencies for that we would require to run the below command,</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Install-Module PnP.PowerShell
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/how-to-run-pnp-powershell-in-macos/Images/How%20to%20run%20PnP%20PowerShell%20in%20macOS4.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/how-to-run-pnp-powershell-in-macos/Images/How%20to%20run%20PnP%20PowerShell%20in%20macOS4.png, https://f4n3x6c5.stackpathcdn.com/article/how-to-run-pnp-powershell-in-macos/Images/How%20to%20run%20PnP%20PowerShell%20in%20macOS4.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/how-to-run-pnp-powershell-in-macos/Images/How%20to%20run%20PnP%20PowerShell%20in%20macOS4.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/how-to-run-pnp-powershell-in-macos/Images/How%20to%20run%20PnP%20PowerShell%20in%20macOS4.png"
+        title="How to run PnP PowerShell in macOS" /></p>
+<p>Now we are ready to use PnP PowerShell let us test that by connecting to any site collection.</p>
+<h2 id="step-3---connect-to-sharepoint-and-get-the-web">Step 3 - Connect to SharePoint and get the web</h2>
+<p>To connect to SharePoint we can use the Connect-PnPOnline command and we can even use web login or device login if in case you are using Multi-factor authentication.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Connect-PnPOnline -Url https://testinglala-admin.sharepoint.com
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>To get the web once we have logged in we can just use Get-PnPWeb which would provide us the web to the URL we have logged in using connect cmdlet.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Get-PnPWeb
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="conclusion">Conclusion</h2>
+<p>With the help of PowerShell being cross-platform, we can use any operating system of our choice to leverage PowerShell and the best part is, it is even available in docker image as well.</p>
+<p>The previous version of PnP PowerShell, which was SharePointPnPPowerShellOnline, was not cross-platform, but thanks to CSOM for .net core has helped us with the new Module PnP.PowerShell which is now cross-platform so we can leverage it to automate our tasks irrespective of the operating system we are working with.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-Aug-16</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2021/08/how-to-run-pn-p-power-shell-in-mac-os/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://example.org/2021/08/how-to-run-pn-p-power-shell-in-mac-os/" data-title="How To Run PnP PowerShell In MacOS" data-via="sanganikunj" data-hashtags="macOs,PnP PowerShell"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/2021/08/how-to-run-pn-p-power-shell-in-mac-os/" data-hashtag="macOs"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://example.org/2021/08/how-to-run-pn-p-power-shell-in-mac-os/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="http://example.org/2021/08/how-to-run-pn-p-power-shell-in-mac-os/" data-title="How To Run PnP PowerShell In MacOS" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/macos/">macOS</a>,&nbsp;<a href="/tags/pnp-powershell/">PnP PowerShell</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2021/08/connecting-to-share-point-online-using-certificate-based-authentication-in-azure-function/" class="prev" rel="prev" title="Connect SharePoint Online w/ Azure Function &amp; Certificates."><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Connect SharePoint Online w/ Azure Function & Certificates.</a>
+            <a href="/2022/11/teams-toolkit-for-creating-microsoft-teams-tab/" class="next" rel="next" title="Teams Toolkit For Creating Microsoft Teams Tab">Teams Toolkit For Creating Microsoft Teams Tab<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Kunj Sangani</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"search":{"algoliaAppID":"1X7YJ8VWPT","algoliaIndex":"index.en","algoliaSearchKey":"00a0369aedac90b4135d976a8a7b12b8","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

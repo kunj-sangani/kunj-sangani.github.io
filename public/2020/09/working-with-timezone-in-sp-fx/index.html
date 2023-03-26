@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Working With Timezone In SPFx - Kunj Sangani</title><meta name="Description" content="Working with timezones in SharePoint Framework (SPFx) using Moment Timezone and jstz."><meta property="og:title" content="Working With Timezone In SPFx" />
+<meta property="og:description" content="Working with timezones in SharePoint Framework (SPFx) using Moment Timezone and jstz." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/2020/09/working-with-timezone-in-sp-fx/" /><meta property="og:image" content="http://example.org/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-09-21T21:57:40+08:00" />
+<meta property="article:modified_time" content="2020-09-21T21:57:40+08:00" /><meta property="og:site_name" content="Kunj Sangani" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/avatar.png"/>
+
+<meta name="twitter:title" content="Working With Timezone In SPFx"/>
+<meta name="twitter:description" content="Working with timezones in SharePoint Framework (SPFx) using Moment Timezone and jstz."/>
+<meta name="application-name" content="Kunj Sangani">
+<meta name="apple-mobile-web-app-title" content="Kunj Sangani"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/2020/09/working-with-timezone-in-sp-fx/" /><link rel="prev" href="http://example.org/2020/08/function-and-class-component-in-react-with-sp-fx/" /><link rel="next" href="http://example.org/2020/10/outgoing-web-hook-in-teams-using-yeoman-teams-generator/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Working With Timezone In SPFx",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/2020\/09\/working-with-timezone-in-sp-fx\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "http:\/\/example.org\/images\/avatar.png",
+                            "width":  960 ,
+                            "height":  960 
+                        }],"genre": "posts","keywords": "SharePoint Online, SPFx, Moment, jstz","wordcount":  1471 ,
+        "url": "http:\/\/example.org\/2020\/09\/working-with-timezone-in-sp-fx\/","datePublished": "2020-09-21T21:57:40+08:00","dateModified": "2020-09-21T21:57:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Kunj Sangani","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/example.org\/images\/avatar.png",
+                    "width":  960 ,
+                    "height":  960 
+                }},"author": {
+                "@type": "Person",
+                "name": "Kunj Sangani"
+            },"description": "Working with timezones in SharePoint Framework (SPFx) using Moment Timezone and jstz."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Working With Timezone In SPFx</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://www.linkedin.com/in/kunj-sangani/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kunj Sangani</a></span>&nbsp;<span class="post-category">included in <a href="/categories/spfx/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>SPFx</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-Sep-21">2020-Sep-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1471 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;7 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#how-sharepoint-stores-date-and-time-field">How SharePoint stores date and time field</a></li>
+    <li><a href="#how-to-store-data-in-sharepoint-list-without-conversion">How to store data in SharePoint List without conversion</a></li>
+    <li><a href="#create-an-spfx-solution-to-handle-different-timezone">Create an SPFx Solution to handle different timezone</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="introduction">Introduction</h2>
+<p>While designing applications, we may come across multiple scenarios where our application could run across multiple locations and timezones, and working with all these timezones could be a difficult task.</p>
+<p>With the introduction of SharePoint framework, creating a scalable and UI friendly application is very easy. With modern SharePoint, creating an Intelligent intranet is very easy and is becoming popular. There can be a scenario where intranet users are across multiple locations, therefore we need to create an SPFx solution considering all these locations.</p>
+<p>We will use Moment Timezone to get all the timezones and work with conversions of the timezone. To get the current user’s timezone, we will use jstz to fetch the current users&rsquo; timezone. Before diving into the SPFx solution, let us understand how SharePoint works with timezones out of the box</p>
+<h2 id="how-sharepoint-stores-date-and-time-field">How SharePoint stores date and time field</h2>
+<p>Out of the box, SharePoint Converts the date and time field in the regional setting of the site.</p>
+<p>To understand this let&rsquo;s see an example:</p>
+<ol>
+<li>Let&rsquo;s create a sample list name Learning DateTime.</li>
+<li>Add a new field named SampleDateTime where we would also store time values.</li>
+<li>Check the regional setting of the site collection to check that navigate to site setting and select the regional setting, as displayed in the image below:</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/Screenshot%202020-09-20%20at%204.02.15%20PM.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/Screenshot%202020-09-20%20at%204.02.15%20PM.png, https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/Screenshot%202020-09-20%20at%204.02.15%20PM.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/Screenshot%202020-09-20%20at%204.02.15%20PM.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/Screenshot%202020-09-20%20at%204.02.15%20PM.png"
+        title="Image" /></p>
+<ol start="4">
+<li>Check the regional setting time zone value. So, if a User say for example is creating a new item in the list, the date and time value will be converted as per the regional setting and would be stored in the ISO format in the list.</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/Screenshot%202020-09-20%20at%204.06.19%20PM.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/Screenshot%202020-09-20%20at%204.06.19%20PM.png, https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/Screenshot%202020-09-20%20at%204.06.19%20PM.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/Screenshot%202020-09-20%20at%204.06.19%20PM.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/Screenshot%202020-09-20%20at%204.06.19%20PM.png"
+        title="Image" /></p>
+<ol start="5">
+<li>Let&rsquo;s create a new item in the list and check what is the value that is being stored in the list. As displayed in the image below, we have selected 8 am as the time, but when we fetch the data, it provides the time as (15), which is 3 pm. This means it has added 7 hours to our selected time, which is because of the timezone difference.</li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/Screenshot%202020-09-20%20at%204.13.14%20PM.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/Screenshot%202020-09-20%20at%204.13.14%20PM.png, https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/Screenshot%202020-09-20%20at%204.13.14%20PM.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/Screenshot%202020-09-20%20at%204.13.14%20PM.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/Screenshot%202020-09-20%20at%204.13.14%20PM.png"
+        title="Image" /></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/Screenshot%202020-09-20%20at%204.16.45%20PM.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/Screenshot%202020-09-20%20at%204.16.45%20PM.png, https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/Screenshot%202020-09-20%20at%204.16.45%20PM.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/Screenshot%202020-09-20%20at%204.16.45%20PM.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/Screenshot%202020-09-20%20at%204.16.45%20PM.png"
+        title="Image" /></p>
+<h2 id="how-to-store-data-in-sharepoint-list-without-conversion">How to store data in SharePoint List without conversion</h2>
+<p>To store the date-time without converting to site collection regional setting, we can pass the date and time in the iso format using the REST API and this will not convert our entered data in the regional setting</p>
+<ol>
+<li>
+<p>URL:- https://testinglala.sharepoint.com/sites/Test/_api/web/lists/getbytitle(&lsquo;Learning datetime&rsquo;)/items?$select=Title,SampleDateTime    </p>
+</li>
+<li>
+<p>Data:- {Title:&lsquo;Test POST&rsquo;,SampleDateTime:&ldquo;2020-09-20T15:30:00Z&rdquo;,&quot;__metadata&quot;: {&ldquo;type&rdquo;: &ldquo;SP.Data.Learning_x0020_datetimeListItem&rdquo;} }   </p>
+</li>
+</ol>
+<h2 id="create-an-spfx-solution-to-handle-different-timezone">Create an SPFx Solution to handle different timezone</h2>
+<p>To create an SPFx solution, let&rsquo;s run the below command and follow the steps as displayed in the below image.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mkdir timezones
+</span></span><span class="line"><span class="cl">cd timezones
+</span></span><span class="line"><span class="cl">yo @microsoft/sharepoint
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/Screenshot%202020-09-20%20at%204.38.24%20PM.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/Screenshot%202020-09-20%20at%204.38.24%20PM.png, https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/Screenshot%202020-09-20%20at%204.38.24%20PM.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/Screenshot%202020-09-20%20at%204.38.24%20PM.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/Screenshot%202020-09-20%20at%204.38.24%20PM.png"
+        title="Image" /></p>
+<p>We will also add the required library which would be helpful for our solution and understanding. Use the below command to add those:</p>
+<ol>
+<li>PnP js</li>
+<li>PnP reusable controls</li>
+<li>moment timezone</li>
+<li>jstz</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">npm i @pnp/js @pnp/spfx-controls-react moment-timezone jstz - -save - -save-exact
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now, let&rsquo;s create a dropdown that would display all the Timezones and users can select the timezone of their choice. To do so, let&rsquo;s update the MultipleTimezone.tsx file.</p>
+<p>Add the below import statement in the file at the top of the file along with all the imports.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import { PrimaryButton, values } from &#39;office-ui-fabric-react&#39;;    
+</span></span><span class="line"><span class="cl">import { Dropdown, IDropdownOption } from &#39;office-ui-fabric-react/lib/Dropdown&#39;;    
+</span></span><span class="line"><span class="cl">import { DateTimePicker, DateConvention, TimeConvention, TimeDisplayControlType } from &#39;@pnp/spfx-controls-react/lib/dateTimePicker&#39;;    
+</span></span><span class="line"><span class="cl">import \* as moment from &#34;moment-timezone&#34;;    
+</span></span><span class="line"><span class="cl">import \* as jstz from &#34;jstz&#34;;    
+</span></span><span class="line"><span class="cl">import { sp } from &#34;@pnp/sp&#34;;    
+</span></span><span class="line"><span class="cl">import &#34;@pnp/sp/webs&#34;;    
+</span></span><span class="line"><span class="cl">import &#34;@pnp/sp/lists&#34;;    
+</span></span><span class="line"><span class="cl">import &#34;@pnp/sp/items&#34;;    
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now we will use moment.tz.names() which provides us all the timezone names. We will manipulate it to get the offset for all the time zones. Add the below code in the next line after all the import statements are completed.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">const selectorOptions = moment.tz.names().reduce((memo, tz) =&gt; {  
+</span></span><span class="line"><span class="cl">memo.push({  
+</span></span><span class="line"><span class="cl">name: tz,  
+</span></span><span class="line"><span class="cl">offset: moment.tz(tz).utcOffset()  
+</span></span><span class="line"><span class="cl">});  
+</span></span><span class="line"><span class="cl">return memo;  
+</span></span><span class="line"><span class="cl">}, \[\]).sort((a, b) =&gt; {  
+</span></span><span class="line"><span class="cl">return a.offset - b.offset;  
+</span></span><span class="line"><span class="cl">}).reduce((memo, tz) =&gt; {  
+</span></span><span class="line"><span class="cl">const timezone = tz.offset ? moment.tz(tz.name).format(&#39;Z&#39;) : &#39;&#39;;  
+</span></span><span class="line"><span class="cl">return memo.concat(\`{&#34;key&#34;:&#34;${tz.name}&#34;, &#34;text&#34;:&#34;(GMT${timezone}) ${tz.name}&#34;},\`);  
+</span></span><span class="line"><span class="cl">}, &#34;&#34;);  
+</span></span><span class="line"><span class="cl">const timeZoneOptions = JSON.parse(\`\[${selectorOptions.substring(0, selectorOptions.length - 1)}\]\`);   
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>As we can see from the above code, we created a JSON object of key and text pair which is compatible with office UI fabric dropdown so we will use the timeZoneOptions variable for all the dropdown options. Now to add the actual office UI fabric dropdown, let&rsquo;s remove the HTML provided in the render method and replace it with the below code.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;div className={styles.multipleTimeZone}&gt;  
+</span></span><span class="line"><span class="cl">&lt;div className={styles.container}&gt;  
+</span></span><span class="line"><span class="cl">&lt;div className={styles.row}&gt;  
+</span></span><span class="line"><span class="cl">&lt;Dropdown    
+</span></span><span class="line"><span class="cl">placeholder=&#34;Select Timezone&#34;    
+</span></span><span class="line"><span class="cl">label=&#34;Select Timezone&#34;    
+</span></span><span class="line"><span class="cl">options={timeZoneOptions}    
+</span></span><span class="line"><span class="cl">selectedKey={this.state.selectedTimeZone ? this.state.selectedTimeZone.key : undefined}    
+</span></span><span class="line"><span class="cl"> onChange={(event: React.FormEvent  
+</span></span><span class="line"><span class="cl">&lt;HTMLDivElement&gt;, item: IDropdownOption)=&gt;{this.setState({ selectedTimeZone: item });}}    
+</span></span><span class="line"><span class="cl">/&gt;  
+</span></span><span class="line"><span class="cl">&lt;/div&gt;  
+</span></span><span class="line"><span class="cl">&lt;/div&gt;  
+</span></span><span class="line"><span class="cl">&lt;/div&gt;   
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We are even storing the timezone selection value, so let&rsquo;s add the state interface and initialize it in the constructor. To do so, add the below interface. It contains additional values as well, which we would use it ahead in our implementation.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">export interface IMultipleTimeZoneState {  
+</span></span><span class="line"><span class="cl">date: Date;  
+</span></span><span class="line"><span class="cl">dateToStore: string;  
+</span></span><span class="line"><span class="cl">selectedTimeZone: IDropdownOption;  
+</span></span><span class="line"><span class="cl">allItems: any;  
+</span></span><span class="line"><span class="cl">}  
+</span></span><span class="line"><span class="cl">constructor(props: IMultipleTimeZoneProps) {  
+</span></span><span class="line"><span class="cl">super(props);  
+</span></span><span class="line"><span class="cl">this.state = {  
+</span></span><span class="line"><span class="cl">date: undefined,  
+</span></span><span class="line"><span class="cl">dateToStore: undefined,  
+</span></span><span class="line"><span class="cl">selectedTimeZone: undefined,  
+</span></span><span class="line"><span class="cl">allItems: \[\]  
+</span></span><span class="line"><span class="cl">};  
+</span></span><span class="line"><span class="cl">}   
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now let&rsquo;s add a date time picker that would help us select date and time. We can use any datetimepicker, but for out article, we have to use pnp reuseable control datetime picker. Update the render method and add the below code:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;DateTimePicker label=&#34;Select Date&#34;    
+</span></span><span class="line"><span class="cl">dateConvention={DateConvention.DateTime}    
+</span></span><span class="line"><span class="cl">timeConvention={TimeConvention.Hours24}    
+</span></span><span class="line"><span class="cl">value={this.state.date}    
+</span></span><span class="line"><span class="cl">onChange={this.handleChange}    
+</span></span><span class="line"><span class="cl">timeDisplayControlType={TimeDisplayControlType.Dropdown} /&gt;     
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Let&rsquo;s also add the supporting method used in the datetimepicker:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">private handleChange = (date: Date) =&gt; {  
+</span></span><span class="line"><span class="cl">let dateToStore = moment(date).tz(jstz.determine().name()).format(&#39;YYYY-MM-DDTHH:mm:ss&#39;).concat(&#39;Z&#39;);  
+</span></span><span class="line"><span class="cl">this.setState({  
+</span></span><span class="line"><span class="cl">date: date,  
+</span></span><span class="line"><span class="cl">dateToStore: dateToStore  
+</span></span><span class="line"><span class="cl">});  
+</span></span><span class="line"><span class="cl">}   
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The real magic happens over here, as we can observe from the above code we are converting the selected date time into ISO string, but we are considering the user&rsquo;s local date time so it would not add the timezone offset.</p>
+<p><strong>Note</strong></p>
+<p>This is very important so that when we store data in the list, it would not convert it to the regional setting timezone, rather it would store the date time value as it is. Now let&rsquo;s add a new field in our existing list named TimeZone. We will store the selected timezone value in this field so that we can refer to it later.</p>
+<p>Let&rsquo;s add a button to store the data to the list. To do so, let&rsquo;s update the render method with the below code:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;PrimaryButton style={{ marginTop: 10 }} text=&#34;Save Item to List&#34; onClick={this.saveItem} /&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Let&rsquo;s add the supporting method. To save the data to the list, we are using PnP js to store the data, as it is very easy to use.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">private saveItem = () =&gt; {  
+</span></span><span class="line"><span class="cl">sp.web.lists.getByTitle(&#34;Learning datetime&#34;).items.add({  
+</span></span><span class="line"><span class="cl">Title: &#34;From SPFx&#34;,  
+</span></span><span class="line"><span class="cl">SampleDateTime: this.state.dateToStore,  
+</span></span><span class="line"><span class="cl">TimeZone: this.state.selectedTimeZone.key  
+</span></span><span class="line"><span class="cl">}).then(() =&gt; {  
+</span></span><span class="line"><span class="cl">this.getAllItems();  
+</span></span><span class="line"><span class="cl">}).catch((err) =&gt; {  
+</span></span><span class="line"><span class="cl">console.log(err);  
+</span></span><span class="line"><span class="cl">});  
+</span></span><span class="line"><span class="cl">}   
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now let&rsquo;s fetch the data and convert the DateTime to the local timezone as per the user&rsquo;s selected timezone. To do so, let&rsquo;s first add a method to fetch the data.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">private getAllItems = () =&gt; {  
+</span></span><span class="line"><span class="cl">sp.web.lists.getByTitle(&#34;Learning datetime&#34;).items.getAll().then((items) =&gt; {  
+</span></span><span class="line"><span class="cl">this.setState({  
+</span></span><span class="line"><span class="cl">allItems: items  
+</span></span><span class="line"><span class="cl">});  
+</span></span><span class="line"><span class="cl">}).catch((err) =&gt; {  
+</span></span><span class="line"><span class="cl">console.log(err);  
+</span></span><span class="line"><span class="cl">});  
+</span></span><span class="line"><span class="cl">}   
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Add a call to this method in the constructor so that in the first load of the component we would get all the items and to display it in the HTML. Let&rsquo;s update the render method with the below code:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;div className={styles.row}&gt;    
+</span></span><span class="line"><span class="cl">{this.state.allItems &amp;&amp; this.state.allItems.map((item, index) =&gt; {    
+</span></span><span class="line"><span class="cl">return (  
+</span></span><span class="line"><span class="cl">&lt;div&gt;  
+</span></span><span class="line"><span class="cl">&lt;span style={{ paddingRight: 10 }}&gt;{item.Title}&lt;/span&gt;  
+</span></span><span class="line"><span class="cl">&lt;span style={{ paddingRight: 10 }}&gt;{item.SampleDateTime}&lt;/span&gt;  
+</span></span><span class="line"><span class="cl">&lt;span style={{ paddingRight: 10 }}&gt;{item.TimeZone}&lt;/span&gt;  
+</span></span><span class="line"><span class="cl">&lt;a style={{ paddingRight: 10 }} onClick={() =&gt; { this.convertTimeZones(index); }}&gt;  
+</span></span><span class="line"><span class="cl">&lt;span&gt;Convert to Local timezone&lt;/span&gt;  
+</span></span><span class="line"><span class="cl">&lt;/a&gt;  
+</span></span><span class="line"><span class="cl">&lt;span&gt;{item.convertedTime}&lt;/span&gt;  
+</span></span><span class="line"><span class="cl">&lt;/div&gt;);    
+</span></span><span class="line"><span class="cl">})}    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;/div&gt;    
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We have added a method which would convert the date time to users local date time. to do so, add the below method:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">private convertTimeZones = (index: number) =&gt; {    
+</span></span><span class="line"><span class="cl">let items = this.state.allItems;    
+</span></span><span class="line"><span class="cl">let convertedTime = moment.tz(items\[index\].SampleDateTime.slice(0, -1), &#39;YYYY-MM-DDTHH:mm:ss&#39;,    
+</span></span><span class="line"><span class="cl">items\[index\].TimeZone).tz(jstz.determine().name()).format(&#39;YYYY-MM-DDTHH:mm:ss z&#39;);    
+</span></span><span class="line"><span class="cl">items\[index\].convertedTime = convertedTime;    
+</span></span><span class="line"><span class="cl">this.setState({ allItems: items });    
+</span></span><span class="line"><span class="cl">}     
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The second magic happens over here. We are now converting the time which is stored in the list to users local time zone, but this conversion happens with respect to users selected timezone from the dropdown.</p>
+<p>Link to the <a href="https://github.com/kunj-sangani/TimeZoneinSPFx" target="_blank" rel="noopener noreffer ">complete code</a>.</p>
+<p><strong>Outcome</strong></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/2020-09-20-18-49-11-online-video.gif"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/2020-09-20-18-49-11-online-video.gif, https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/2020-09-20-18-49-11-online-video.gif 1.5x, https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/2020-09-20-18-49-11-online-video.gif 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/2020-09-20-18-49-11-online-video.gif"
+        title="https://f4n3x6c5.stackpathcdn.com/article/working-with-timezone-in-spfx/Images/2020-09-20-18-49-11-online-video.gif" /></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>By using moment timezone and jstz, it becomes very easy to work with timezone in SharePoint. I hope this will help to create a solution where multiple timezones are required. This can even help where we don&rsquo;t want SharePoint to convert the time as per the value of the regional setting.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-Sep-21</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2020/09/working-with-timezone-in-sp-fx/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://example.org/2020/09/working-with-timezone-in-sp-fx/" data-title="Working With Timezone In SPFx" data-via="sanganikunj" data-hashtags="SharePoint Online,SPFx,Moment,jstz"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/2020/09/working-with-timezone-in-sp-fx/" data-hashtag="SharePoint Online"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://example.org/2020/09/working-with-timezone-in-sp-fx/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="http://example.org/2020/09/working-with-timezone-in-sp-fx/" data-title="Working With Timezone In SPFx" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/sharepoint-online/">SharePoint Online</a>,&nbsp;<a href="/tags/spfx/">SPFx</a>,&nbsp;<a href="/tags/moment/">Moment</a>,&nbsp;<a href="/tags/jstz/">jstz</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020/08/function-and-class-component-in-react-with-sp-fx/" class="prev" rel="prev" title="Function And Class Component In React With SPFx"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Function And Class Component In React With SPFx</a>
+            <a href="/2020/10/outgoing-web-hook-in-teams-using-yeoman-teams-generator/" class="next" rel="next" title="Outgoing Web Hook In Teams Using Yeoman Teams Generator">Outgoing Web Hook In Teams Using Yeoman Teams Generator<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Kunj Sangani</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"search":{"algoliaAppID":"1X7YJ8VWPT","algoliaIndex":"index.en","algoliaSearchKey":"00a0369aedac90b4135d976a8a7b12b8","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

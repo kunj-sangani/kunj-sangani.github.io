@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Learn PnP DateTimePicker in SPFx. - Kunj Sangani</title><meta name="Description" content="Learn how to use PnP DateTimePicker Control in SPFx to add date and time control in SharePoint form customization with the step-by-step guide."><meta property="og:title" content="Learn PnP DateTimePicker in SPFx." />
+<meta property="og:description" content="Learn how to use PnP DateTimePicker Control in SPFx to add date and time control in SharePoint form customization with the step-by-step guide." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/2020/07/learn-pn-p-date-time-picker-in-sp-fx/" /><meta property="og:image" content="http://example.org/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-07-21T21:57:40+08:00" />
+<meta property="article:modified_time" content="2020-07-21T21:57:40+08:00" /><meta property="og:site_name" content="Kunj Sangani" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/avatar.png"/>
+
+<meta name="twitter:title" content="Learn PnP DateTimePicker in SPFx."/>
+<meta name="twitter:description" content="Learn how to use PnP DateTimePicker Control in SPFx to add date and time control in SharePoint form customization with the step-by-step guide."/>
+<meta name="application-name" content="Kunj Sangani">
+<meta name="apple-mobile-web-app-title" content="Kunj Sangani"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/2020/07/learn-pn-p-date-time-picker-in-sp-fx/" /><link rel="prev" href="http://example.org/2020/07/how-to-create-portable-modules-using-power-shell-in-mac-os/" /><link rel="next" href="http://example.org/2020/07/create-rich-text-control-w-image-and-video-in-sp-fx/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Learn PnP DateTimePicker in SPFx.",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/2020\/07\/learn-pn-p-date-time-picker-in-sp-fx\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "http:\/\/example.org\/images\/avatar.png",
+                            "width":  960 ,
+                            "height":  960 
+                        }],"genre": "posts","keywords": "SPFx, SharePoint Online, PnP Controls","wordcount":  541 ,
+        "url": "http:\/\/example.org\/2020\/07\/learn-pn-p-date-time-picker-in-sp-fx\/","datePublished": "2020-07-21T21:57:40+08:00","dateModified": "2020-07-21T21:57:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Kunj Sangani","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/example.org\/images\/avatar.png",
+                    "width":  960 ,
+                    "height":  960 
+                }},"author": {
+                "@type": "Person",
+                "name": "Kunj Sangani"
+            },"description": "Learn how to use PnP DateTimePicker Control in SPFx to add date and time control in SharePoint form customization with the step-by-step guide."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Learn PnP DateTimePicker in SPFx.</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://www.linkedin.com/in/kunj-sangani/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kunj Sangani</a></span>&nbsp;<span class="post-category">included in <a href="/categories/spfx/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>SPFx</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-Jul-21">2020-Jul-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;541 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#step-1---create-an-spfx-solution"><strong>Step 1 - Create an SPFx Solution</strong></a></li>
+    <li><a href="#step-2---add-reference-of-pnp-spfx-controls"><strong>Step 2 - Add reference of PnP SPFx Controls</strong></a></li>
+    <li><a href="#step-3---update-the-code"><strong>Step 3 - Update the code</strong></a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="introduction">Introduction</h2>
+<p>When customizing the form with the help of SPFx, we may come across the requirement of using Date Time control. However, if we are using fluent UI react controls, formally known as Office UI fabric React controls, then we do not have control with both date and time. Rather, we only have date picker to overcome this PnP Team has created a DateTimePicker Control this can be easily used and configured in SPFx. To know how we can use it, let&rsquo;s see the step-by-step guide.</p>
+<h2 id="step-1---create-an-spfx-solution"><strong>Step 1 - Create an SPFx Solution</strong></h2>
+<p>To create an SPFx solution, we are required to have nodejs v10.x installed. Along with that, we are required to have yeoman and gulp installed and SharePoint framework yeoman generator. Once the environment is ready, we can create a new solution to create a new solution using the below command:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">yo @microsoft/sharepoint
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>After running the above command, we are presented with multiple questions which we can provide values to, as mentioned in the image below.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/how-to-use-pnp-datetimepicker-in-sharepoint-framework-webpartspfxs/Images/CreateSolution.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/how-to-use-pnp-datetimepicker-in-sharepoint-framework-webpartspfxs/Images/CreateSolution.png, https://f4n3x6c5.stackpathcdn.com/article/how-to-use-pnp-datetimepicker-in-sharepoint-framework-webpartspfxs/Images/CreateSolution.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/how-to-use-pnp-datetimepicker-in-sharepoint-framework-webpartspfxs/Images/CreateSolution.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/how-to-use-pnp-datetimepicker-in-sharepoint-framework-webpartspfxs/Images/CreateSolution.png"
+        title="How To Use PnP DateTimePicker In SharePoint Framework Webpart(SPFx)" /></p>
+<h2 id="step-2---add-reference-of-pnp-spfx-controls"><strong>Step 2 - Add reference of PnP SPFx Controls</strong></h2>
+<p>To add the reference to the solution for the controls, we can use the below command by adding the reference of PnP SPFx controls we can use many controls which are available. To check all the controls, use the below link.</p>
+<p><em><a href="https://pnp.github.io/sp-dev-fx-controls-react/#available-controls" target="_blank" rel="noopener noreffer ">https://pnp.github.io/sp-dev-fx-controls-react/#available-controls</a></em></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">npm install @pnp/spfx-controls-react --save --save-exact
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/how-to-use-pnp-datetimepicker-in-sharepoint-framework-webpartspfxs/Images/Add%20Reference.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/how-to-use-pnp-datetimepicker-in-sharepoint-framework-webpartspfxs/Images/Add%20Reference.png, https://f4n3x6c5.stackpathcdn.com/article/how-to-use-pnp-datetimepicker-in-sharepoint-framework-webpartspfxs/Images/Add%20Reference.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/how-to-use-pnp-datetimepicker-in-sharepoint-framework-webpartspfxs/Images/Add%20Reference.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/how-to-use-pnp-datetimepicker-in-sharepoint-framework-webpartspfxs/Images/Add%20Reference.png"
+        title="How To Use PnP DateTimePicker In SharePoint Framework Webpart(SPFx)" /></p>
+<h2 id="step-3---update-the-code"><strong>Step 3 - Update the code</strong></h2>
+<p>Now let&rsquo;s use the control in our Web part. Open the file name SamplePnPDateTimePickerWebpart.tsx</p>
+<p>To add a reference to the control, use the below import statement:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import { DateTimePicker, DateConvention, TimeConvention, TimeDisplayControlType } from &#39;@pnp/spfx-controls-react/lib/dateTimePicker&#39;;   
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now let us add the below state variable. This is where our selected value for the DateTime would be displayed.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">export interface ISamplePnPDateTimePickerWebpartState {  
+</span></span><span class="line"><span class="cl">   date: any;  
+</span></span><span class="line"><span class="cl">}   
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now let us add the control in our render method of the Web part. Use the below code.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;DateTimePicker label=&#34;Start Date Time&#34;  
+</span></span><span class="line"><span class="cl">   dateConvention={DateConvention.DateTime}  
+</span></span><span class="line"><span class="cl">   timeConvention={TimeConvention.Hours24}  
+</span></span><span class="line"><span class="cl">   value={this.state.date}  
+</span></span><span class="line"><span class="cl">onChange={this.handleChange} timeDisplayControlType={TimeDisplayControlType.Dropdown} /&gt; 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Add the below method to handle change.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public handleChange = (date: any) =&gt; {  
+</span></span><span class="line"><span class="cl">   alert(date);  
+</span></span><span class="line"><span class="cl">   this.setState({ date: date });  
+</span></span><span class="line"><span class="cl">} 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>As we can see, there are multiple properties that are used with the control. Let us look into it.</p>
+<ol>
+<li>label - This property will accept string value and would be used as the label to control</li>
+<li>dateConvention - This property accepts Enum value of DateConvention which is either DateTime or Date to either display date and time both the control or only the date field</li>
+<li>timeConvention - This property also accepts the Enum value of TimeConvention which is either Hours12 or Hours24</li>
+<li>value - To indicate where the value is stored can also be used for pre-populating the value by updating the value in the constructor</li>
+<li>timeDisplayControlType - This field is only helpful when dateConvention is DateTime and not Date. This field also accepts Enum value either as Text or Dropdown</li>
+</ol>
+<p>For additional properties please check this <a href="https://pnp.github.io/sp-dev-fx-controls-react/controls/DateTimePicker/" target="_blank" rel="noopener noreffer ">link</a> with a list of properties.</p>
+<p><strong>Outcome</strong></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/how-to-use-pnp-datetimepicker-in-sharepoint-framework-webpartspfxs/Images/Blog4Video.gif"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/how-to-use-pnp-datetimepicker-in-sharepoint-framework-webpartspfxs/Images/Blog4Video.gif, https://f4n3x6c5.stackpathcdn.com/article/how-to-use-pnp-datetimepicker-in-sharepoint-framework-webpartspfxs/Images/Blog4Video.gif 1.5x, https://f4n3x6c5.stackpathcdn.com/article/how-to-use-pnp-datetimepicker-in-sharepoint-framework-webpartspfxs/Images/Blog4Video.gif 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/how-to-use-pnp-datetimepicker-in-sharepoint-framework-webpartspfxs/Images/Blog4Video.gif"
+        title="How To Use PnP DateTimePicker In SharePoint Framework Webpart(SPFx)" /></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>We can use this control for Selection of Date and Time, as this control is currently not available in Fluent UI.</p>
+<p>We can even use other libraries for Date and Time Picker like Material UI, Ant Design as per the requirements.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-Jul-21</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2020/07/learn-pn-p-date-time-picker-in-sp-fx/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://example.org/2020/07/learn-pn-p-date-time-picker-in-sp-fx/" data-title="Learn PnP DateTimePicker in SPFx." data-via="sanganikunj" data-hashtags="SPFx,SharePoint Online,PnP Controls"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/2020/07/learn-pn-p-date-time-picker-in-sp-fx/" data-hashtag="SPFx"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://example.org/2020/07/learn-pn-p-date-time-picker-in-sp-fx/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="http://example.org/2020/07/learn-pn-p-date-time-picker-in-sp-fx/" data-title="Learn PnP DateTimePicker in SPFx." data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/spfx/">SPFx</a>,&nbsp;<a href="/tags/sharepoint-online/">SharePoint Online</a>,&nbsp;<a href="/tags/pnp-controls/">PnP Controls</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020/07/how-to-create-portable-modules-using-power-shell-in-mac-os/" class="prev" rel="prev" title="How To Create Portable Modules Using PowerShell In macOS"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>How To Create Portable Modules Using PowerShell In macOS</a>
+            <a href="/2020/07/create-rich-text-control-w-image-and-video-in-sp-fx/" class="next" rel="next" title="Create Rich Text control w/ image and video in SPFx.">Create Rich Text control w/ image and video in SPFx.<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Kunj Sangani</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"search":{"algoliaAppID":"1X7YJ8VWPT","algoliaIndex":"index.en","algoliaSearchKey":"00a0369aedac90b4135d976a8a7b12b8","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

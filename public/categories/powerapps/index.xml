@@ -1,0 +1,26 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>PowerApps - Category - Kunj Sangani</title>
+        <link>http://example.org/categories/powerapps/</link>
+        <description>PowerApps - Category - Kunj Sangani</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>sangani.kunj@gmail.com (Kunj Sangani)</managingEditor>
+            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 23 Jun 2020 21:57:40 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/powerapps/" rel="self" type="application/rss+xml" /><item>
+    <title>Custom Connector To Connect Graph API In PowerApps</title>
+    <link>http://example.org/2020/06/custom-connector-to-connect-graph-api-in-power-apps/</link>
+    <pubDate>Tue, 23 Jun 2020 21:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/2020/06/custom-connector-to-connect-graph-api-in-power-apps/</guid>
+    <description><![CDATA[Introduction PowerApps is a platform where we can build no code or less code application. This tool is available with Microsoft 365 suit and is very powerful in terms of application development with lots of functions available as per your needs.
+But in most cases, when we create a custom application, we would like to connect to the different data sources. One of those data sources for Microsoft 365 is Graph API.]]></description>
+</item>
+<item>
+    <title>Variables In PowerApps</title>
+    <link>http://example.org/2020/06/variables-in-power-apps/</link>
+    <pubDate>Tue, 23 Jun 2020 21:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/2020/06/variables-in-power-apps/</guid>
+    <description><![CDATA[Introduction With the introduction of PowerApps, more and more users are moving into PowerApps development for easy and no-code development tools. However, users from a coding background found it difficult, as there were no variables in PowerApps. Not now, with the introduction of variables in PowerApps, it has become a Powerful no-code tool. So let&rsquo;s understand PowerApps Variables and how they works.
+Types of Variables Just as we have different scopes of variables in the programming language in PowerApps, we also have different scoped variables the three different types of variables which are available in PowerApps, as mentioned below:]]></description>
+</item>
+</channel>
+</rss>

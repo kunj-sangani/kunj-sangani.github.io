@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>jstz - Tag - Kunj Sangani</title>
+        <link>http://example.org/tags/jstz/</link>
+        <description>jstz - Tag - Kunj Sangani</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>sangani.kunj@gmail.com (Kunj Sangani)</managingEditor>
+            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 21 Sep 2020 21:57:40 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/jstz/" rel="self" type="application/rss+xml" /><item>
+    <title>Working With Timezone In SPFx</title>
+    <link>http://example.org/2020/09/working-with-timezone-in-sp-fx/</link>
+    <pubDate>Mon, 21 Sep 2020 21:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/2020/09/working-with-timezone-in-sp-fx/</guid>
+    <description><![CDATA[Introduction While designing applications, we may come across multiple scenarios where our application could run across multiple locations and timezones, and working with all these timezones could be a difficult task.
+With the introduction of SharePoint framework, creating a scalable and UI friendly application is very easy. With modern SharePoint, creating an Intelligent intranet is very easy and is becoming popular. There can be a scenario where intranet users are across multiple locations, therefore we need to create an SPFx solution considering all these locations.]]></description>
+</item>
+</channel>
+</rss>

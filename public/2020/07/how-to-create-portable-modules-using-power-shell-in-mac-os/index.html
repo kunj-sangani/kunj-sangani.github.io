@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>How To Create Portable Modules Using PowerShell In macOS - Kunj Sangani</title><meta name="Description" content="The article explains how to create custom PowerShell modules using PowerShell 7 and .NET Core, which allows developers to use PowerShell on all platforms, and provides guidance on installing PowerShell on macOS."><meta property="og:title" content="How To Create Portable Modules Using PowerShell In macOS" />
+<meta property="og:description" content="The article explains how to create custom PowerShell modules using PowerShell 7 and .NET Core, which allows developers to use PowerShell on all platforms, and provides guidance on installing PowerShell on macOS." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/2020/07/how-to-create-portable-modules-using-power-shell-in-mac-os/" /><meta property="og:image" content="http://example.org/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-07-14T21:57:40+08:00" />
+<meta property="article:modified_time" content="2020-07-14T21:57:40+08:00" /><meta property="og:site_name" content="Kunj Sangani" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/avatar.png"/>
+
+<meta name="twitter:title" content="How To Create Portable Modules Using PowerShell In macOS"/>
+<meta name="twitter:description" content="The article explains how to create custom PowerShell modules using PowerShell 7 and .NET Core, which allows developers to use PowerShell on all platforms, and provides guidance on installing PowerShell on macOS."/>
+<meta name="application-name" content="Kunj Sangani">
+<meta name="apple-mobile-web-app-title" content="Kunj Sangani"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/2020/07/how-to-create-portable-modules-using-power-shell-in-mac-os/" /><link rel="prev" href="http://example.org/2020/07/how-to-setup-environment-for-share-point-framework-in-mac-os/" /><link rel="next" href="http://example.org/2020/07/learn-pn-p-date-time-picker-in-sp-fx/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "How To Create Portable Modules Using PowerShell In macOS",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/2020\/07\/how-to-create-portable-modules-using-power-shell-in-mac-os\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "http:\/\/example.org\/images\/avatar.png",
+                            "width":  960 ,
+                            "height":  960 
+                        }],"genre": "posts","keywords": "PowerShell, macOS","wordcount":  446 ,
+        "url": "http:\/\/example.org\/2020\/07\/how-to-create-portable-modules-using-power-shell-in-mac-os\/","datePublished": "2020-07-14T21:57:40+08:00","dateModified": "2020-07-14T21:57:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Kunj Sangani","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/example.org\/images\/avatar.png",
+                    "width":  960 ,
+                    "height":  960 
+                }},"author": {
+                "@type": "Person",
+                "name": "Kunj Sangani"
+            },"description": "The article explains how to create custom PowerShell modules using PowerShell 7 and .NET Core, which allows developers to use PowerShell on all platforms, and provides guidance on installing PowerShell on macOS."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">How To Create Portable Modules Using PowerShell In macOS</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://www.linkedin.com/in/kunj-sangani/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kunj Sangani</a></span>&nbsp;<span class="post-category">included in <a href="/categories/powershell/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>PowerShell</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-Jul-14">2020-Jul-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;446 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#install-powershell-in-macos">Install PowerShell in macOS</a></li>
+    <li><a href="#step-1-install-homebrew"><strong>Step 1 Install Homebrew</strong></a></li>
+    <li><a href="#step-2-install-powershell"><strong>Step 2 Install PowerShell</strong></a></li>
+    <li><a href="#create-powershell-custom-module">Create PowerShell Custom Module</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="introduction">Introduction</h2>
+<p>With the introduction of PowerShell 7 it is very easy to use PowerShell across all the platforms and so we will want to create our own custom PowerShell modules as well.</p>
+<p>To do so it is very easy with the introduction of .net core &ndash;  truly Microsoft is being platform agnostic in terms of development.</p>
+<p>So let us understand how we can create our own custom module for PowerShell.</p>
+<p>Before starting let us install PowerShell in macOS.</p>
+<h2 id="install-powershell-in-macos">Install PowerShell in macOS</h2>
+<h2 id="step-1-install-homebrew"><strong>Step 1 Install Homebrew</strong></h2>
+<p>To run PowerShell we needto have Homebrew. It is a package manager which is used for installing packages which are missing in macOS.</p>
+<p>Use the below command in the terminal to install Homebrew.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/bin/bash -c &#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>![How To Create Portable Modules Using PowerShell In MacOS](<a href="https://f4n3x6c5.stackpathcdn.com/article/how-to-create-portable-modules-using-powershell-in-macos2/Images/How" target="_blank" rel="noopener noreffer ">https://f4n3x6c5.stackpathcdn.com/article/how-to-create-portable-modules-using-powershell-in-macos2/Images/How</a> To Create Portable Modules Using PowerShell In MacOS.jpg) </p>
+<h2 id="step-2-install-powershell"><strong>Step 2 Install PowerShell</strong></h2>
+<p>Once we have installed Homebrew now we are good to install PowerShell. This is also recommended by Microsoft ;for more details check the <a href="https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-macos?view=powershell-7" target="_blank" rel="noopener noreffer ">link</a>.</p>
+<p>Use the below command to install PowerShell.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">brew cask install powershell
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>To test if we have installed it properly or not use the below command:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pwsh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="create-powershell-custom-module">Create PowerShell Custom Module</h2>
+<p>To Create Custom module we will use .net core for creating it. Assuming that we have installed .net core already in the environment now let us install it. </p>
+<p>To install .net core module for creating custom PowerShell module use the below command:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">dotnet new --install Microsoft.PowerShell.Standard.Module.Template::0.1.3
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now let use create a project for creating custom PowerShell module. To scaffold the project use the below command:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">dotnet new psmodule
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>There would be bin, obj folder and .csproj and .cs file in the project. Open the code in Visual Studio to check the code.</p>
+<p>As displayed in the image below to create a custom command we have to inherit the class PSCmdlet and the below three methods define the execution.</p>
+<ul>
+<li>BeginProcessing() - This method is called when the pipeline starts execution.</li>
+<li>ProcessRecord() - This method is called for every input which is passed to the command.</li>
+<li>EndProcessing() - This method is called at the end of pipeline execution.</li>
+</ul>
+<p>To build the project use the below command:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">dotnet build
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Open PowerShell using the below command:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pwsh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Once we have build the module now we can import it to test our module</p>
+<p>Use the below command to import the module:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Import-Module .\\bin\\debug\\netstandard2.0\\powershellmodule.dll
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Test-SampleCmdlet -FavoriteNumber 3 -FavoritePet Dog
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/how-to-create-portable-modules-using-powershell-in-macos2/Images/How%20To%20Create%20Portable%20Modules%20Using%20PowerShell%20In%20MacOS.jpg"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/how-to-create-portable-modules-using-powershell-in-macos2/Images/How%20To%20Create%20Portable%20Modules%20Using%20PowerShell%20In%20MacOS.jpg, https://f4n3x6c5.stackpathcdn.com/article/how-to-create-portable-modules-using-powershell-in-macos2/Images/How%20To%20Create%20Portable%20Modules%20Using%20PowerShell%20In%20MacOS.jpg 1.5x, https://f4n3x6c5.stackpathcdn.com/article/how-to-create-portable-modules-using-powershell-in-macos2/Images/How%20To%20Create%20Portable%20Modules%20Using%20PowerShell%20In%20MacOS.jpg 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/how-to-create-portable-modules-using-powershell-in-macos2/Images/How%20To%20Create%20Portable%20Modules%20Using%20PowerShell%20In%20MacOS.jpg"
+        title="How To Create Portable Modules Using PowerShell In MacOS" /></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>It is very easy to create custom PowerShell module using any platform of our choice. This module is reusable so once we have developed our custom module we can use it anywhere we want.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-Jul-14</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2020/07/how-to-create-portable-modules-using-power-shell-in-mac-os/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://example.org/2020/07/how-to-create-portable-modules-using-power-shell-in-mac-os/" data-title="How To Create Portable Modules Using PowerShell In macOS" data-via="sanganikunj" data-hashtags="PowerShell,macOS"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/2020/07/how-to-create-portable-modules-using-power-shell-in-mac-os/" data-hashtag="PowerShell"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://example.org/2020/07/how-to-create-portable-modules-using-power-shell-in-mac-os/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="http://example.org/2020/07/how-to-create-portable-modules-using-power-shell-in-mac-os/" data-title="How To Create Portable Modules Using PowerShell In macOS" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/powershell/">PowerShell</a>,&nbsp;<a href="/tags/macos/">macOS</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020/07/how-to-setup-environment-for-share-point-framework-in-mac-os/" class="prev" rel="prev" title="How To Setup Environment For SharePoint Framework In macOS"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>How To Setup Environment For SharePoint Framework In macOS</a>
+            <a href="/2020/07/learn-pn-p-date-time-picker-in-sp-fx/" class="next" rel="next" title="Learn PnP DateTimePicker in SPFx.">Learn PnP DateTimePicker in SPFx.<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Kunj Sangani</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"search":{"algoliaAppID":"1X7YJ8VWPT","algoliaIndex":"index.en","algoliaSearchKey":"00a0369aedac90b4135d976a8a7b12b8","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

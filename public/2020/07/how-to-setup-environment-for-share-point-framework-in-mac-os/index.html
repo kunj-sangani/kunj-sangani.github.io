@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>How To Setup Environment For SharePoint Framework In macOS - Kunj Sangani</title><meta name="Description" content="Learn how to set up SharePoint Framework (SPFx) for cross-platform SharePoint development with ReactJS, VueJS, and Angular on Mac OS."><meta property="og:title" content="How To Setup Environment For SharePoint Framework In macOS" />
+<meta property="og:description" content="Learn how to set up SharePoint Framework (SPFx) for cross-platform SharePoint development with ReactJS, VueJS, and Angular on Mac OS." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/2020/07/how-to-setup-environment-for-share-point-framework-in-mac-os/" /><meta property="og:image" content="http://example.org/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-07-03T21:57:40+08:00" />
+<meta property="article:modified_time" content="2020-07-03T21:57:40+08:00" /><meta property="og:site_name" content="Kunj Sangani" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/avatar.png"/>
+
+<meta name="twitter:title" content="How To Setup Environment For SharePoint Framework In macOS"/>
+<meta name="twitter:description" content="Learn how to set up SharePoint Framework (SPFx) for cross-platform SharePoint development with ReactJS, VueJS, and Angular on Mac OS."/>
+<meta name="application-name" content="Kunj Sangani">
+<meta name="apple-mobile-web-app-title" content="Kunj Sangani"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/2020/07/how-to-setup-environment-for-share-point-framework-in-mac-os/" /><link rel="prev" href="http://example.org/2020/06/share-point-csom-for-net-standard/" /><link rel="next" href="http://example.org/2020/07/how-to-create-portable-modules-using-power-shell-in-mac-os/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "How To Setup Environment For SharePoint Framework In macOS",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/2020\/07\/how-to-setup-environment-for-share-point-framework-in-mac-os\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "http:\/\/example.org\/images\/avatar.png",
+                            "width":  960 ,
+                            "height":  960 
+                        }],"genre": "posts","keywords": "SPFx, SharePoint Online, macOS","wordcount":  361 ,
+        "url": "http:\/\/example.org\/2020\/07\/how-to-setup-environment-for-share-point-framework-in-mac-os\/","datePublished": "2020-07-03T21:57:40+08:00","dateModified": "2020-07-03T21:57:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Kunj Sangani","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/example.org\/images\/avatar.png",
+                    "width":  960 ,
+                    "height":  960 
+                }},"author": {
+                "@type": "Person",
+                "name": "Kunj Sangani"
+            },"description": "Learn how to set up SharePoint Framework (SPFx) for cross-platform SharePoint development with ReactJS, VueJS, and Angular on Mac OS."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">How To Setup Environment For SharePoint Framework In macOS</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://www.linkedin.com/in/kunj-sangani/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kunj Sangani</a></span>&nbsp;<span class="post-category">included in <a href="/categories/spfx/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>SPFx</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-Jul-03">2020-Jul-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;361 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#step-1---install-nodejs">Step 1 - Install Node.js</a></li>
+    <li><a href="#step-2---install-gulp-and-yeoman">Step 2 - Install gulp and Yeoman</a></li>
+    <li><a href="#step-3---install-yeoman-sharepoint-generator">Step 3 - Install Yeoman SharePoint generator</a></li>
+    <li><a href="#step-4---download-and-install-visual-studio-code">Step 4 - Download and Install Visual Studio Code</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="introduction">Introduction</h2>
+<p>SharePoint Framework is one of the most loved development frameworks for the SharePoint developer, as it is cross-platform and completely based on front end technologies like reactjs, vuejs, and angular.</p>
+<p>Let&rsquo;s understand how we can set up SharePoint Framework (SPFx) in Mac OS.</p>
+<h2 id="step-1---install-nodejs">Step 1 - Install Node.js</h2>
+<p>The first step for setting up our development environment in Mac OS is to install Node.js which is the building block. To install Node.js, follow the below steps.</p>
+<p>We will use nvm to install nodejs. nvm is a tool that will help us to switch between node versions seamlessly.</p>
+<ol>
+<li><em>curl -o- <a href="https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh" target="_blank" rel="noopener noreffer ">https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh</a> | bash</em><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-environment-for-sharepoint-framework-in-macos/Images/InstallNVM.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-environment-for-sharepoint-framework-in-macos/Images/InstallNVM.png, https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-environment-for-sharepoint-framework-in-macos/Images/InstallNVM.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-environment-for-sharepoint-framework-in-macos/Images/InstallNVM.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-environment-for-sharepoint-framework-in-macos/Images/InstallNVM.png"
+        title="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-environment-for-sharepoint-framework-in-macos/Images/InstallNVM.png" /></li>
+<li>export NVM_DIR=&quot;$HOME/.nvm&quot;</li>
+<li>[ -s &ldquo;$NVM_DIR/nvm.sh&rdquo; ] &amp;&amp; \. &ldquo;$NVM_DIR/nvm.sh&rdquo;</li>
+<li>[ -s &ldquo;$NVM_DIR/bash_completion&rdquo; ] &amp;&amp; \. &ldquo;$NVM_DIR/bash_completion&rdquo;<br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-environment-for-sharepoint-framework-in-macos/Images/2_InstallNVM.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-environment-for-sharepoint-framework-in-macos/Images/2_InstallNVM.png, https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-environment-for-sharepoint-framework-in-macos/Images/2_InstallNVM.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-environment-for-sharepoint-framework-in-macos/Images/2_InstallNVM.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-environment-for-sharepoint-framework-in-macos/Images/2_InstallNVM.png"
+        title="How To Setup Environment For SharePoint Framework In MacOS" /></li>
+<li>nvm install 10.21.0<br>
+![How To Setup Environment For SharePoint Framework In MacOS](<a href="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-environment-for-sharepoint-framework-in-macos/Images/3_Install" target="_blank" rel="noopener noreffer ">https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-environment-for-sharepoint-framework-in-macos/Images/3_Install</a> Node.png)</li>
+</ol>
+<p><em>Alternate way without using nvm:</em></p>
+<ol>
+<li>Navigate to <a href="https://nodejs.org/dist/latest-v10.x/" target="_blank" rel="noopener noreffer ">here</a>.</li>
+<li>Download the pkg file for node 10</li>
+<li>Install the downloaded pkg file</li>
+</ol>
+<p>Once node is installed we can start to install other dependencies for SharePoint Framework. To test whether the node is installed correctly, run the below command:</p>
+<p><em>node -v</em></p>
+<p><em>npm -v</em></p>
+<h2 id="step-2---install-gulp-and-yeoman">Step 2 - Install gulp and Yeoman</h2>
+<p>Now let us install gulp and yeoman where gulp is a task runner and yeoman is a scaffolder. Use the below command:</p>
+<blockquote>
+<p>npm install gulp yo —global</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-environment-for-sharepoint-framework-in-macos/Images/4_InsallYoGulp.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-environment-for-sharepoint-framework-in-macos/Images/4_InsallYoGulp.png, https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-environment-for-sharepoint-framework-in-macos/Images/4_InsallYoGulp.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-environment-for-sharepoint-framework-in-macos/Images/4_InsallYoGulp.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-environment-for-sharepoint-framework-in-macos/Images/4_InsallYoGulp.png"
+        title="How To Setup Environment For SharePoint Framework In MacOS" /></p>
+<h2 id="step-3---install-yeoman-sharepoint-generator">Step 3 - Install Yeoman SharePoint generator</h2>
+<p>Now let&rsquo;s install the Yeoman SharePoint generator which will help in creating a client-side solution. We can even use the PnP SharePoint Framework generator. To learn more about PnP Yeoman generator, check out this <a href="https://pnp.github.io/generator-spfx/" target="_blank" rel="noopener noreffer ">link</a>.</p>
+<p>Use the below command to install the Yeoman SharePoint generator:</p>
+<blockquote>
+<p>npm install @microsoft/generator-sharepoint &ndash;global </p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-environment-for-sharepoint-framework-in-macos/Images/5_InstallGenerator.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-environment-for-sharepoint-framework-in-macos/Images/5_InstallGenerator.png, https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-environment-for-sharepoint-framework-in-macos/Images/5_InstallGenerator.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-environment-for-sharepoint-framework-in-macos/Images/5_InstallGenerator.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-environment-for-sharepoint-framework-in-macos/Images/5_InstallGenerator.png"
+        title="How To Setup Environment For SharePoint Framework In MacOS" /></p>
+<h2 id="step-4---download-and-install-visual-studio-code">Step 4 - Download and Install Visual Studio Code</h2>
+<p>Now we are ready to create our SharePoint Framework Project. For that, we are required to have a code editor. We can use one of my favourite editors, Visual Studio Code</p>
+<p>To install VS Code, navigate to this <a href="https://code.visualstudio.com/download" target="_blank" rel="noopener noreffer ">link</a>, download the pkg file, and install it.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>It is very easy to set up the environment for SharePoint Framework, and hence, it has become very popular among developers. Tooling is cross-platform, so we can use any OS of our choice.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-Jul-03</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2020/07/how-to-setup-environment-for-share-point-framework-in-mac-os/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://example.org/2020/07/how-to-setup-environment-for-share-point-framework-in-mac-os/" data-title="How To Setup Environment For SharePoint Framework In macOS" data-via="sanganikunj" data-hashtags="SPFx,SharePoint Online,macOS"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/2020/07/how-to-setup-environment-for-share-point-framework-in-mac-os/" data-hashtag="SPFx"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://example.org/2020/07/how-to-setup-environment-for-share-point-framework-in-mac-os/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="http://example.org/2020/07/how-to-setup-environment-for-share-point-framework-in-mac-os/" data-title="How To Setup Environment For SharePoint Framework In macOS" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/spfx/">SPFx</a>,&nbsp;<a href="/tags/sharepoint-online/">SharePoint Online</a>,&nbsp;<a href="/tags/macos/">macOS</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020/06/share-point-csom-for-net-standard/" class="prev" rel="prev" title="SharePoint CSOM For .NET Standard"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>SharePoint CSOM For .NET Standard</a>
+            <a href="/2020/07/how-to-create-portable-modules-using-power-shell-in-mac-os/" class="next" rel="next" title="How To Create Portable Modules Using PowerShell In macOS">How To Create Portable Modules Using PowerShell In macOS<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Kunj Sangani</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"search":{"algoliaAppID":"1X7YJ8VWPT","algoliaIndex":"index.en","algoliaSearchKey":"00a0369aedac90b4135d976a8a7b12b8","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

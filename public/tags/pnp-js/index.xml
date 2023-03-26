@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>PnP Js - Tag - Kunj Sangani</title>
+        <link>http://example.org/tags/pnp-js/</link>
+        <description>PnP Js - Tag - Kunj Sangani</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>sangani.kunj@gmail.com (Kunj Sangani)</managingEditor>
+            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 03 Aug 2020 21:57:40 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/pnp-js/" rel="self" type="application/rss+xml" /><item>
+    <title>Fetch SP list items from another site using PnP JS.</title>
+    <link>http://example.org/2020/08/fetch-share-point-online-list-items-from-another-site-collection-using-pn-p-js/</link>
+    <pubDate>Mon, 03 Aug 2020 21:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/2020/08/fetch-share-point-online-list-items-from-another-site-collection-using-pn-p-js/</guid>
+    <description><![CDATA[Introduction SharePoint Online has gained more popularity with the release of REST API and SPFx. Data operation becomes easy in Client-Side Solution with the help of REST API. All these APIs work under current user permission and there could be a scenario that current users can have access to multiple site collection and we would need to fetch data for cross-site collection.
+How we can fetch cross-site collection data is a question, but with the help of PnPJs this question can be easily solved.]]></description>
+</item>
+</channel>
+</rss>

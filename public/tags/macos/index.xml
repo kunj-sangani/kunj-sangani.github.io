@@ -1,0 +1,36 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>macOS - Tag - Kunj Sangani</title>
+        <link>http://example.org/tags/macos/</link>
+        <description>macOS - Tag - Kunj Sangani</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>sangani.kunj@gmail.com (Kunj Sangani)</managingEditor>
+            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 16 Aug 2021 21:57:40 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/macos/" rel="self" type="application/rss+xml" /><item>
+    <title>How To Run PnP PowerShell In MacOS</title>
+    <link>http://example.org/2021/08/how-to-run-pn-p-power-shell-in-mac-os/</link>
+    <pubDate>Mon, 16 Aug 2021 21:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/2021/08/how-to-run-pn-p-power-shell-in-mac-os/</guid>
+    <description><![CDATA[Introduction There may be requirements where we need to use PowerShell and if we are using macOS then the question becomes how we can use PowerShell in macOS. But with Microsoft&rsquo;s new approach of creating everything open source and cross-platform, we can achieve this very easily. But along with this, we would even have a look at how we can use cross-platform PnP PowerShell to automate our Microsoft 365 related tasks.]]></description>
+</item>
+<item>
+    <title>How To Create Portable Modules Using PowerShell In macOS</title>
+    <link>http://example.org/2020/07/how-to-create-portable-modules-using-power-shell-in-mac-os/</link>
+    <pubDate>Tue, 14 Jul 2020 21:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/2020/07/how-to-create-portable-modules-using-power-shell-in-mac-os/</guid>
+    <description><![CDATA[Introduction With the introduction of PowerShell 7 it is very easy to use PowerShell across all the platforms and so we will want to create our own custom PowerShell modules as well.
+To do so it is very easy with the introduction of .net core &ndash; truly Microsoft is being platform agnostic in terms of development.
+So let us understand how we can create our own custom module for PowerShell.]]></description>
+</item>
+<item>
+    <title>How To Setup Environment For SharePoint Framework In macOS</title>
+    <link>http://example.org/2020/07/how-to-setup-environment-for-share-point-framework-in-mac-os/</link>
+    <pubDate>Fri, 03 Jul 2020 21:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/2020/07/how-to-setup-environment-for-share-point-framework-in-mac-os/</guid>
+    <description><![CDATA[Introduction SharePoint Framework is one of the most loved development frameworks for the SharePoint developer, as it is cross-platform and completely based on front end technologies like reactjs, vuejs, and angular.
+Let&rsquo;s understand how we can set up SharePoint Framework (SPFx) in Mac OS.
+Step 1 - Install Node.js The first step for setting up our development environment in Mac OS is to install Node.js which is the building block. To install Node.]]></description>
+</item>
+</channel>
+</rss>

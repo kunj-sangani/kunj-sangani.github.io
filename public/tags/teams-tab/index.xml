@@ -1,0 +1,44 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Teams Tab - Tag - Kunj Sangani</title>
+        <link>http://example.org/tags/teams-tab/</link>
+        <description>Teams Tab - Tag - Kunj Sangani</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>sangani.kunj@gmail.com (Kunj Sangani)</managingEditor>
+            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 07 Nov 2022 21:57:40 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/teams-tab/" rel="self" type="application/rss+xml" /><item>
+    <title>Using Teams Toolkit CLI For Creating Teams Tab</title>
+    <link>http://example.org/2022/11/using-teams-toolkit-cli-for-creating-teams-tab/</link>
+    <pubDate>Mon, 07 Nov 2022 21:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/2022/11/using-teams-toolkit-cli-for-creating-teams-tab/</guid>
+    <description><![CDATA[Introduction There are multiple ways to create a Teams Tab project such as using the Teams Toolkit extension for Visual Studio code, Yeoman generator for Teams, etc. Among these options, one such option is to use Teams Toolkit CLI before creating a Teams Tab project using Team Toolkit CLI let&rsquo;s understand what Teams Toolkit CLI is.
+What is Teams Toolkit CLI? Teams Toolkit CLI is a command line interface that helps in Teams application development.]]></description>
+</item>
+<item>
+    <title>Teams Toolkit For Creating Microsoft Teams Tab</title>
+    <link>http://example.org/2022/11/teams-toolkit-for-creating-microsoft-teams-tab/</link>
+    <pubDate>Thu, 03 Nov 2022 21:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/2022/11/teams-toolkit-for-creating-microsoft-teams-tab/</guid>
+    <description><![CDATA[Introduction Microsoft Teams is one of the most used collaborative platforms with 270 million monthly active users as of 2022. Microsoft teams have extensibility capabilities that help developers create their own applications. For this application, we have many application capabilities such as Personal apps, Tabs, Bots, Messaging extensions, Meeting extensions, and Webhook and connectors.
+In this article, we will leverage the capability of Tabs in Microsoft teams. We will go through step by step process of creating Tabs using Teams Toolkit.]]></description>
+</item>
+<item>
+    <title>Update Profile Picture Using Graph API In SPFx</title>
+    <link>http://example.org/2020/08/update-profile-picture-using-graph-api-in-sp-fx/</link>
+    <pubDate>Tue, 11 Aug 2020 21:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/2020/08/update-profile-picture-using-graph-api-in-sp-fx/</guid>
+    <description><![CDATA[Introduction Microsoft 365 has a different application in its suite. To combine all these data for developers Microsoft came up with Graph API. This has helped developers to access data across applications in Microsoft 365. One such example which we would leverage today is to save profile picture which would reflect across all the applications in Microsoft 365.
+In this article, we will create a SPFx webpart where user can select their profile picture and on click of the save button, the profile picture will be updated for all apps in Microsoft 365.]]></description>
+</item>
+<item>
+    <title>How To Setup Environment For Yeoman Teams Generator</title>
+    <link>http://example.org/2020/06/how-to-setup-environment-for-yeoman-teams-generator/</link>
+    <pubDate>Wed, 03 Jun 2020 21:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/2020/06/how-to-setup-environment-for-yeoman-teams-generator/</guid>
+    <description><![CDATA[Introduction With the increase in Microsoft Teams adoption, companies are switching to Microsoft team&rsquo;s development for extending the capabilities for Microsoft Teams for better collaboration. To make this development easy to use and to centralize it, the PnP team has generator a yeoman scaffolder for Teams applications. So let&rsquo;s look into setting up the environment and creating a sample bot for Microsoft Teams.
+Environment Setup Step 1 - Install nvm-windows We will use nvm-windows for installing Node.]]></description>
+</item>
+</channel>
+</rss>

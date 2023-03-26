@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>How To Use PropertyFieldCollectionData In SPFx Property Pane - Kunj Sangani</title><meta name="Description" content="This article shows the basic Markdown syntax and format."><meta property="og:title" content="How To Use PropertyFieldCollectionData In SPFx Property Pane" />
+<meta property="og:description" content="This article shows the basic Markdown syntax and format." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/2020/06/how-to-use-property-field-collection-data-in-sp-fx-property-pane/" /><meta property="og:image" content="http://example.org/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-06-22T21:57:40+08:00" />
+<meta property="article:modified_time" content="2020-06-22T21:57:40+08:00" /><meta property="og:site_name" content="Kunj Sangani" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/avatar.png"/>
+
+<meta name="twitter:title" content="How To Use PropertyFieldCollectionData In SPFx Property Pane"/>
+<meta name="twitter:description" content="This article shows the basic Markdown syntax and format."/>
+<meta name="application-name" content="Kunj Sangani">
+<meta name="apple-mobile-web-app-title" content="Kunj Sangani"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/2020/06/how-to-use-property-field-collection-data-in-sp-fx-property-pane/" /><link rel="prev" href="http://example.org/2020/06/crud-operation-on-share-point-sp-fx-webpart-using-pn-p-power-shell/" /><link rel="next" href="http://example.org/2020/06/variables-in-power-apps/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "How To Use PropertyFieldCollectionData In SPFx Property Pane",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/2020\/06\/how-to-use-property-field-collection-data-in-sp-fx-property-pane\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "http:\/\/example.org\/images\/avatar.png",
+                            "width":  960 ,
+                            "height":  960 
+                        }],"genre": "posts","keywords": "SPFx, SharePoint Online","wordcount":  980 ,
+        "url": "http:\/\/example.org\/2020\/06\/how-to-use-property-field-collection-data-in-sp-fx-property-pane\/","datePublished": "2020-06-22T21:57:40+08:00","dateModified": "2020-06-22T21:57:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Kunj Sangani","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/example.org\/images\/avatar.png",
+                    "width":  960 ,
+                    "height":  960 
+                }},"author": {
+                "@type": "Person",
+                "name": "Kunj Sangani"
+            },"description": "This article shows the basic Markdown syntax and format."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">How To Use PropertyFieldCollectionData In SPFx Property Pane</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://www.linkedin.com/in/kunj-sangani/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kunj Sangani</a></span>&nbsp;<span class="post-category">included in <a href="/categories/spfx/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>SPFx</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-Jun-22">2020-Jun-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;980 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="introduction">Introduction</h2>
+<p>With the introduction of the SharePoint Framework (SPFx) ,  front end development has become very easy and hosting of the webpart is taken care of by SharePoint, which does not require an additional server. So the use of SPFx is growing exponentially and the best part of SPFx webparts is they are easy to configure.</p>
+<p>To Configure SPFx web part we have Property Pane which opens up in a panel and we can add any controls as per our need. Out of the box SPFx has given us many controls but there are a few controls which are not available. To tackle this we have the PnP Community which takes care of creating reusable property pane controls. To check all the property pane controls check the <a href="https://pnp.github.io/sp-dev-fx-property-controls/" target="_blank" rel="noopener noreffer ">link</a>.</p>
+<p>Let us look into one of the controls which is very helpful if we want to fetch the data in SPFx configuration. This control is known as PropertyFieldCollectionData. To check the complete documentation go to this <a href="https://pnp.github.io/sp-dev-fx-property-controls/controls/PropertyFieldCollectionData/" target="_blank" rel="noopener noreffer ">link</a>.</p>
+<p>Types of Fields which we can create in PropertyFieldCollectionData</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>string</td>
+<td>This will create a text field to store the string value</td>
+</tr>
+<tr>
+<td>number</td>
+<td>This will be a text field which accepts only number value</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td>This will create a checkbox which can store a Boolean value</td>
+</tr>
+<tr>
+<td>dropdown</td>
+<td>This will create dropdown fields where we can specify options value</td>
+</tr>
+<tr>
+<td>fabricIcon</td>
+<td>This will create an icon</td>
+</tr>
+<tr>
+<td>Url</td>
+<td>This will create a URL field</td>
+</tr>
+<tr>
+<td>custom</td>
+<td>This gives control for custom rendering of the field</td>
+</tr>
+</tbody>
+</table>
+<p>In this article, we will cover the step by step process of how to use this control in our SPFx Project.</p>
+<p><strong>Step 1- Create a SPFx solution and webpart</strong></p>
+<p>Run the below sequence of commands in the command prompt or nodejs command prompt.</p>
+<p>Below command will be used to create a folder</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">md PnPPropertyFieldCollectionData    
+</span></span><span class="line"><span class="cl">cd PnPPropertyFieldCollectionData   
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Let us now create the SPFx project in the above-created folder.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">yo @microsoft/sharepoint  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/how-to-use-propertyfieldcollectiondata-in-spfx-property-pane/Images/1_CreateSPFxSolution.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/how-to-use-propertyfieldcollectiondata-in-spfx-property-pane/Images/1_CreateSPFxSolution.png, https://f4n3x6c5.stackpathcdn.com/article/how-to-use-propertyfieldcollectiondata-in-spfx-property-pane/Images/1_CreateSPFxSolution.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/how-to-use-propertyfieldcollectiondata-in-spfx-property-pane/Images/1_CreateSPFxSolution.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/how-to-use-propertyfieldcollectiondata-in-spfx-property-pane/Images/1_CreateSPFxSolution.png"
+        title="How To Use PropertyFieldCollectionData In SPFx Property Pane" /></p>
+<p>Now let us install the required npm package to use PnP Property pane control.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">npm install @pnp/spfx-property-controls  
+</span></span><span class="line"><span class="cl">npm install @pnp/spfx-controls-react --save --save-exact
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Step 2 - Update the code</strong></p>
+<p>Open the PnpPropertyFieldCollectionDataWebPart.ts file and add the below code.</p>
+<p>Update the import with the below code.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import { PropertyFieldCollectionData, CustomCollectionFieldType } from &#39;@pnp/spfx-property-controls/lib/PropertyFieldCollectionData&#39;;   
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Add the variable in the property interface, the variable would be of type any[] as it would store collection of data items.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">export interface IPnpPropertyFieldCollectionDataWebPartProps {  
+</span></span><span class="line"><span class="cl">  description: string;  
+</span></span><span class="line"><span class="cl">  collectionData: any[];  
+</span></span><span class="line"><span class="cl">}  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We can have many different types of columns for our data collection and if we need to have a custom column as well we can create them.</p>
+<p>For the demo we are using string, number, dropdown, Boolean and in the custom field we are using PnP People Picker control.</p>
+<p>Add the below code in getPropertyPaneConfiguration() method insides the groups collection.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">PropertyFieldCollectionData(&#34;collectionData&#34;, {  
+</span></span><span class="line"><span class="cl">    key: &#34;collectionData&#34;,  
+</span></span><span class="line"><span class="cl">    label: &#34;Collection data&#34;,  
+</span></span><span class="line"><span class="cl">    panelHeader: &#34;Collection data panel header&#34;,  
+</span></span><span class="line"><span class="cl">    manageBtnLabel: &#34;Manage collection data&#34;,  
+</span></span><span class="line"><span class="cl">    value: this.properties.collectionData,  
+</span></span><span class="line"><span class="cl">    fields: [  
+</span></span><span class="line"><span class="cl">        {  
+</span></span><span class="line"><span class="cl">            id: &#34;Title&#34;,  
+</span></span><span class="line"><span class="cl">            title: &#34;Firstname&#34;,  
+</span></span><span class="line"><span class="cl">            type: CustomCollectionFieldType.string,  
+</span></span><span class="line"><span class="cl">            required: true  
+</span></span><span class="line"><span class="cl">        },  
+</span></span><span class="line"><span class="cl">        {  
+</span></span><span class="line"><span class="cl">            id: &#34;Lastname&#34;,  
+</span></span><span class="line"><span class="cl">            title: &#34;Lastname&#34;,  
+</span></span><span class="line"><span class="cl">            type: CustomCollectionFieldType.string  
+</span></span><span class="line"><span class="cl">        },  
+</span></span><span class="line"><span class="cl">        {  
+</span></span><span class="line"><span class="cl">            id: &#34;Age&#34;,  
+</span></span><span class="line"><span class="cl">            title: &#34;Age&#34;,  
+</span></span><span class="line"><span class="cl">            type: CustomCollectionFieldType.number,  
+</span></span><span class="line"><span class="cl">            required: true  
+</span></span><span class="line"><span class="cl">        },  
+</span></span><span class="line"><span class="cl">        {  
+</span></span><span class="line"><span class="cl">            id: &#34;City&#34;,  
+</span></span><span class="line"><span class="cl">            title: &#34;Favorite city&#34;,  
+</span></span><span class="line"><span class="cl">            type: CustomCollectionFieldType.dropdown,  
+</span></span><span class="line"><span class="cl">            options: [  
+</span></span><span class="line"><span class="cl">                {  
+</span></span><span class="line"><span class="cl">                    key: &#34;pune&#34;,  
+</span></span><span class="line"><span class="cl">                    text: &#34;Pune&#34;  
+</span></span><span class="line"><span class="cl">                },  
+</span></span><span class="line"><span class="cl">                {  
+</span></span><span class="line"><span class="cl">                    key: &#34;junagadh&#34;,  
+</span></span><span class="line"><span class="cl">                    text: &#34;Junagadh&#34;  
+</span></span><span class="line"><span class="cl">                }  
+</span></span><span class="line"><span class="cl">            ],  
+</span></span><span class="line"><span class="cl">            required: true  
+</span></span><span class="line"><span class="cl">        },  
+</span></span><span class="line"><span class="cl">        {  
+</span></span><span class="line"><span class="cl">            id: &#34;Sign&#34;,  
+</span></span><span class="line"><span class="cl">            title: &#34;Signed&#34;,  
+</span></span><span class="line"><span class="cl">            type: CustomCollectionFieldType.boolean  
+</span></span><span class="line"><span class="cl">        }, {  
+</span></span><span class="line"><span class="cl">            id: &#34;customFieldId&#34;,  
+</span></span><span class="line"><span class="cl">            title: &#34;People picker&#34;,  
+</span></span><span class="line"><span class="cl">            type: CustomCollectionFieldType.custom,  
+</span></span><span class="line"><span class="cl">            onCustomRender: (field, value, onUpdate, item, itemId, onError) =&gt; {  
+</span></span><span class="line"><span class="cl">                return (  
+</span></span><span class="line"><span class="cl">                    React.createElement(PeoplePicker, {  
+</span></span><span class="line"><span class="cl">                        context: this.context,  
+</span></span><span class="line"><span class="cl">                        personSelectionLimit: 1,  
+</span></span><span class="line"><span class="cl">                        showtooltip: true,  
+</span></span><span class="line"><span class="cl">                        key: itemId,  
+</span></span><span class="line"><span class="cl">                        defaultSelectedUsers: [item.customFieldId],  
+</span></span><span class="line"><span class="cl">                        selectedItems: (items: any[]) =&gt; {  
+</span></span><span class="line"><span class="cl">                            console.log(&#39;Items:&#39;, items);  
+</span></span><span class="line"><span class="cl">                            item.customFieldId = items[0].secondaryText;  
+</span></span><span class="line"><span class="cl">                            onUpdate(field.id, items[0].secondaryText);  
+</span></span><span class="line"><span class="cl">                        },  
+</span></span><span class="line"><span class="cl">                        showHiddenInUI: false,  
+</span></span><span class="line"><span class="cl">                        principalTypes: [PrincipalType.User]  
+</span></span><span class="line"><span class="cl">                    }  
+</span></span><span class="line"><span class="cl">                    )  
+</span></span><span class="line"><span class="cl">                );  
+</span></span><span class="line"><span class="cl">            }  
+</span></span><span class="line"><span class="cl">        }  
+</span></span><span class="line"><span class="cl">    ],  
+</span></span><span class="line"><span class="cl">    disabled: false  
+</span></span><span class="line"><span class="cl">})  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Let us understand the above code,</p>
+<p>We are creating six columns for our Data out of which two are of type string  column Title and Lastname.</p>
+<p>The age field is of type number,  city field is of type dropdown with values as &ldquo;Pune&rdquo; and &ldquo;Junagadh.&rdquo; Sign is of type boolean and for the custom field, we are using the PnP People picker field for storing user email id.</p>
+<p>For the custom field, onCustomRender is the mandatory and important function which indicates which field we would like to display. For storing the data we are using onUpdate function which would update the value of the collection.</p>
+<p><strong>Step 3 - Use the data which is added in the property pane</strong></p>
+<p>Update the interface with the values as displayed below, </p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">export interface IPnpPropertyFieldCollectionDataProps {  
+</span></span><span class="line"><span class="cl">  description: string;  
+</span></span><span class="line"><span class="cl">  collectionData: any[];  
+</span></span><span class="line"><span class="cl">}  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now pass the collected data to the react component to display it in our page.</p>
+<p>Update the render method in the .ts file of the web part as displayed below.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public render(): void {  
+</span></span><span class="line"><span class="cl">    const element: React.ReactElement&lt;IPnpPropertyFieldCollectionDataProps&gt; = React.createElement(  
+</span></span><span class="line"><span class="cl">      PnpPropertyFieldCollectionData,  
+</span></span><span class="line"><span class="cl">      {  
+</span></span><span class="line"><span class="cl">        description: this.properties.description,  
+</span></span><span class="line"><span class="cl">        collectionData: this.properties.collectionData  
+</span></span><span class="line"><span class="cl">      }  
+</span></span><span class="line"><span class="cl">    );  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">    ReactDom.render(element, this.domElement);  
+</span></span><span class="line"><span class="cl">  }  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now to display it in the HTML open the .tsx file of the webpart and append the below code in the render method.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;div className={styles.row}&gt;  
+</span></span><span class="line"><span class="cl">{this.props.collectionData &amp;&amp; this.props.collectionData.map((val) =&gt; {  
+</span></span><span class="line"><span class="cl">  return (&lt;div&gt;&lt;span&gt;{val.Title}&lt;/span&gt;&lt;span style={{ marginLeft: 10 }}&gt;{val.Lastname}&lt;/span&gt;&lt;/div&gt;);  
+</span></span><span class="line"><span class="cl">})}  
+</span></span><span class="line"><span class="cl">&lt;/div&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>outcome</strong></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/how-to-use-propertyfieldcollectiondata-in-spfx-property-pane/Images/Outcome.gif"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/how-to-use-propertyfieldcollectiondata-in-spfx-property-pane/Images/Outcome.gif, https://f4n3x6c5.stackpathcdn.com/article/how-to-use-propertyfieldcollectiondata-in-spfx-property-pane/Images/Outcome.gif 1.5x, https://f4n3x6c5.stackpathcdn.com/article/how-to-use-propertyfieldcollectiondata-in-spfx-property-pane/Images/Outcome.gif 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/how-to-use-propertyfieldcollectiondata-in-spfx-property-pane/Images/Outcome.gif"
+        title="How To Use PropertyFieldCollectionData In SPFx Property Pane" /></p>
+<p>Complete code is available in the below <a href="https://github.com/kunj-sangani/PnPPropertyFieldCollectionData" target="_blank" rel="noopener noreffer ">link</a>.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>So with PropertyFieldCollectionData control, we can create a complete form with different fields where the data can be stored and can be retrieved. This can be very helpful when we need to use this for configuring email templates and when we want the webpart to have multiple configurations.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-Jun-22</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2020/06/how-to-use-property-field-collection-data-in-sp-fx-property-pane/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://example.org/2020/06/how-to-use-property-field-collection-data-in-sp-fx-property-pane/" data-title="How To Use PropertyFieldCollectionData In SPFx Property Pane" data-via="sanganikunj" data-hashtags="SPFx,SharePoint Online"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/2020/06/how-to-use-property-field-collection-data-in-sp-fx-property-pane/" data-hashtag="SPFx"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://example.org/2020/06/how-to-use-property-field-collection-data-in-sp-fx-property-pane/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="http://example.org/2020/06/how-to-use-property-field-collection-data-in-sp-fx-property-pane/" data-title="How To Use PropertyFieldCollectionData In SPFx Property Pane" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/spfx/">SPFx</a>,&nbsp;<a href="/tags/sharepoint-online/">SharePoint Online</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020/06/crud-operation-on-share-point-sp-fx-webpart-using-pn-p-power-shell/" class="prev" rel="prev" title="CRUD Operation On SPFx Webpart Using PnP PowerShell"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>CRUD Operation On SPFx Webpart Using PnP PowerShell</a>
+            <a href="/2020/06/variables-in-power-apps/" class="next" rel="next" title="Variables In PowerApps">Variables In PowerApps<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Kunj Sangani</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"search":{"algoliaAppID":"1X7YJ8VWPT","algoliaIndex":"index.en","algoliaSearchKey":"00a0369aedac90b4135d976a8a7b12b8","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

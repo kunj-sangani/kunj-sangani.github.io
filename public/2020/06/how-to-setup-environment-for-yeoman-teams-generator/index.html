@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>How To Setup Environment For Yeoman Teams Generator - Kunj Sangani</title><meta name="Description" content="Setting up the PnP Yeoman scaffolder for Teams applications to extend the capabilities of Microsoft Teams and creating a sample bot for better collaboration."><meta property="og:title" content="How To Setup Environment For Yeoman Teams Generator" />
+<meta property="og:description" content="Setting up the PnP Yeoman scaffolder for Teams applications to extend the capabilities of Microsoft Teams and creating a sample bot for better collaboration." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/2020/06/how-to-setup-environment-for-yeoman-teams-generator/" /><meta property="og:image" content="http://example.org/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-06-03T21:57:40+08:00" />
+<meta property="article:modified_time" content="2020-06-03T21:57:40+08:00" /><meta property="og:site_name" content="Kunj Sangani" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/avatar.png"/>
+
+<meta name="twitter:title" content="How To Setup Environment For Yeoman Teams Generator"/>
+<meta name="twitter:description" content="Setting up the PnP Yeoman scaffolder for Teams applications to extend the capabilities of Microsoft Teams and creating a sample bot for better collaboration."/>
+<meta name="application-name" content="Kunj Sangani">
+<meta name="apple-mobile-web-app-title" content="Kunj Sangani"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/2020/06/how-to-setup-environment-for-yeoman-teams-generator/" /><link rel="prev" href="http://example.org/2020/05/how-to-use-and-configure-pn-p-search-web-part/" /><link rel="next" href="http://example.org/2020/06/crud-operation-on-share-point-sp-fx-webpart-using-pn-p-power-shell/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "How To Setup Environment For Yeoman Teams Generator",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/2020\/06\/how-to-setup-environment-for-yeoman-teams-generator\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "http:\/\/example.org\/images\/avatar.png",
+                            "width":  960 ,
+                            "height":  960 
+                        }],"genre": "posts","keywords": "Yo Teams, Teams Tab","wordcount":  928 ,
+        "url": "http:\/\/example.org\/2020\/06\/how-to-setup-environment-for-yeoman-teams-generator\/","datePublished": "2020-06-03T21:57:40+08:00","dateModified": "2020-06-03T21:57:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Kunj Sangani","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/example.org\/images\/avatar.png",
+                    "width":  960 ,
+                    "height":  960 
+                }},"author": {
+                "@type": "Person",
+                "name": "Kunj Sangani"
+            },"description": "Setting up the PnP Yeoman scaffolder for Teams applications to extend the capabilities of Microsoft Teams and creating a sample bot for better collaboration."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">How To Setup Environment For Yeoman Teams Generator</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://www.linkedin.com/in/kunj-sangani/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kunj Sangani</a></span>&nbsp;<span class="post-category">included in <a href="/categories/microsoft-teams/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Microsoft Teams</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-Jun-03">2020-Jun-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;928 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction"><strong>Introduction</strong></a></li>
+    <li><a href="#environment-setup">Environment Setup </a></li>
+    <li><a href="#step-1---install-nvm-windows"><strong>Step 1 - Install nvm-windows</strong></a></li>
+    <li><a href="#step-2---install-the-latest-version-of-nodejs"><strong>Step 2 - Install the latest version of Node.js</strong></a></li>
+    <li><a href="#step-3---installyeoman-and-gulp-cli"><strong>Step 3 - Install Yeoman and Gulp CLI</strong></a></li>
+    <li><a href="#step-4---installyeoman-generator-for-microsoft-teams-apps"><strong>Step 4 - Install Yeoman generator for Microsoft Teams apps</strong></a></li>
+    <li><a href="#generate-bot-project-for-microsoft-teams">Generate Bot Project for Microsoft Teams</a></li>
+    <li><a href="#step-1---create-a-folder"><strong>Step 1 - Create a Folder</strong> </a></li>
+    <li><a href="#step-2---create-an-azure-ad-application-and-register-a-new-bot"><strong>Step 2 - Create an Azure AD Application and Register a New Bot</strong></a></li>
+    <li><a href="#register-for-bot-application">Register for Bot Application</a></li>
+    <li><a href="#step-3---create-a-bot-application"><strong>Step 3 - Create a Bot application</strong>  </a></li>
+    <li><a href="#step-4---update-the-code"><strong>Step 4 - Update the Code</strong> </a></li>
+    <li><a href="#step-5---run-the-bot-application"><strong>Step 5 - Run the Bot Application</strong></a></li>
+    <li><a href="#step-6---add-the-manifest-to-ms-teams"><strong>Step 6 - Add the Manifest to MS Teams</strong></a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="introduction"><strong>Introduction</strong></h2>
+<p>With the increase in Microsoft Teams adoption, companies are switching to Microsoft team&rsquo;s development for extending the capabilities for Microsoft Teams for better collaboration. To make this development easy to use and to centralize it, the PnP team has generator a yeoman scaffolder for Teams applications. So let&rsquo;s look into setting up the environment and creating a sample bot for Microsoft Teams.</p>
+<h2 id="environment-setup">Environment Setup </h2>
+<h2 id="step-1---install-nvm-windows"><strong>Step 1 - Install nvm-windows</strong></h2>
+<p>We will use nvm-windows for installing Node.js because we can easily use a different version of Node.js and upgrading Node.js or using the previous version using nvm-windows is very easy. However, we can skip this step if we want to install Node.js directly.</p>
+<p>Download nvm-windows from below link use nvm-setup.zip file for more information on nvm-windows <a href="https://www.c-sharpcorner.com/blogs/how-to-use-multiple-nodejs-version-in-windows-os" target="_blank" rel="noopener noreffer ">check my blog</a></p>
+<p><em><a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank" rel="noopener noreffer ">https://github.com/coreybutler/nvm-windows/releases</a></em> </p>
+<h2 id="step-2---install-the-latest-version-of-nodejs"><strong>Step 2 - Install the latest version of Node.js</strong></h2>
+<p>We can install Node.js directly from the below link:</p>
+<p><em><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener noreffer ">https://nodejs.org/en/download/</a></em></p>
+<p>If we are using nvm-windows, use the below command to install the latest version of Node.js:</p>
+<p><em>nvm install latest</em></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/temp/81001/Images/2_Install%20Latest.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/temp/81001/Images/2_Install%20Latest.png, https://f4n3x6c5.stackpathcdn.com/article/temp/81001/Images/2_Install%20Latest.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/temp/81001/Images/2_Install%20Latest.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/temp/81001/Images/2_Install%20Latest.png"
+        title="How To Setup Enviornment For Yeoman Teams Generator" /></p>
+<h2 id="step-3---installyeoman-and-gulp-cli"><strong>Step 3 - Install Yeoman and Gulp CLI</strong></h2>
+<p>To scaffold projects using the Teams generator, we need to install the Yeoman tool as well as the Gulp CLI task manager.</p>
+<p>Using the below command, we are able to install the above dependencies.</p>
+<p><em>npm install yo gulp-cli &ndash;global</em></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/temp/81001/Images/2_yoandgulp.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/temp/81001/Images/2_yoandgulp.png, https://f4n3x6c5.stackpathcdn.com/article/temp/81001/Images/2_yoandgulp.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/temp/81001/Images/2_yoandgulp.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/temp/81001/Images/2_yoandgulp.png"
+        title="How To Setup Enviornment For Yeoman Teams Generator" /></p>
+<h2 id="step-4---installyeoman-generator-for-microsoft-teams-apps"><strong>Step 4 - Install Yeoman generator for Microsoft Teams apps</strong></h2>
+<p>Now we need to install the Yeoman generator for Microsoft Teams. Use the below command to install it.</p>
+<p><em>npm install generator-teams &ndash;global</em></p>
+<p>To install the preview version which would provide the feature which is still in preview, use the below command:</p>
+<p><em>npm install generator-teams@preview &ndash;global</em></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/temp/81001/Images/3_generator.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/temp/81001/Images/3_generator.png, https://f4n3x6c5.stackpathcdn.com/article/temp/81001/Images/3_generator.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/temp/81001/Images/3_generator.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/temp/81001/Images/3_generator.png"
+        title="How To Setup Enviornment For Yeoman Teams Generator" /></p>
+<h2 id="generate-bot-project-for-microsoft-teams">Generate Bot Project for Microsoft Teams</h2>
+<h2 id="step-1---create-a-folder"><strong>Step 1 - Create a Folder</strong> </h2>
+<p>Let&rsquo;s create a bot for Microsoft teams. To create the bot, we would use yeoman teams generator for scaffolding the project:</p>
+<p>To create a project for use of the project files, use the below command to create a folder:</p>
+<p><em>mkdir yoTeamsBot</em></p>
+<p>Now let&rsquo;s navigate to the created folder using the below command:</p>
+<p><em>cd yoTeamsBot</em></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/temp/81001/Images/1_CreateFolder.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/temp/81001/Images/1_CreateFolder.png, https://f4n3x6c5.stackpathcdn.com/article/temp/81001/Images/1_CreateFolder.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/temp/81001/Images/1_CreateFolder.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/temp/81001/Images/1_CreateFolder.png"
+        title="How To Setup Enviornment For Yeoman Teams Generator" /></p>
+<h2 id="step-2---create-an-azure-ad-application-and-register-a-new-bot"><strong>Step 2 - Create an Azure AD Application and Register a New Bot</strong></h2>
+<p>To create a Bot, we are required to register an Azure AD application. To register a new application, use the below steps:</p>
+<ul>
+<li>Navigate to <a href="https://portal.azure.com/" target="_blank" rel="noopener noreffer ">here</a>.</li>
+<li>Select Azure Active Directory and from the left navigation, select App registrations.</li>
+<li>Click on New Registration, as displayed in the image below.</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/5_AzureApp.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/5_AzureApp.png, https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/5_AzureApp.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/5_AzureApp.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/5_AzureApp.png"
+        title="How To Setup Enviornment For Yeoman Teams Generator" /></p>
+<ul>
+<li>Add an appropriate name for the application and register the application (Copy the Client ID that is generated).</li>
+</ul>
+<p>**</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/6_Form.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/6_Form.png, https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/6_Form.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/6_Form.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/6_Form.png"
+        title="How To Setup Enviornment For Yeoman Teams Generator" /></p>
+<p>**</p>
+<ul>
+<li>Once the application is created, click on Certificates and Secret and Create a Client Secret Copy. This we use while generating the application.</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/7_1_CreateSecret.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/7_1_CreateSecret.png, https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/7_1_CreateSecret.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/7_1_CreateSecret.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/7_1_CreateSecret.png"
+        title="How To Setup Enviornment For Yeoman Teams Generator" /></p>
+<h2 id="register-for-bot-application">Register for Bot Application</h2>
+<p>We are now required to register the Bot Application for registration. Follow the below steps:</p>
+<ul>
+<li>Navigate to <a href="https://dev.botframework.com/bots/new" target="_blank" rel="noopener noreffer ">here</a>.</li>
+<li>Fill up the form with appropriate data, as displayed in the image below.</li>
+<li>Use the Azure Ad client ID which we have created in the above process. In the field, paste your app ID below to continue.</li>
+</ul>
+<p> **<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/12_RegisterBot.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/12_RegisterBot.png, https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/12_RegisterBot.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/12_RegisterBot.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/12_RegisterBot.png"
+        title="How To Setup Enviornment For Yeoman Teams Generator" /></p>
+<h2 id="step-3---create-a-bot-application"><strong>Step 3 - Create a Bot application</strong>  </h2>
+<p>Create the project using the below command:</p>
+<p><em>yo teams</em></p>
+<p>There are multiple questions that could be asked before generating the project. Use the below answers for generating the project.</p>
+<ul>
+<li>
+<p>What is your solution name? yo-teams-bot</p>
+</li>
+<li>
+<p>Where do you want to place the files? Use the current folder</p>
+</li>
+<li>
+<p>Title of your Microsoft Teams App project? yoTeamsBot</p>
+</li>
+<li>
+<p>Your (company) name? (max 32 characters) <Use your Company Name></p>
+</li>
+<li>
+<p>Which manifest version would you like to use? v1.6</p>
+</li>
+<li>
+<p>Enter your Microsoft Partner ID, if you have one? (Leave blank to skip)</p>
+</li>
+<li>
+<p>What features do you want to add to your project? A bot</p>
+</li>
+<li>
+<p>The URL where you will host this solution? <a href="https://yoteamsbot.azurewebsites.net" target="_blank" rel="noopener noreffer ">https://yoteamsbot.azurewebsites.net</a></p>
+</li>
+<li>
+<p>Would you like to show a loading indicator when your app/tab loads? No</p>
+</li>
+<li>
+<p>Would you like to include the Test framework and initial tests? No</p>
+</li>
+<li>
+<p>Would you like to use Azure Applications Insights for telemetry? No</p>
+</li>
+<li>
+<p>What type of bot would you like to use? A new bot Framework bot</p>
+</li>
+<li>
+<p>What is the name of your bot? yoTeamsBot</p>
+</li>
+<li>
+<p>What is the Microsoft App ID for the bot? It&rsquo;s found in the Bot Framework portal (<em><a href="https://dev.botframework.com" target="_blank" rel="noopener noreffer ">https://dev.botframework.com</a></em>). <Azure AD Application ID> Use the above step to create Azure AD Application ID</p>
+</li>
+<li>
+<p>Do you want to add a static tab to your bot? No</p>
+</li>
+<li>
+<p>Do you want to support file upload to the bot? No</p>
+</li>
+</ul>
+<p> **<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/4_yoTeams.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/4_yoTeams.png, https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/4_yoTeams.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/4_yoTeams.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/4_yoTeams.png"
+        title="How To Setup Enviornment For Yeoman Teams Generator" /></p>
+<h2 id="step-4---update-the-code"><strong>Step 4 - Update the Code</strong> </h2>
+<p>Open the .env file. Add the MICROSOFT_APP_PASSWORD value with the client secret that we created while generating the Azure AD application.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/8_Updatecode.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/8_Updatecode.png, https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/8_Updatecode.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/8_Updatecode.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/8_Updatecode.png"
+        title="How To Setup Enviornment For Yeoman Teams Generator" /></p>
+<h2 id="step-5---run-the-bot-application"><strong>Step 5 - Run the Bot Application</strong></h2>
+<p><em>gulp ngrok-serve</em></p>
+<h2 id="step-6---add-the-manifest-to-ms-teams"><strong>Step 6 - Add the Manifest to MS Teams</strong></h2>
+<p>Navigate to the Package folder inside the package folder which is created once we run the above command. A zip file is created inside the package folder which is used in MS Teams for registering our Bot. This is the manifest file that is generated.</p>
+<p>Open MS Teams Navigate to Apps section in Navigation. On the left search for App Studio, add open App Studio, and select Manifest editor.</p>
+<p>Click on Import an existing app and select the Manifest file present in the package folder.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/9_AddManifesto.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/9_AddManifesto.png, https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/9_AddManifesto.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/9_AddManifesto.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/9_AddManifesto.png"
+        title="How To Setup Enviornment For Yeoman Teams Generator" /></p>
+<p>Once the import is completed, install the application by selecting the application and Click on Test and Distribution present in the Finish Section </p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/10_InstallApp.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/10_InstallApp.png, https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/10_InstallApp.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/10_InstallApp.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/10_InstallApp.png"
+        title="How To Setup Enviornment For Yeoman Teams Generator" /></p>
+<p><strong>Outcome</strong></p>
+<p>Now we can use our code to send and receive a message in MS Teams!</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/11_Outcome.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/11_Outcome.png, https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/11_Outcome.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/11_Outcome.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/Images/11_Outcome.png"
+        title="How To Setup Enviornment For Yeoman Teams Generator" /></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Using the PnP Teams generator for creating Microsoft Teams application is very easy and we can leverage open source technologies and Javascript development.</p>
+<p>We can even develop Tabs, an outgoing webhook, a connector, a messaging extension for Microsoft Teams.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-Jun-03</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2020/06/how-to-setup-environment-for-yeoman-teams-generator/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://example.org/2020/06/how-to-setup-environment-for-yeoman-teams-generator/" data-title="How To Setup Environment For Yeoman Teams Generator" data-via="sanganikunj" data-hashtags="Yo Teams,Teams Tab"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/2020/06/how-to-setup-environment-for-yeoman-teams-generator/" data-hashtag="Yo Teams"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://example.org/2020/06/how-to-setup-environment-for-yeoman-teams-generator/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="http://example.org/2020/06/how-to-setup-environment-for-yeoman-teams-generator/" data-title="How To Setup Environment For Yeoman Teams Generator" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/yo-teams/">Yo Teams</a>,&nbsp;<a href="/tags/teams-tab/">Teams Tab</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020/05/how-to-use-and-configure-pn-p-search-web-part/" class="prev" rel="prev" title="How To Use And Configure PnP Search WebPart"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>How To Use And Configure PnP Search WebPart</a>
+            <a href="/2020/06/crud-operation-on-share-point-sp-fx-webpart-using-pn-p-power-shell/" class="next" rel="next" title="CRUD Operation On SPFx Webpart Using PnP PowerShell">CRUD Operation On SPFx Webpart Using PnP PowerShell<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Kunj Sangani</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"search":{"algoliaAppID":"1X7YJ8VWPT","algoliaIndex":"index.en","algoliaSearchKey":"00a0369aedac90b4135d976a8a7b12b8","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

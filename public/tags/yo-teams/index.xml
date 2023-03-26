@@ -1,0 +1,27 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Yo Teams - Tag - Kunj Sangani</title>
+        <link>http://example.org/tags/yo-teams/</link>
+        <description>Yo Teams - Tag - Kunj Sangani</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>sangani.kunj@gmail.com (Kunj Sangani)</managingEditor>
+            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 12 Oct 2020 12:57:40 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/yo-teams/" rel="self" type="application/rss+xml" /><item>
+    <title>Outgoing Web Hook In Teams Using Yeoman Teams Generator</title>
+    <link>http://example.org/2020/10/outgoing-web-hook-in-teams-using-yeoman-teams-generator/</link>
+    <pubDate>Mon, 12 Oct 2020 12:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/2020/10/outgoing-web-hook-in-teams-using-yeoman-teams-generator/</guid>
+    <description><![CDATA[Introduction This article will help us understand Outgoing Webhook in MS Teams, and is a step by step guid for creating outgoing webhook using yeoman teams generator.
+Outgoing Webhook in MS Teams acts like a bot which can be triggered from channel using @mention, web hook can receive messages posted along with the @mention and can send reply based on the incoming message.
+In this article we will focus on creating Outgoing web hook using yeoman generator and use it in MS Teams.]]></description>
+</item>
+<item>
+    <title>How To Setup Environment For Yeoman Teams Generator</title>
+    <link>http://example.org/2020/06/how-to-setup-environment-for-yeoman-teams-generator/</link>
+    <pubDate>Wed, 03 Jun 2020 21:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/2020/06/how-to-setup-environment-for-yeoman-teams-generator/</guid>
+    <description><![CDATA[Introduction With the increase in Microsoft Teams adoption, companies are switching to Microsoft team&rsquo;s development for extending the capabilities for Microsoft Teams for better collaboration. To make this development easy to use and to centralize it, the PnP team has generator a yeoman scaffolder for Teams applications. So let&rsquo;s look into setting up the environment and creating a sample bot for Microsoft Teams.
+Environment Setup Step 1 - Install nvm-windows We will use nvm-windows for installing Node.]]></description>
+</item>
+</channel>
+</rss>

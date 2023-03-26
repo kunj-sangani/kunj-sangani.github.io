@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>CRUD Operation On SPFx Webpart Using PnP PowerShell - Kunj Sangani</title><meta name="Description" content="The article guides readers on using PnP PowerShell to perform CRUD operations for SharePoint Framework webparts, simplifying maintenance and automation."><meta property="og:title" content="CRUD Operation On SPFx Webpart Using PnP PowerShell" />
+<meta property="og:description" content="The article guides readers on using PnP PowerShell to perform CRUD operations for SharePoint Framework webparts, simplifying maintenance and automation." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/2020/06/crud-operation-on-share-point-sp-fx-webpart-using-pn-p-power-shell/" /><meta property="og:image" content="http://example.org/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-06-08T21:57:40+08:00" />
+<meta property="article:modified_time" content="2020-06-08T21:57:40+08:00" /><meta property="og:site_name" content="Kunj Sangani" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/avatar.png"/>
+
+<meta name="twitter:title" content="CRUD Operation On SPFx Webpart Using PnP PowerShell"/>
+<meta name="twitter:description" content="The article guides readers on using PnP PowerShell to perform CRUD operations for SharePoint Framework webparts, simplifying maintenance and automation."/>
+<meta name="application-name" content="Kunj Sangani">
+<meta name="apple-mobile-web-app-title" content="Kunj Sangani"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/2020/06/crud-operation-on-share-point-sp-fx-webpart-using-pn-p-power-shell/" /><link rel="prev" href="http://example.org/2020/06/how-to-setup-environment-for-yeoman-teams-generator/" /><link rel="next" href="http://example.org/2020/06/how-to-use-property-field-collection-data-in-sp-fx-property-pane/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "CRUD Operation On SPFx Webpart Using PnP PowerShell",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/2020\/06\/crud-operation-on-share-point-sp-fx-webpart-using-pn-p-power-shell\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "http:\/\/example.org\/images\/avatar.png",
+                            "width":  960 ,
+                            "height":  960 
+                        }],"genre": "posts","keywords": "SPFx, PowerShell","wordcount":  730 ,
+        "url": "http:\/\/example.org\/2020\/06\/crud-operation-on-share-point-sp-fx-webpart-using-pn-p-power-shell\/","datePublished": "2020-06-08T21:57:40+08:00","dateModified": "2020-06-08T21:57:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Kunj Sangani","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/example.org\/images\/avatar.png",
+                    "width":  960 ,
+                    "height":  960 
+                }},"author": {
+                "@type": "Person",
+                "name": "Kunj Sangani"
+            },"description": "The article guides readers on using PnP PowerShell to perform CRUD operations for SharePoint Framework webparts, simplifying maintenance and automation."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">CRUD Operation On SPFx Webpart Using PnP PowerShell</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://www.linkedin.com/in/kunj-sangani/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kunj Sangani</a></span>&nbsp;<span class="post-category">included in <a href="/categories/powershell/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>PowerShell</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-Jun-08">2020-Jun-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;730 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#installation-of-pnp-powershell">Installation of PnP PowerShell</a></li>
+    <li><a href="#add-spfx-webpart-in-site-page">Add SPFx Webpart in Site Page</a></li>
+    <li><a href="#update-spfx-webpart-in-site-page">Update SPFx Webpart in Site Page</a></li>
+    <li><a href="#fetch-all-spfx-webpart-in-site-page">Fetch All SPFx Webpart in Site Page</a></li>
+    <li><a href="#delete-spfx-webpart-in-site-page">Delete SPFx Webpart in Site Page</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="introduction">Introduction</h2>
+<p>With the introduction to SharePoint Framework (SPFx), creating webparts using frontend technologies has been very easy. But what if we want to maintain it and create some automation for adding, updating, or deleting this SPFx webparts? In this scenario, PnP PowerShell helps us with all the CRUD operations for SPFx webparts. So let us check how we can utilize this.</p>
+<h2 id="installation-of-pnp-powershell">Installation of PnP PowerShell</h2>
+<p>Installing PnP PowerShell is very easy. There are two methods.</p>
+<p>If you are using Windows 10 then running the below command in PowerShell  will install the PnP PowerShell module</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Install-Module SharePointPnPPowerShellOnline -Scope CurrentUser  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Install the executable by downloading it from the below <a href="https://github.com/pnp/PnP-PowerShell/releases" target="_blank" rel="noopener noreffer ">link</a>.</p>
+<h2 id="add-spfx-webpart-in-site-page">Add SPFx Webpart in Site Page</h2>
+<p>Before Running the below commands we need to first connect sitecollection. To do so we can use the below command:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Connect-PnPOnline &lt;sitecollection URL&gt; 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>For adding SPFx webpart there are two options,</p>
+<ol>
+<li>We add out of the box webpart</li>
+<li>We add custom created webpart</li>
+</ol>
+<p>For Adding Out of the box webpart we can run the below command</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Add-PnPClientSideWebPart -Page TestPage -DefaultWebPartType Image -WebPartProperties &#39;{&#34;imageSource&#34;:&#34;https://testinglala.sharepoint.com/sites/Test/SiteAssets/SitePages/mypage/1789636885Scottish-wildcat-in-the-grass.jpg&#34;}&#39;  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Note</strong></p>
+<p>In the –DefaultWebPartType we can use any of the out of the box webpart names.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/crud-operation-on-sharepoint-spfx-webpart-using-pnp-powershell/Images/1_AddWebPart.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/crud-operation-on-sharepoint-spfx-webpart-using-pnp-powershell/Images/1_AddWebPart.png, https://f4n3x6c5.stackpathcdn.com/article/crud-operation-on-sharepoint-spfx-webpart-using-pnp-powershell/Images/1_AddWebPart.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/crud-operation-on-sharepoint-spfx-webpart-using-pnp-powershell/Images/1_AddWebPart.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/crud-operation-on-sharepoint-spfx-webpart-using-pnp-powershell/Images/1_AddWebPart.png"
+        title="CRUD Operation On SharePoint SPFx Webpart Using PnP PowerShell" /></p>
+<p>For Adding Custom SPFx Webpart we can use the below command,</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Add-PnPClientSideWebPart -Page TestPage -Component &#34;ie11Test&#34;  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/crud-operation-on-sharepoint-spfx-webpart-using-pnp-powershell/Images/2_AddWebPart.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/crud-operation-on-sharepoint-spfx-webpart-using-pnp-powershell/Images/2_AddWebPart.png, https://f4n3x6c5.stackpathcdn.com/article/crud-operation-on-sharepoint-spfx-webpart-using-pnp-powershell/Images/2_AddWebPart.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/crud-operation-on-sharepoint-spfx-webpart-using-pnp-powershell/Images/2_AddWebPart.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/crud-operation-on-sharepoint-spfx-webpart-using-pnp-powershell/Images/2_AddWebPart.png"
+        title="CRUD Operation On SharePoint SPFx Webpart Using PnP PowerShell" /></p>
+<p><strong>Available Parameters</strong></p>
+<ol>
+<li>Page - This parameter accepts a string and we can provide the name of the page where we want to add the webpart</li>
+<li>Section - This parameter accepts integer values which indicate in which section we want to add the SPFx webpart</li>
+<li>Column - This parameter also accepts integer values and indicate in which column we want to add SPFx webpart</li>
+<li>Component - To add custom SPFx webpart we need to use this parameter. We can either provide GUID or the name of the component</li>
+<li>DefaultWebPartType - To add Out of the box webpart we can specify the name of the webpart in this parameter</li>
+<li>Order - This parameter accepts integer values and indicates the order of the webpart</li>
+<li>WebPartProperties - To specify the property of the webpart we can use this field it can be used both in Custom SPFx webpart as well Out of the box webparts</li>
+</ol>
+<h2 id="update-spfx-webpart-in-site-page">Update SPFx Webpart in Site Page</h2>
+<p>To update the SPFx webpart we want to update the webpart properties. This can be easily achieved using the below command:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Set-PnPClientSideWebPart -Page TestPage -Identity f6e82e11-f2d7-4bf3-a90a-c7ada44bfbba -PropertiesJson &#39;{&#34;description&#34;:&#34;Testing123&#34;}&#39;  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/crud-operation-on-sharepoint-spfx-webpart-using-pnp-powershell/Images/3_UpdateWebPart.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/crud-operation-on-sharepoint-spfx-webpart-using-pnp-powershell/Images/3_UpdateWebPart.png, https://f4n3x6c5.stackpathcdn.com/article/crud-operation-on-sharepoint-spfx-webpart-using-pnp-powershell/Images/3_UpdateWebPart.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/crud-operation-on-sharepoint-spfx-webpart-using-pnp-powershell/Images/3_UpdateWebPart.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/crud-operation-on-sharepoint-spfx-webpart-using-pnp-powershell/Images/3_UpdateWebPart.png"
+        title="CRUD Operation On SharePoint SPFx Webpart Using PnP PowerShell" /></p>
+<p><strong>Available Parameters</strong></p>
+<ol>
+<li>Identity - This parameter accepts the ID of the webpart. This can accept title or instance id of the webpart.</li>
+<li>Page - This parameter accepts a string and we can provide the name of the page where we want to update the webpart.</li>
+<li>PropertiesJson - To update the property values we can provide the JSON. In this parameter it&rsquo;s displayed in the command above.</li>
+<li>Title - To update the internal title of the webpart</li>
+</ol>
+<p><strong>Note</strong></p>
+<p>This parameter will not update the title which is displayed for the webpart.</p>
+<h2 id="fetch-all-spfx-webpart-in-site-page">Fetch All SPFx Webpart in Site Page</h2>
+<p>To fetch all the webparts present in the Site Page we can use the below command. This would enumerate all the client-side webparts.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Get-PnPClientSideComponent -Page TestPage
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/crud-operation-on-sharepoint-spfx-webpart-using-pnp-powershell/Images/4_GetWebParts.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/crud-operation-on-sharepoint-spfx-webpart-using-pnp-powershell/Images/4_GetWebParts.png, https://f4n3x6c5.stackpathcdn.com/article/crud-operation-on-sharepoint-spfx-webpart-using-pnp-powershell/Images/4_GetWebParts.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/crud-operation-on-sharepoint-spfx-webpart-using-pnp-powershell/Images/4_GetWebParts.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/crud-operation-on-sharepoint-spfx-webpart-using-pnp-powershell/Images/4_GetWebParts.png"
+        title="CRUD Operation On SharePoint SPFx Webpart Using PnP PowerShell" /></p>
+<p><strong>Available Parameters</strong></p>
+<ol>
+<li>InstanceId - This parameter accepts the ID of the webpart. This can accept title or instance id of the webpart.</li>
+<li>Page - This parameter accepts a string and we can provide the name of the page where we want to get the webpart.</li>
+</ol>
+<h2 id="delete-spfx-webpart-in-site-page">Delete SPFx Webpart in Site Page</h2>
+<p>To remove any specific instance of the webpart in the site page we can use the below command which would delete the instance from the page.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Remove-PnPClientSideComponent -Page Home -InstanceId a2875399-d6ff-43a0-96da-be6ae5875f82  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/crud-operation-on-sharepoint-spfx-webpart-using-pnp-powershell/Images/5_DeleteWebParts.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/crud-operation-on-sharepoint-spfx-webpart-using-pnp-powershell/Images/5_DeleteWebParts.png, https://f4n3x6c5.stackpathcdn.com/article/crud-operation-on-sharepoint-spfx-webpart-using-pnp-powershell/Images/5_DeleteWebParts.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/crud-operation-on-sharepoint-spfx-webpart-using-pnp-powershell/Images/5_DeleteWebParts.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/crud-operation-on-sharepoint-spfx-webpart-using-pnp-powershell/Images/5_DeleteWebParts.png"
+        title="CRUD Operation On SharePoint SPFx Webpart Using PnP PowerShell" /></p>
+<p><strong>Available Parameters</strong></p>
+<ol>
+<li>Force - If we want to skip the confirmation for deleting the webpart we can use this parameter</li>
+<li>InstanceId - This parameter accepts the ID of the webpart. This can accept title or instance id of the webpart</li>
+<li>Page - This parameter accepts a string and we can provide the name of the page where we want to delete the webpart.</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>From the above commands, we can conclude that for automating the process adding, creating,  updating or deleting the webpart becomes easy using the PnP PowerShell command and it becomes very easy to maintain the Site Pages using these commands. We can even leverage this to automate the modern page creation by adding webparts as per our need using above command.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-Jun-08</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2020/06/crud-operation-on-share-point-sp-fx-webpart-using-pn-p-power-shell/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://example.org/2020/06/crud-operation-on-share-point-sp-fx-webpart-using-pn-p-power-shell/" data-title="CRUD Operation On SPFx Webpart Using PnP PowerShell" data-via="sanganikunj" data-hashtags="SPFx,PowerShell"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/2020/06/crud-operation-on-share-point-sp-fx-webpart-using-pn-p-power-shell/" data-hashtag="SPFx"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://example.org/2020/06/crud-operation-on-share-point-sp-fx-webpart-using-pn-p-power-shell/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="http://example.org/2020/06/crud-operation-on-share-point-sp-fx-webpart-using-pn-p-power-shell/" data-title="CRUD Operation On SPFx Webpart Using PnP PowerShell" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/spfx/">SPFx</a>,&nbsp;<a href="/tags/powershell/">PowerShell</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020/06/how-to-setup-environment-for-yeoman-teams-generator/" class="prev" rel="prev" title="How To Setup Environment For Yeoman Teams Generator"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>How To Setup Environment For Yeoman Teams Generator</a>
+            <a href="/2020/06/how-to-use-property-field-collection-data-in-sp-fx-property-pane/" class="next" rel="next" title="How To Use PropertyFieldCollectionData In SPFx Property Pane">How To Use PropertyFieldCollectionData In SPFx Property Pane<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Kunj Sangani</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"search":{"algoliaAppID":"1X7YJ8VWPT","algoliaIndex":"index.en","algoliaSearchKey":"00a0369aedac90b4135d976a8a7b12b8","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

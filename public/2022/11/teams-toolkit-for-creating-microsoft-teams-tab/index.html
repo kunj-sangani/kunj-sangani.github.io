@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Teams Toolkit For Creating Microsoft Teams Tab - Kunj Sangani</title><meta name="Description" content="Learn how to create Tabs in Microsoft Teams using the Teams Toolkit with this step-by-step guide."><meta property="og:title" content="Teams Toolkit For Creating Microsoft Teams Tab" />
+<meta property="og:description" content="Learn how to create Tabs in Microsoft Teams using the Teams Toolkit with this step-by-step guide." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/2022/11/teams-toolkit-for-creating-microsoft-teams-tab/" /><meta property="og:image" content="http://example.org/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-11-03T21:57:40+08:00" />
+<meta property="article:modified_time" content="2022-11-03T21:57:40+08:00" /><meta property="og:site_name" content="Kunj Sangani" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/avatar.png"/>
+
+<meta name="twitter:title" content="Teams Toolkit For Creating Microsoft Teams Tab"/>
+<meta name="twitter:description" content="Learn how to create Tabs in Microsoft Teams using the Teams Toolkit with this step-by-step guide."/>
+<meta name="application-name" content="Kunj Sangani">
+<meta name="apple-mobile-web-app-title" content="Kunj Sangani"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/2022/11/teams-toolkit-for-creating-microsoft-teams-tab/" /><link rel="prev" href="http://example.org/2021/08/how-to-run-pn-p-power-shell-in-mac-os/" /><link rel="next" href="http://example.org/2022/11/using-teams-toolkit-cli-for-creating-teams-tab/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Teams Toolkit For Creating Microsoft Teams Tab",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/2022\/11\/teams-toolkit-for-creating-microsoft-teams-tab\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "http:\/\/example.org\/images\/avatar.png",
+                            "width":  960 ,
+                            "height":  960 
+                        }],"genre": "posts","keywords": "Teams Tab, TeamsFx, Teams Toolkit","wordcount":  763 ,
+        "url": "http:\/\/example.org\/2022\/11\/teams-toolkit-for-creating-microsoft-teams-tab\/","datePublished": "2022-11-03T21:57:40+08:00","dateModified": "2022-11-03T21:57:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Kunj Sangani","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/example.org\/images\/avatar.png",
+                    "width":  960 ,
+                    "height":  960 
+                }},"author": {
+                "@type": "Person",
+                "name": "Kunj Sangani"
+            },"description": "Learn how to create Tabs in Microsoft Teams using the Teams Toolkit with this step-by-step guide."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Teams Toolkit For Creating Microsoft Teams Tab</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://www.linkedin.com/in/kunj-sangani/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kunj Sangani</a></span>&nbsp;<span class="post-category">included in <a href="/categories/microsoft-teams/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Microsoft Teams</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-Nov-03">2022-Nov-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;763 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#what-is-teams-toolkit">What is Teams Toolkit?</a></li>
+    <li><a href="#create-teams-tab-using-teams-toolkit">Create Teams Tab using Teams Toolkit</a></li>
+    <li><a href="#million-dollar-question-is-how-to-test-in-microsoft-teams">Million dollar question is how to test in Microsoft Teams</a></li>
+    <li><a href="#project-structure">Project Structure </a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="introduction">Introduction</h2>
+<p>Microsoft Teams is one of the most used collaborative platforms with 270 million monthly active users as of 2022. Microsoft teams have extensibility capabilities that help developers create their own applications. For this application, we have many application capabilities such as Personal apps, Tabs, Bots, Messaging extensions, Meeting extensions, and Webhook and connectors.</p>
+<p>In this article, we will leverage the capability of Tabs in Microsoft teams. We will go through step by step process of creating Tabs using Teams Toolkit.</p>
+<h2 id="what-is-teams-toolkit">What is Teams Toolkit?</h2>
+<p>Teams toolkit is an extension in Visual studio code and Visual Studio which helps app development for Microsoft teams simple as it provides templates and samples for all different application capabilities.</p>
+<p>To install Teams Toolkit in Visual studio code follow the below steps,</p>
+<p>1. Open Visual studio code</p>
+<p>2. Navigate to the extension section in Visual studio code as displayed in the image below</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/1-TeamsToolkit-1.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/1-TeamsToolkit-1.png, https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/1-TeamsToolkit-1.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/1-TeamsToolkit-1.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/1-TeamsToolkit-1.png"
+        title="Teams Toolkit for Creating Microsoft Teams Tab" /></p>
+<p>3. Search for Teams Toolkit and Install the extension</p>
+<p>Once the Teams toolkit is installed Teams toolkit icon would be displayed on the primary bar which is present as left navigation in Visual studio code.</p>
+<h2 id="create-teams-tab-using-teams-toolkit">Create Teams Tab using Teams Toolkit</h2>
+<p>To create a teams tab using the Teams toolkit use the below steps which would help us create a template for teams tabs that we can extend as per our requirement</p>
+<p>1. Open Visual studio code</p>
+<p>2. Click on the Teams Toolkit icon present on the primary bar of Visual studio code.</p>
+<p><strong>Note</strong><br>
+This icon will be displayed after the teams toolkit is installed as explained in the above section.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%202-1.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%202-1.png, https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%202-1.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%202-1.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%202-1.png"
+        title="Teams Toolkit for Creating Microsoft Teams Tab" /></p>
+<p>3. Click on Create a new team app button which would provide two options Create a new Teams app and Start from a sample. We would select Create a new Teams app for this article but if you want to start from a sample you can select that option and explore all the samples provided by Microsoft which caters to specific business use case</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%203-1.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%203-1.png, https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%203-1.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%203-1.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%203-1.png"
+        title="Teams Toolkit for Creating Microsoft Teams Tab" /></p>
+<p>4.  We would have options to select one from different capabilities provided for Teams application development but for this article, we would select the Tabs option as displayed in the image below</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%204-1.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%204-1.png, https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%204-1.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%204-1.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%204-1.png"
+        title="Teams Toolkit for Creating Microsoft Teams Tab" /></p>
+<p>5. We would be provided with two different options for selecting a programming language JavaScript and TypeScript.</p>
+<p>For this article let us select TypeScript,</p>
+<p>    </p>
+<p>6. Select the workspace folder where we want all our scaffolded files to be present</p>
+<p>    </p>
+<p>7. Provide the application name. For this article let us use HelloWorldTeamsTab</p>
+<p>Once all the above steps are completed a scaffolded project with different files would be opened in a new Visual studio code instance as displayed in the image below,</p>
+<p>![](<a href="https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image" target="_blank" rel="noopener noreffer ">https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image</a> 9-1.png)</p>
+<h2 id="million-dollar-question-is-how-to-test-in-microsoft-teams">Million dollar question is how to test in Microsoft Teams</h2>
+<p>The Teams toolkit helps us here as well. To test out the tab in Microsoft Teams follow the below steps</p>
+<p>1. Navigate to the Teams toolkit extension present on the primary bar of Visual studio code</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%2010-1.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%2010-1.png, https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%2010-1.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%2010-1.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%2010-1.png"
+        title="Teams Toolkit for Creating Microsoft Teams Tab" /></p>
+<p>2. Click on the Sign in to Microsoft 365 options present under the Accounts section</p>
+<p>3. If you do not have a developer tenant then you can create one by selecting the option Create a Microsoft 365 testing tenant or clicking on Sign in</p>
+<p>4. Sign-in would happen in the browser so you can provide your email address and password and close the tab which got opened in the browser for login</p>
+<p>5. Please confirm in the Accounts section whether your login was successful or not</p>
+<p>6. Now to test just press the F5 key</p>
+<p>7. A popup for installing an SSL certificate would appear which you should install and let the magic of Teams Toolkit work</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%2014-1.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%2014-1.png, https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%2014-1.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%2014-1.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%2014-1.png"
+        title="Teams Toolkit for Creating Microsoft Teams Tab" /></p>
+<p>8. A new browser with Teams would open with our app created using the Teams toolkit as displayed in the image below</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%2016-1.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%2016-1.png, https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%2016-1.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%2016-1.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%2016-1.png"
+        title="Teams Toolkit for Creating Microsoft Teams Tab" /></p>
+<p>9. We can select Add to a team and then select the team where we want to test</p>
+<p>10. A tab configuration page would open we can select save and see our app in the Teams context</p>
+<h2 id="project-structure">Project Structure </h2>
+<p>All our code is present under the tabs folder which has an src folder that contains all our react components that are created as a part of the template we can change this code and update it as per our requirement</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Using Teams Toolkit it becomes very easy to create Teams application as it provides us with templates and the best part is we can even use the templates which are created under the templates folder for deploying it to Azure as these are bicep templates. Even implementing SSO in the Teams tab is very simple using the Teams Toolkit</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%2019-1.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%2019-1.png, https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%2019-1.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%2019-1.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/teams-toolkit-for-creating-microsoft-teams-tab/Images/Image%2019-1.png"
+        title="Teams Toolkit for Creating Microsoft Teams Tab" /></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-Nov-03</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2022/11/teams-toolkit-for-creating-microsoft-teams-tab/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://example.org/2022/11/teams-toolkit-for-creating-microsoft-teams-tab/" data-title="Teams Toolkit For Creating Microsoft Teams Tab" data-via="sanganikunj" data-hashtags="Teams Tab,TeamsFx,Teams Toolkit"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/2022/11/teams-toolkit-for-creating-microsoft-teams-tab/" data-hashtag="Teams Tab"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://example.org/2022/11/teams-toolkit-for-creating-microsoft-teams-tab/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="http://example.org/2022/11/teams-toolkit-for-creating-microsoft-teams-tab/" data-title="Teams Toolkit For Creating Microsoft Teams Tab" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/teams-tab/">Teams Tab</a>,&nbsp;<a href="/tags/teamsfx/">TeamsFx</a>,&nbsp;<a href="/tags/teams-toolkit/">Teams Toolkit</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2021/08/how-to-run-pn-p-power-shell-in-mac-os/" class="prev" rel="prev" title="How To Run PnP PowerShell In MacOS"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>How To Run PnP PowerShell In MacOS</a>
+            <a href="/2022/11/using-teams-toolkit-cli-for-creating-teams-tab/" class="next" rel="next" title="Using Teams Toolkit CLI For Creating Teams Tab">Using Teams Toolkit CLI For Creating Teams Tab<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Kunj Sangani</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"search":{"algoliaAppID":"1X7YJ8VWPT","algoliaIndex":"index.en","algoliaSearchKey":"00a0369aedac90b4135d976a8a7b12b8","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

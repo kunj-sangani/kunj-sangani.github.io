@@ -1,0 +1,330 @@
+baseURL = 'http://example.org/'
+languageCode = 'en'
+title = 'Kunj Sangani'
+theme= 'LoveIt'
+defaultContentLanguage = "en"
+languageName = "English"
+hasCJKLanguage = false
+paginate = 10
+googleAnalytics = ""
+copyright = ""
+enableRobotsTXT = true
+enableGitInfo = false
+enableEmoji = true
+ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
+
+[author]
+  name = "Kunj Sangani"
+  email = "sangani.kunj@gmail.com"
+  link = ""
+
+[menu]
+    [[menu.main]]
+        weight = 1
+        identifier = "posts"
+        pre = ""
+        post = ""
+        name = "Posts"
+        url = "/posts/"
+        title = ""
+    [[menu.main]]
+        weight = 2
+        identifier = "tags"
+        pre = ""
+        post = ""
+        name = "Tags"
+        url = "/tags/"
+        title = ""
+    [[menu.main]]
+        weight = 3
+        identifier = "categories"
+        pre = ""
+        post = ""
+        name = "Categories"
+        url = "/categories/"
+        title = ""
+
+[params]
+    defaultTheme = "auto"
+    gitRepo = "https://github.com/kunj-sangani/kunj-sangani.github.io"
+    fingerprint = ""
+    dateFormat = "2006-Jan-02"
+    title = "Kunj Sangani"
+    description = "Informative Blogs"
+    images = ["/avatar.png"]
+
+    [params.header]
+        desktopMode = "fixed"
+        mobileMode = "auto"
+    [params.header.title]
+        logo = ""
+        name = "Kunj Sangani"
+        pre = ""
+        post = ""
+        typeit = false
+    [params.footer]
+        enable = true
+        custom = ""
+        hugo = false
+        copyright = true
+        author = true
+        since = 2023
+        icp = ""
+        license= ''
+    [params.section]
+        paginate = 20
+        dateFormat = "Jan-02"
+        rss = 10
+    [params.list]
+        paginate = 20
+        dateFormat = "Jan-02"
+        rss = 10
+    [params.app]
+        title = "Kunj Sangani"
+        noFavicon = false
+        svgFavicon = ""
+        themeColor = "#ffffff"
+        iconColor = "#5bbad5"
+        tileColor = "#da532c"
+    [params.search]
+        enable = true
+        type = "algolia"
+        contentLength = 4000
+        placeholder = ""
+        maxResultLength = 10
+        snippetLength = 30
+        highlightTag = "em"
+        absoluteURL = false
+        [params.search.algolia]
+            index = ""
+            appID = ""
+            searchKey = ""
+    [params.home]
+        rss = 10
+        [params.home.profile]
+            enable = true
+            gravatarEmail = ""
+            avatarURL = "/images/avatar.png"
+            title = ""
+            subtitle = "Empowering your productivity with Microsoft 365 solutions."
+            typeit = true
+            social = true
+            disclaimer = ""
+        [params.home.posts]
+            enable = true
+            paginate = 6
+    [params.social]
+        GitHub = ""
+        Linkedin = "/in/kunj-sangani"
+        Twitter = ""
+        Instagram = ""
+        Facebook = ""
+    [params.page]
+        hiddenFromHomePage = false
+        hiddenFromSearch = false
+        twemoji = false
+        lightgallery = false
+        ruby = true
+        fraction = true
+        fontawesome = true
+        linkToMarkdown = true
+        rssFullText = false
+        [params.page.toc]
+            enable = true
+            keepStatic = false
+            auto = true
+        [params.page.code]
+            copy = true
+            maxShownLines = 50
+        [params.page.math]
+            enable = false
+            inlineLeftDelimiter = ""
+            inlineRightDelimiter = ""
+            blockLeftDelimiter = ""
+            blockRightDelimiter = ""
+            copyTex = true
+            mhchem = true
+        [params.page.share]
+            enable = true
+            Twitter = true
+            Facebook = true
+            Linkedin = true
+            Whatsapp = true
+            HackerNews = false
+            Line = false
+            Weibo = false
+        [params.page.comment]
+            enable = true
+            [params.page.comment.disqus]
+                enable = false
+                shortname = ""
+            [params.page.comment.valine]
+                enable = false
+            [params.page.comment.telegram]
+                enable = true
+                siteID = "KRZUeffK"
+                limit = 5
+                height = ""
+                color = ""
+                colorful = true
+                dislikes = false
+                outlined = false
+        [params.page.library]
+            [params.page.library.css]
+            [params.page.library.js]
+        [params.page.seo]
+            images = []
+            [params.page.seo.publisher]
+                name = "Kunj Sangani"
+                logoUrl = "/images/avatar.png"
+    [params.typeit]
+        speed = 100
+        cursorSpeed = 1000
+        cursorChar = "|"
+        duration = -1
+    [params.verification]
+        google = ""
+    [params.seo]
+        image = "/images/avatar.png"
+        thumbnailUrl = "/images/avatar.png"
+    [params.analytics]
+        enable = false
+        [params.analytics.google]
+            id = ""
+            anonymizeIP = true
+    [params.cookieconsent]
+        enable = false
+        [params.cookieconsent.content]
+            message = ""
+            dismiss = ""
+            link = ""
+    [params.compatibility]
+        polyfill = false
+        objectFit = false
+[markup]
+    [markup.highlight]
+        codeFences = true
+        guessSyntax = true
+        lineNos = true
+        lineNumbersInTable = true
+        noClasses = false
+    [markup.goldmark]
+        [markup.goldmark.extensions]
+            definitionList = true
+            footnote = true
+            linkify = true
+            strikethrough = true
+            table = true
+            taskList = true
+            typographer = true
+        [markup.goldmark.renderer]
+            unsafe = true
+    [markup.tableOfContents]
+        startLevel = 2
+        endLevel = 6
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+[Permalinks]
+    posts = ":year/:month/:filename"
+[privacy]
+    [privacy.googleAnalytics]
+    [privacy.twitter]
+        enableDNT = true
+    [privacy.youtube]
+        privacyEnhanced = true
+[mediaTypes]
+    [mediaTypes."text/plain"]
+        suffixes = ["md"]
+[outputFormats.MarkDown]
+    mediaType = "text/plain"
+    isPlainText = true
+    isHTML = false
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML", "MarkDown"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  taxonomyTerm = ["HTML"]
+
+[languages]
+  [languages.en]
+    weight = 1
+    languageCode = "en"
+    languageName = "English"
+    hasCJKLanguage = false
+    copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        weight = 1
+        identifier = "posts"
+        pre = ""
+        post = ""
+        name = "Posts"
+        url = "/posts/"
+        title = ""
+      [[languages.en.menu.main]]
+        weight = 2
+        identifier = "tags"
+        pre = ""
+        post = ""
+        name = "Tags"
+        url = "/tags/"
+        title = ""
+      [[languages.en.menu.main]]
+        weight = 3
+        identifier = "categories"
+        pre = ""
+        post = ""
+        name = "Categories"
+        url = "/categories/"
+        title = ""
+      [[languages.en.menu.main]]
+        weight = 5
+        identifier = "about"
+        pre = ""
+        post = ""
+        name = "About"
+        url = "/about/"
+        title = ""
+      [[languages.en.menu.main]]
+        weight = 6
+        identifier = "github"
+        pre = "<i class='fab fa-github fa-fw' aria-hidden='true'></i>"
+        post = ""
+        name = ""
+        url = "https://github.com/kunj-sangani"
+        title = "GitHub"
+    [languages.en.params]
+      [languages.en.params.search]
+        enable = true
+        type = "algolia"
+        contentLength = 4000
+        placeholder = ""
+        maxResultLength = 10
+        snippetLength = 30
+        highlightTag = "em"
+        absoluteURL = false
+        [languages.en.params.search.algolia]
+          index = "index.en"
+          appID = "1X7YJ8VWPT"
+          searchKey = "00a0369aedac90b4135d976a8a7b12b8"
+      [languages.en.params.home]
+        rss = 10
+        [languages.en.params.home.profile]
+          enable = true
+          gravatarEmail = ""
+          avatarURL = "/images/avatar.png"
+          title = ""
+          subtitle = "Empowering your productivity with Microsoft 365 solutions."
+          typeit = true
+          social = true
+          disclaimer = ""
+      [languages.en.params.social]
+        Linkedin= "/in/kunj-sangani"
+        GitHub = "kunj-sangani"
+        Twitter = "sanganikunj"
+        Phone = "+919130304293"
+        Email = "sangani.kunj@gmail.com"
+        RSS = true

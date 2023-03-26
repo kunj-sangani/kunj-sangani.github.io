@@ -1,0 +1,17 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>WebAPI - Tag - Kunj Sangani</title>
+        <link>http://example.org/tags/webapi/</link>
+        <description>WebAPI - Tag - Kunj Sangani</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>sangani.kunj@gmail.com (Kunj Sangani)</managingEditor>
+            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 13 Oct 2020 21:57:40 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/webapi/" rel="self" type="application/rss+xml" /><item>
+    <title>Create ASP.NET Core API w/ Azure AD Auth &amp; consume in SPFx.</title>
+    <link>http://example.org/2020/10/create-asp-net-core-api-w-azure-ad-auth-consume-in-sp-fx/</link>
+    <pubDate>Tue, 13 Oct 2020 21:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/2020/10/create-asp-net-core-api-w-azure-ad-auth-consume-in-sp-fx/</guid>
+    <description><![CDATA[Introduction The practice of creating Custom APIs using ASP.NET core is increasing day by day as ASP.NET core is platform agnostic and is based on the C# language. Securing your API is very important as we do not want everyone to access the data, hence we will explore Azure AD based authentication in ASP.NET Core Web API and consume the API using SharePoint Framework.
+There are two aspects to this article:]]></description>
+</item>
+</channel>
+</rss>

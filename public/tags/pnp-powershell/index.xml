@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>PnP PowerShell - Tag - Kunj Sangani</title>
+        <link>http://example.org/tags/pnp-powershell/</link>
+        <description>PnP PowerShell - Tag - Kunj Sangani</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>sangani.kunj@gmail.com (Kunj Sangani)</managingEditor>
+            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 16 Aug 2021 21:57:40 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/pnp-powershell/" rel="self" type="application/rss+xml" /><item>
+    <title>How To Run PnP PowerShell In MacOS</title>
+    <link>http://example.org/2021/08/how-to-run-pn-p-power-shell-in-mac-os/</link>
+    <pubDate>Mon, 16 Aug 2021 21:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/2021/08/how-to-run-pn-p-power-shell-in-mac-os/</guid>
+    <description><![CDATA[Introduction There may be requirements where we need to use PowerShell and if we are using macOS then the question becomes how we can use PowerShell in macOS. But with Microsoft&rsquo;s new approach of creating everything open source and cross-platform, we can achieve this very easily. But along with this, we would even have a look at how we can use cross-platform PnP PowerShell to automate our Microsoft 365 related tasks.]]></description>
+</item>
+</channel>
+</rss>

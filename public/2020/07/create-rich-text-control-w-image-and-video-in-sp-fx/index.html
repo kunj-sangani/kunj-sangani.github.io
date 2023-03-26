@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Create Rich Text control w/ image and video in SPFx. - Kunj Sangani</title><meta name="Description" content="Learn how to use react-quill control to customize rich text fields in Modern SharePoint List Forms, based on Quill and trusted by Microsoft."><meta property="og:title" content="Create Rich Text control w/ image and video in SPFx." />
+<meta property="og:description" content="Learn how to use react-quill control to customize rich text fields in Modern SharePoint List Forms, based on Quill and trusted by Microsoft." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/2020/07/create-rich-text-control-w-image-and-video-in-sp-fx/" /><meta property="og:image" content="http://example.org/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-07-22T21:57:40+08:00" />
+<meta property="article:modified_time" content="2020-07-22T21:57:40+08:00" /><meta property="og:site_name" content="Kunj Sangani" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/avatar.png"/>
+
+<meta name="twitter:title" content="Create Rich Text control w/ image and video in SPFx."/>
+<meta name="twitter:description" content="Learn how to use react-quill control to customize rich text fields in Modern SharePoint List Forms, based on Quill and trusted by Microsoft."/>
+<meta name="application-name" content="Kunj Sangani">
+<meta name="apple-mobile-web-app-title" content="Kunj Sangani"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/2020/07/create-rich-text-control-w-image-and-video-in-sp-fx/" /><link rel="prev" href="http://example.org/2020/07/learn-pn-p-date-time-picker-in-sp-fx/" /><link rel="next" href="http://example.org/2020/08/fetch-share-point-online-list-items-from-another-site-collection-using-pn-p-js/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Create Rich Text control w/ image and video in SPFx.",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/2020\/07\/create-rich-text-control-w-image-and-video-in-sp-fx\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "http:\/\/example.org\/images\/avatar.png",
+                            "width":  960 ,
+                            "height":  960 
+                        }],"genre": "posts","keywords": "SPFx, SharePoint Online, React-Quill","wordcount":  863 ,
+        "url": "http:\/\/example.org\/2020\/07\/create-rich-text-control-w-image-and-video-in-sp-fx\/","datePublished": "2020-07-22T21:57:40+08:00","dateModified": "2020-07-22T21:57:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Kunj Sangani","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/example.org\/images\/avatar.png",
+                    "width":  960 ,
+                    "height":  960 
+                }},"author": {
+                "@type": "Person",
+                "name": "Kunj Sangani"
+            },"description": "Learn how to use react-quill control to customize rich text fields in Modern SharePoint List Forms, based on Quill and trusted by Microsoft."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Create Rich Text control w/ image and video in SPFx.</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://www.linkedin.com/in/kunj-sangani/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kunj Sangani</a></span>&nbsp;<span class="post-category">included in <a href="/categories/spfx/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>SPFx</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-Jul-22">2020-Jul-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;863 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="introduction">Introduction</h2>
+<p>Rich Text Control is one of the most-used controls in classic SharePoint Lists but if we need to create a customization for Modern SharePoint List form using SharePoint Framework there is no easy way to do so. But in this article, we will understand how we can use react-quill control to save the rich text field and also display it for the existing items.</p>
+<p>react-quill is based on Quill which is trusted by Microsoft. To know more about the react-quill control please check the below <a href="https://github.com/zenoamaro/react-quill" target="_blank" rel="noopener noreffer ">link</a>.</p>
+<p>So let us understand how we can use react-quill in our Custom SharePoint List Form.</p>
+<p><strong>Step 1 - Create a List</strong></p>
+<p>Before creating a Custom form we would create a SharePoint list for saving the data.</p>
+<p>List Name:- Custom RichText</p>
+<p>Columns:- Title(Single Line of Text)</p>
+<p>Description(Multi-Line of Text in Plain Text format)</p>
+<p><strong>Note</strong></p>
+<p>We are using Plain Text but we will save the HTML in it because the images in React quill will be converted in base64 and will get truncated in Rich Text format.</p>
+<p><strong>Step 2 - Create SPFx Solution</strong></p>
+<p>Considering we have the environment setup completed we can use the below command to create new SPFx solution. We will use React framework for creating the Webpart</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">yo @microsoft/sharepoint  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Use the below values when asked while creating the solution.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/rich-text-control-in-spfx-using-react-quill/Images/Rich%20Text%20Control%20With%20Image%20And%20Video%20In%20SPFx%20Using%20React-Quill.jpg"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/rich-text-control-in-spfx-using-react-quill/Images/Rich%20Text%20Control%20With%20Image%20And%20Video%20In%20SPFx%20Using%20React-Quill.jpg, https://f4n3x6c5.stackpathcdn.com/article/rich-text-control-in-spfx-using-react-quill/Images/Rich%20Text%20Control%20With%20Image%20And%20Video%20In%20SPFx%20Using%20React-Quill.jpg 1.5x, https://f4n3x6c5.stackpathcdn.com/article/rich-text-control-in-spfx-using-react-quill/Images/Rich%20Text%20Control%20With%20Image%20And%20Video%20In%20SPFx%20Using%20React-Quill.jpg 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/rich-text-control-in-spfx-using-react-quill/Images/Rich%20Text%20Control%20With%20Image%20And%20Video%20In%20SPFx%20Using%20React-Quill.jpg"
+        title="Rich Text Control With Image And Video In SPFx Using React-Quill" /></p>
+<p><strong>Step 3 - Add the reference for react-quill</strong></p>
+<p>To add a reference to React quill in our project we need to use the below command which would install the required dependencies in our solution.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">npm install react-quill --save  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Saving the data we would use PnPJs so let us install the required dependencies for PnPJs.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">npm install @pnp/sp --save  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/rich-text-control-in-spfx-using-react-quill/Images/Rich%20Text%20Control%20With%20Image%20And%20Video%20In%20SPFx%20Using%20React-Quill1.jpg"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/rich-text-control-in-spfx-using-react-quill/Images/Rich%20Text%20Control%20With%20Image%20And%20Video%20In%20SPFx%20Using%20React-Quill1.jpg, https://f4n3x6c5.stackpathcdn.com/article/rich-text-control-in-spfx-using-react-quill/Images/Rich%20Text%20Control%20With%20Image%20And%20Video%20In%20SPFx%20Using%20React-Quill1.jpg 1.5x, https://f4n3x6c5.stackpathcdn.com/article/rich-text-control-in-spfx-using-react-quill/Images/Rich%20Text%20Control%20With%20Image%20And%20Video%20In%20SPFx%20Using%20React-Quill1.jpg 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/rich-text-control-in-spfx-using-react-quill/Images/Rich%20Text%20Control%20With%20Image%20And%20Video%20In%20SPFx%20Using%20React-Quill1.jpg"
+        title="Rich Text Control With Image And Video In SPFx Using React-Quill" /></p>
+<p><strong>Step 4 - Update the WebPart Code</strong></p>
+<p>Now that we have all the dependencies added in our solution we can update the code.</p>
+<p>Let us set up the sp object so that we can use it to save the list item and retrieve it.</p>
+<p>Open the file name named RichTextFieldWebPart.ts.</p>
+<p>Import sp using the below code.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import { sp } from &#34;@pnp/sp/presets/all&#34;;  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>And add the below function to setup sp object.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">protected onInit(): Promise&lt;void&gt; {  
+</span></span><span class="line"><span class="cl">   return super.onInit().then(_ =&gt; {  
+</span></span><span class="line"><span class="cl">      sp.setup({  
+</span></span><span class="line"><span class="cl">         spfxContext: this.context  
+</span></span><span class="line"><span class="cl">      });  
+</span></span><span class="line"><span class="cl">   });  
+</span></span><span class="line"><span class="cl">}  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Open the file named RichTextField.tsx to update the code for the rich text field.</p>
+<p>Let us add the required reference for React quill using the below code.
+<code> import ReactQuill from 'react-quill';   import 'react-quill/dist/quill.snow.css';   </code>
+Let us now create and  add required interfaces.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">export interface ICustomRichText {  
+</span></span><span class="line"><span class="cl">    Title: string;  
+</span></span><span class="line"><span class="cl">    Description: string;  
+</span></span><span class="line"><span class="cl">}  
+</span></span><span class="line"><span class="cl">export interface IRichTextFieldWebPartState {  
+</span></span><span class="line"><span class="cl">    item: ICustomRichText;  
+</span></span><span class="line"><span class="cl">}  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now for using react quill we can use custom toolbar so we would add all the required toolbar using the below constant:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">const modules = {  
+</span></span><span class="line"><span class="cl">    toolbar: [  
+</span></span><span class="line"><span class="cl">        [{  
+</span></span><span class="line"><span class="cl">            &#39;header&#39;: [1, 2, 3, false]  
+</span></span><span class="line"><span class="cl">        }],  
+</span></span><span class="line"><span class="cl">        [&#39;bold&#39;, &#39;italic&#39;, &#39;underline&#39;, &#39;strike&#39;, &#39;blockquote&#39;],  
+</span></span><span class="line"><span class="cl">        [{  
+</span></span><span class="line"><span class="cl">            &#39;color&#39;: []  
+</span></span><span class="line"><span class="cl">        }, {  
+</span></span><span class="line"><span class="cl">            &#39;background&#39;: []  
+</span></span><span class="line"><span class="cl">        }],  
+</span></span><span class="line"><span class="cl">        [{  
+</span></span><span class="line"><span class="cl">            &#39;list&#39;: &#39;ordered&#39;  
+</span></span><span class="line"><span class="cl">        }, {  
+</span></span><span class="line"><span class="cl">            &#39;list&#39;: &#39;bullet&#39;  
+</span></span><span class="line"><span class="cl">        }, {  
+</span></span><span class="line"><span class="cl">            &#39;indent&#39;: &#39;-1&#39;  
+</span></span><span class="line"><span class="cl">        }, {  
+</span></span><span class="line"><span class="cl">            &#39;indent&#39;: &#39;+1&#39;  
+</span></span><span class="line"><span class="cl">        }],  
+</span></span><span class="line"><span class="cl">        [&#39;link&#39;, &#39;image&#39;, &#39;video&#39;],  
+</span></span><span class="line"><span class="cl">        [&#39;clean&#39;]  
+</span></span><span class="line"><span class="cl">    ],  
+</span></span><span class="line"><span class="cl">};  
+</span></span><span class="line"><span class="cl">const formats = [&#39;header&#39;, &#39;bold&#39;, &#39;italic&#39;, &#39;underline&#39;, &#39;strike&#39;, &#39;blockquote&#39;, &#39;list&#39;, &#39;bullet&#39;, &#39;indent&#39;, &#39;link&#39;, &#39;image&#39;, &#39;video&#39;, &#39;background&#39;, &#39;color&#39;];
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now in the render method of the component, we will have to add the below code which contains one text field and one React quill text editor:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&lt;div className={styles.column}&gt;    
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">&lt;div&gt;Title&lt;/div&gt;    
+</span></span><span class="line"><span class="cl">   &lt;input type=&#34;text&#34; value={this.state.item.Title} onChange={(ev) =&gt; {    
+</span></span><span class="line"><span class="cl">   this.setState({ item: { Title: ev.target.value, Description: this.state.item.Description } });    
+</span></span><span class="line"><span class="cl">   }}&gt;&lt;/input&gt;    
+</span></span><span class="line"><span class="cl">&lt;/div&gt;    
+</span></span><span class="line"><span class="cl">&lt;div className={styles.column}&gt;    
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">&lt;div&gt;Description&lt;/div&gt;    
+</span></span><span class="line"><span class="cl">   &lt;ReactQuill theme=&#34;snow&#34;    
+</span></span><span class="line"><span class="cl">      modules={modules}    
+</span></span><span class="line"><span class="cl">      formats={formats}    
+</span></span><span class="line"><span class="cl">      value={this.state.item.Description}    
+</span></span><span class="line"><span class="cl">      onChange={(ev) =&gt; {    
+</span></span><span class="line"><span class="cl">      this.setState({ item: { Title: this.state.item.Title, Description: ev } });    
+</span></span><span class="line"><span class="cl">   }}    
+</span></span><span class="line"><span class="cl">   &gt;&lt;/ReactQuill&gt;    
+</span></span><span class="line"><span class="cl">&lt;/div&gt;    
+</span></span><span class="line"><span class="cl">&lt;div className={styles.column}&gt;    
+</span></span><span class="line"><span class="cl">&lt;button onClick={this.saveClick}&gt;Save Item&lt;/button&gt;    
+</span></span><span class="line"><span class="cl">&lt;/div&gt;  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>For saving the data and all the on change functions we need to add the below code:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">constructor(props: IRichTextFieldWebPartProps, state: IRichTextFieldWebPartState) {  
+</span></span><span class="line"><span class="cl">    super(props);  
+</span></span><span class="line"><span class="cl">    var queryParameters = new UrlQueryParameterCollection(window.location.href);  
+</span></span><span class="line"><span class="cl">    if (queryParameters.getValue(&#34;itemid&#34;)) {  
+</span></span><span class="line"><span class="cl">        const id: number = parseInt(queryParameters.getValue(&#34;itemid&#34;));  
+</span></span><span class="line"><span class="cl">        sp.web.lists.getByTitle(&#39;Custom RichText&#39;).items.getById(id).get().then((val: ICustomRichText) =&gt; {  
+</span></span><span class="line"><span class="cl">            this.setState({  
+</span></span><span class="line"><span class="cl">                item: {  
+</span></span><span class="line"><span class="cl">                    Title: val.Title,  
+</span></span><span class="line"><span class="cl">                    Description: val.Description  
+</span></span><span class="line"><span class="cl">                }  
+</span></span><span class="line"><span class="cl">            });  
+</span></span><span class="line"><span class="cl">        }).catch((err) =&gt; {  
+</span></span><span class="line"><span class="cl">            console.error(err);  
+</span></span><span class="line"><span class="cl">        });  
+</span></span><span class="line"><span class="cl">    }  
+</span></span><span class="line"><span class="cl">    this.state = {  
+</span></span><span class="line"><span class="cl">        item: {  
+</span></span><span class="line"><span class="cl">            Title: &#34;&#34;,  
+</span></span><span class="line"><span class="cl">            Description: &#34;&#34;  
+</span></span><span class="line"><span class="cl">        }  
+</span></span><span class="line"><span class="cl">    };  
+</span></span><span class="line"><span class="cl">}  
+</span></span><span class="line"><span class="cl">public saveClick = () =&gt; {  
+</span></span><span class="line"><span class="cl">    sp.web.lists.getByTitle(&#39;Custom RichText&#39;).items.add(this.state.item).then((val) =&gt; {  
+</span></span><span class="line"><span class="cl">        alert(&#39;Item Saved&#39;);  
+</span></span><span class="line"><span class="cl">    }).catch((err) =&gt; {  
+</span></span><span class="line"><span class="cl">        console.error(err);  
+</span></span><span class="line"><span class="cl">    });  
+</span></span><span class="line"><span class="cl">}  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We are also fetching the item with the query string value of itemid to display the value of the existing saved item.</p>
+<p>So once all of the code is updated we can test our Webpart which would save the data and also display the saved item. We can save images videos and all text formatting which are available.</p>
+<p><strong>Outcome</strong></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/rich-text-control-in-spfx-using-react-quill/Images/outcome-min.gif"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/rich-text-control-in-spfx-using-react-quill/Images/outcome-min.gif, https://f4n3x6c5.stackpathcdn.com/article/rich-text-control-in-spfx-using-react-quill/Images/outcome-min.gif 1.5x, https://f4n3x6c5.stackpathcdn.com/article/rich-text-control-in-spfx-using-react-quill/Images/outcome-min.gif 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/rich-text-control-in-spfx-using-react-quill/Images/outcome-min.gif"
+        title="https://f4n3x6c5.stackpathcdn.com/article/rich-text-control-in-spfx-using-react-quill/Images/outcome-min.gif" /></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>For rich text field in SPFx react quill can be one of the best controls which can be used for saving the rich text field.</p>
+<p>This will even help us save images and videos in the rich text field in SharePoint List.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-Jul-22</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2020/07/create-rich-text-control-w-image-and-video-in-sp-fx/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://example.org/2020/07/create-rich-text-control-w-image-and-video-in-sp-fx/" data-title="Create Rich Text control w/ image and video in SPFx." data-via="sanganikunj" data-hashtags="SPFx,SharePoint Online,React-Quill"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/2020/07/create-rich-text-control-w-image-and-video-in-sp-fx/" data-hashtag="SPFx"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://example.org/2020/07/create-rich-text-control-w-image-and-video-in-sp-fx/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="http://example.org/2020/07/create-rich-text-control-w-image-and-video-in-sp-fx/" data-title="Create Rich Text control w/ image and video in SPFx." data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/spfx/">SPFx</a>,&nbsp;<a href="/tags/sharepoint-online/">SharePoint Online</a>,&nbsp;<a href="/tags/react-quill/">React-Quill</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020/07/learn-pn-p-date-time-picker-in-sp-fx/" class="prev" rel="prev" title="Learn PnP DateTimePicker in SPFx."><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Learn PnP DateTimePicker in SPFx.</a>
+            <a href="/2020/08/fetch-share-point-online-list-items-from-another-site-collection-using-pn-p-js/" class="next" rel="next" title="Fetch SP list items from another site using PnP JS.">Fetch SP list items from another site using PnP JS.<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Kunj Sangani</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"search":{"algoliaAppID":"1X7YJ8VWPT","algoliaIndex":"index.en","algoliaSearchKey":"00a0369aedac90b4135d976a8a7b12b8","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

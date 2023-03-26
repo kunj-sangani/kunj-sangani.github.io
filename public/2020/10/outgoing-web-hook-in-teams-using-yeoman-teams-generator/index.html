@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Outgoing Web Hook In Teams Using Yeoman Teams Generator - Kunj Sangani</title><meta name="Description" content="Step-by-step guide to creating an Outgoing Webhook in MS Teams using Yeoman Teams generator."><meta property="og:title" content="Outgoing Web Hook In Teams Using Yeoman Teams Generator" />
+<meta property="og:description" content="Step-by-step guide to creating an Outgoing Webhook in MS Teams using Yeoman Teams generator." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/2020/10/outgoing-web-hook-in-teams-using-yeoman-teams-generator/" /><meta property="og:image" content="http://example.org/avatar.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-10-12T12:57:40+08:00" />
+<meta property="article:modified_time" content="2020-10-12T12:57:40+08:00" /><meta property="og:site_name" content="Kunj Sangani" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://example.org/avatar.png"/>
+
+<meta name="twitter:title" content="Outgoing Web Hook In Teams Using Yeoman Teams Generator"/>
+<meta name="twitter:description" content="Step-by-step guide to creating an Outgoing Webhook in MS Teams using Yeoman Teams generator."/>
+<meta name="application-name" content="Kunj Sangani">
+<meta name="apple-mobile-web-app-title" content="Kunj Sangani"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/2020/10/outgoing-web-hook-in-teams-using-yeoman-teams-generator/" /><link rel="prev" href="http://example.org/2020/09/working-with-timezone-in-sp-fx/" /><link rel="next" href="http://example.org/2020/10/create-asp-net-core-api-w-azure-ad-auth-consume-in-sp-fx/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Outgoing Web Hook In Teams Using Yeoman Teams Generator",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/example.org\/2020\/10\/outgoing-web-hook-in-teams-using-yeoman-teams-generator\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "http:\/\/example.org\/images\/avatar.png",
+                            "width":  960 ,
+                            "height":  960 
+                        }],"genre": "posts","keywords": "outgoing webhook teams, yo teams","wordcount":  840 ,
+        "url": "http:\/\/example.org\/2020\/10\/outgoing-web-hook-in-teams-using-yeoman-teams-generator\/","datePublished": "2020-10-12T12:57:40+08:00","dateModified": "2020-10-12T12:57:40+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Kunj Sangani","logo": {
+                    "@type": "ImageObject",
+                    "url": "http:\/\/example.org\/images\/avatar.png",
+                    "width":  960 ,
+                    "height":  960 
+                }},"author": {
+                "@type": "Person",
+                "name": "Kunj Sangani"
+            },"description": "Step-by-step guide to creating an Outgoing Webhook in MS Teams using Yeoman Teams generator."
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Kunj Sangani">Kunj Sangani</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/kunj-sangani" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Outgoing Web Hook In Teams Using Yeoman Teams Generator</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://www.linkedin.com/in/kunj-sangani/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Kunj Sangani</a></span>&nbsp;<span class="post-category">included in <a href="/categories/microsoft-teams/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Microsoft Teams</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2020-Oct-12">2020-Oct-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;840 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#setup-environment-for-yeoman-teams-generator">Setup Environment for Yeoman Teams Generator</a></li>
+    <li><a href="#create-outgoing-webhook-using-yeoman-teams-generator">Create Outgoing Webhook using yeoman Teams generator</a></li>
+    <li><a href="#conclusion">Conclusion </a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="introduction">Introduction</h2>
+<p>This article will help us understand Outgoing Webhook in MS Teams, and is a step by step guid for creating outgoing webhook using yeoman teams generator.</p>
+<p>Outgoing Webhook in MS Teams acts like a bot which can be triggered from channel using @mention, web hook can receive messages posted along with the @mention and can send reply based on the incoming message.</p>
+<p>In this article we will focus on creating Outgoing web hook using yeoman generator and use it in MS Teams.</p>
+<p><strong>Note</strong></p>
+<p>Outgoing webhooks are scoped at the team level.</p>
+<h2 id="setup-environment-for-yeoman-teams-generator">Setup Environment for Yeoman Teams Generator</h2>
+<ul>
+<li>
+<p>Install Latest version of Nodejs or we can use nvm if we require multiple versions of node js. To check the complete installation guide check my blog  <a href="https://www.c-sharpcorner.com/Blogs/how-to-use-multiple-nodejs-version-in-windows-os" target="_blank" rel="noopener noreffer ">here</a>.</p>
+</li>
+<li>
+<p>Install yeoman and gulp cli</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">npm install yo gulp-cli --global
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Install Microsoft teams app generator</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">npm install generator-teams --global
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="create-outgoing-webhook-using-yeoman-teams-generator">Create Outgoing Webhook using yeoman Teams generator</h2>
+<p>To create the solution we need to use the below command and provide below parameters which will help in creating the solution</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mkdir webhookwithYeoman
+</span></span><span class="line"><span class="cl">cd webhookwithYeoman    
+</span></span><span class="line"><span class="cl">yo teams
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/Screenshot%202020-10-11%20at%201.46.55%20PM.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/Screenshot%202020-10-11%20at%201.46.55%20PM.png, https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/Screenshot%202020-10-11%20at%201.46.55%20PM.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/Screenshot%202020-10-11%20at%201.46.55%20PM.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/Screenshot%202020-10-11%20at%201.46.55%20PM.png"
+        title="Outgoing Web Hook In Teams Using Yeoman Teams Generator" /></p>
+<p>Now let us open the code and check the project structure.</p>
+<p>The main folder which we need to concentrate is src folder; inside src we have two folders app and manifest.</p>
+<p>The app folder contains the code and manifest folder contains all the necessary files required for deployment in MS Teams</p>
+<p>Our code for outgoing web hook will be present inside the folder messagesOutgoingWebhook with the file named message.ts. This will depend on the name of the web hook which you have provided.</p>
+<p>If we check the code we can understand it is a simple echo bot which would send the same message which is received in the request</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import \* as builder from &#34;botbuilder&#34;;  
+</span></span><span class="line"><span class="cl">import \* as express from &#34;express&#34;;  
+</span></span><span class="line"><span class="cl">import \* as crypto from &#34;crypto&#34;;  
+</span></span><span class="line"><span class="cl">import { OutgoingWebhookDeclaration, IOutgoingWebhook } from &#34;express-msteams-host&#34;;  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">@OutgoingWebhookDeclaration(&#34;/api/webhook&#34;)  
+</span></span><span class="line"><span class="cl">export class Messages implements IOutgoingWebhook {  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">public constructor() {  
+</span></span><span class="line"><span class="cl">}  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">public requestHandler(req: express.Request, res: express.Response, next: express.NextFunction) {  
+</span></span><span class="line"><span class="cl">// parse the incoming message  
+</span></span><span class="line"><span class="cl">const incoming = req.body as builder.Activity;  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// create the response, any Teams compatible responses can be used  
+</span></span><span class="line"><span class="cl">const message: Partial&lt;builder.Activity&gt; = {  
+</span></span><span class="line"><span class="cl">type: builder.ActivityTypes.Message  
+</span></span><span class="line"><span class="cl">};  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">const securityToken = process.env.SECURITY\_TOKEN;  
+</span></span><span class="line"><span class="cl">if (securityToken &amp;&amp; securityToken.length &gt; 0) {  
+</span></span><span class="line"><span class="cl">// There is a configured security token  
+</span></span><span class="line"><span class="cl">const auth = req.headers.authorization;  
+</span></span><span class="line"><span class="cl">const msgBuf = Buffer.from((req as any).rawBody, &#34;utf8&#34;);  
+</span></span><span class="line"><span class="cl">const msgHash = &#34;HMAC &#34; + crypto.  
+</span></span><span class="line"><span class="cl">createHmac(&#34;sha256&#34;, Buffer.from(securityToken as string, &#34;base64&#34;)).  
+</span></span><span class="line"><span class="cl">update(msgBuf).  
+</span></span><span class="line"><span class="cl">digest(&#34;base64&#34;);  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">if (msgHash === auth) {  
+</span></span><span class="line"><span class="cl">// Message was ok and verified  
+</span></span><span class="line"><span class="cl">message.text = \`Echo ${incoming.text}\`;  
+</span></span><span class="line"><span class="cl">} else {  
+</span></span><span class="line"><span class="cl">// Message could not be verified  
+</span></span><span class="line"><span class="cl">message.text = \`Error: message sender cannot be verified\`;  
+</span></span><span class="line"><span class="cl">}  
+</span></span><span class="line"><span class="cl">} else {  
+</span></span><span class="line"><span class="cl">// There is no configured security token  
+</span></span><span class="line"><span class="cl">message.text = \`Error: outgoing webhook is not configured with a security token\`;  
+</span></span><span class="line"><span class="cl">}  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// send the message  
+</span></span><span class="line"><span class="cl">res.send(JSON.stringify(message));  
+</span></span><span class="line"><span class="cl">}  
+</span></span><span class="line"><span class="cl">}  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>From the above code we can understand that we are using crypto to decrypt the message and obtain the hash and we will compare this hash which will be provided from MS Teams when we register our Webhook.</p>
+<p>Let us run the application using the below command</p>
+<ol>
+<li>gulp ngrok-serve  </li>
+</ol>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/Screenshot%202020-10-11%20at%203.32.20%20PM.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/Screenshot%202020-10-11%20at%203.32.20%20PM.png, https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/Screenshot%202020-10-11%20at%203.32.20%20PM.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/Screenshot%202020-10-11%20at%203.32.20%20PM.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/Screenshot%202020-10-11%20at%203.32.20%20PM.png"
+        title="Outgoing Web Hook In Teams Using Yeoman Teams Generator" /></p>
+<p>This will provide us with a dummy domain which we can use as a call back URL in our application.</p>
+<p>As displayed in the image HOSTNAME is 0b0294fab980.ngrok.io, hence my Callback URL would be <a href="https://0b0294fab980.ngrok.io/api/webhook" target="_blank" rel="noopener noreffer ">https://0b0294fab980.ngrok.io/api/webhook</a></p>
+<p>Now let us add Webhook in our Teams channel and obtain the security token.</p>
+<p><strong>Step 1</strong></p>
+<p>Click on More options(…) on Teams</p>
+<p><strong>Step 2</strong></p>
+<p>On the fly out menu select &ldquo;Manage Team&rdquo;</p>
+<p><strong>Step 3</strong></p>
+<p>Select the Apps Tab in Manage Teams section and click on Create an outgoing webhook</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/Screenshot%202020-10-11%20at%203.17.03%20PM.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/Screenshot%202020-10-11%20at%203.17.03%20PM.png, https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/Screenshot%202020-10-11%20at%203.17.03%20PM.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/Screenshot%202020-10-11%20at%203.17.03%20PM.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/Screenshot%202020-10-11%20at%203.17.03%20PM.png"
+        title="Outgoing Web Hook In Teams Using Yeoman Teams Generator" /></p>
+<p><strong>Step 4</strong></p>
+<p>Fill in the form with appropriate data</p>
+<ul>
+<li>Name - This name would be used in @mention name</li>
+<li>Callback URL - The URL copied from above <em>(<a href="https://0b0294fab980.ngrok.io/api/webhook%29" target="_blank" rel="noopener noreffer ">https://0b0294fab980.ngrok.io/api/webhook)</a></em></li>
+<li>Description - This would be used for describing the outgoing webhook</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/Screenshot%202020-10-11%20at%203.55.58%20PM.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/Screenshot%202020-10-11%20at%203.55.58%20PM.png, https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/Screenshot%202020-10-11%20at%203.55.58%20PM.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/Screenshot%202020-10-11%20at%203.55.58%20PM.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/Screenshot%202020-10-11%20at%203.55.58%20PM.png"
+        title="Outgoing Web Hook In Teams Using Yeoman Teams Generator" /></p>
+<p><strong>Step 5</strong></p>
+<p>Once we click on create we will get an access token which will be used for authenticating the data.</p>
+<p>Copy the code and add it in the .env file where the variable name is SECURITY_TOKEN.</p>
+<p>Once we update this value restart gulp ngrok-serve and update the domain in the web hook by following  step 1 and step 2 and then select the Apps Tab and click on the web hook which is already added and update the callback URL with the new domain name</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/4_token.png"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/4_token.png, https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/4_token.png 1.5x, https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/4_token.png 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/4_token.png"
+        title="Outgoing Web Hook In Teams Using Yeoman Teams Generator" /></p>
+<p><strong>Outcome</strong></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/Outcome.gif"
+        data-srcset="https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/Outcome.gif, https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/Outcome.gif 1.5x, https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/Outcome.gif 2x"
+        data-sizes="auto"
+        alt="https://f4n3x6c5.stackpathcdn.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/Images/Outcome.gif"
+        title="Outgoing Web Hook In Teams Using Yeoman Teams Generator" /></p>
+<h2 id="conclusion">Conclusion </h2>
+<p>Creating outgoing webhook with yeoman teams generator is very easy and we can use bots as well and can even use them to send interactive messages using adaptive cards.</p>
+<p>This can be very helpful when we do not want to create a dedicated bot but would need a less intense task which does not take much time.</p>
+<p>Happy coding !!!</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-Oct-12</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/2020/10/outgoing-web-hook-in-teams-using-yeoman-teams-generator/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://example.org/2020/10/outgoing-web-hook-in-teams-using-yeoman-teams-generator/" data-title="Outgoing Web Hook In Teams Using Yeoman Teams Generator" data-via="sanganikunj" data-hashtags="outgoing webhook teams,yo teams"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://example.org/2020/10/outgoing-web-hook-in-teams-using-yeoman-teams-generator/" data-hashtag="outgoing webhook teams"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="http://example.org/2020/10/outgoing-web-hook-in-teams-using-yeoman-teams-generator/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on WhatsApp" data-sharer="whatsapp" data-url="http://example.org/2020/10/outgoing-web-hook-in-teams-using-yeoman-teams-generator/" data-title="Outgoing Web Hook In Teams Using Yeoman Teams Generator" data-web><i class="fab fa-whatsapp fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/outgoing-webhook-teams/">outgoing webhook teams</a>,&nbsp;<a href="/tags/yo-teams/">Yo Teams</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/2020/09/working-with-timezone-in-sp-fx/" class="prev" rel="prev" title="Working With Timezone In SPFx"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Working With Timezone In SPFx</a>
+            <a href="/2020/10/create-asp-net-core-api-w-azure-ad-auth-consume-in-sp-fx/" class="next" rel="next" title="Create ASP.NET Core API w/ Azure AD Auth &amp; consume in SPFx.">Create ASP.NET Core API w/ Azure AD Auth & consume in SPFx.<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Kunj Sangani</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="/lib/lightgallery/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"lightgallery":true,"search":{"algoliaAppID":"1X7YJ8VWPT","algoliaIndex":"index.en","algoliaSearchKey":"00a0369aedac90b4135d976a8a7b12b8","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

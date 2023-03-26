@@ -1,0 +1,17 @@
+{
+    "name": "kunjsangani",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "hugo": "cross-env-shell docker run --rm -v $INIT_CWD:/src klakegg/hugo:0.107.0-ext-alpine",
+        "serve": "cross-env-shell docker run --rm -p 1313:1313 -v $INIT_CWD:/src klakegg/hugo:0.107.0-ext-alpine serve"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "cross-env": "^7.0.3"
+    }
+}

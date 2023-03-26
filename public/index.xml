@@ -1,0 +1,108 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Kunj Sangani</title>
+        <link>http://example.org/</link>
+        <description>Informative Blogs</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>sangani.kunj@gmail.com (Kunj Sangani)</managingEditor>
+            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 07 Nov 2022 21:57:40 &#43;0800</lastBuildDate>
+            <atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+        <item>
+    <title>Using Teams Toolkit CLI For Creating Teams Tab</title>
+    <link>http://example.org/2022/11/using-teams-toolkit-cli-for-creating-teams-tab/</link>
+    <pubDate>Mon, 07 Nov 2022 21:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/2022/11/using-teams-toolkit-cli-for-creating-teams-tab/</guid>
+    <description><![CDATA[Introduction There are multiple ways to create a Teams Tab project such as using the Teams Toolkit extension for Visual Studio code, Yeoman generator for Teams, etc. Among these options, one such option is to use Teams Toolkit CLI before creating a Teams Tab project using Team Toolkit CLI let&rsquo;s understand what Teams Toolkit CLI is.
+What is Teams Toolkit CLI? Teams Toolkit CLI is a command line interface that helps in Teams application development.]]></description>
+</item>
+<item>
+    <title>Teams Toolkit For Creating Microsoft Teams Tab</title>
+    <link>http://example.org/2022/11/teams-toolkit-for-creating-microsoft-teams-tab/</link>
+    <pubDate>Thu, 03 Nov 2022 21:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/2022/11/teams-toolkit-for-creating-microsoft-teams-tab/</guid>
+    <description><![CDATA[Introduction Microsoft Teams is one of the most used collaborative platforms with 270 million monthly active users as of 2022. Microsoft teams have extensibility capabilities that help developers create their own applications. For this application, we have many application capabilities such as Personal apps, Tabs, Bots, Messaging extensions, Meeting extensions, and Webhook and connectors.
+In this article, we will leverage the capability of Tabs in Microsoft teams. We will go through step by step process of creating Tabs using Teams Toolkit.]]></description>
+</item>
+<item>
+    <title>How To Run PnP PowerShell In MacOS</title>
+    <link>http://example.org/2021/08/how-to-run-pn-p-power-shell-in-mac-os/</link>
+    <pubDate>Mon, 16 Aug 2021 21:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/2021/08/how-to-run-pn-p-power-shell-in-mac-os/</guid>
+    <description><![CDATA[Introduction There may be requirements where we need to use PowerShell and if we are using macOS then the question becomes how we can use PowerShell in macOS. But with Microsoft&rsquo;s new approach of creating everything open source and cross-platform, we can achieve this very easily. But along with this, we would even have a look at how we can use cross-platform PnP PowerShell to automate our Microsoft 365 related tasks.]]></description>
+</item>
+<item>
+    <title>Connect SharePoint Online w/ Azure Function &amp; Certificates.</title>
+    <link>http://example.org/2021/08/connecting-to-share-point-online-using-certificate-based-authentication-in-azure-function/</link>
+    <pubDate>Sun, 08 Aug 2021 21:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/2021/08/connecting-to-share-point-online-using-certificate-based-authentication-in-azure-function/</guid>
+    <description><![CDATA[Introduction In this article, we will understand how we can connect SharePoint Online from Azure Function using Application based authentication.
+Previously we learned to use Azure Access Control (ACS) where we used to create client id and client secret (from _layouts/15/appregnew.aspx) but this method has been retired and is not recommended to use and hence in the new Tenants, ACS app-only access is disabled by default. So to overcome this we can use Certificate-based Authentication for connection to SharePoint online.]]></description>
+</item>
+<item>
+    <title>Creating Free Tier AWS Account With Free S3 Storage Account</title>
+    <link>http://example.org/2021/08/creating-free-tier-aws-account-with-free-s-3-storage-account/</link>
+    <pubDate>Fri, 06 Aug 2021 21:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/2021/08/creating-free-tier-aws-account-with-free-s-3-storage-account/</guid>
+    <description><![CDATA[Introduction In this article, we will go through the step by step process of creating an AWS account and using their free tier services such as Amazon S3.
+To create a free AWS account follow the below steps,
+Step 1
+Navigate here.
+Step 2
+To check the details of what services are available in the free tier scroll at the bottom which would list all the free services available. Please note that the free services are only allowed for 12 months and are only intended for understanding the AWS services.]]></description>
+</item>
+<item>
+    <title>Create ASP.NET Core API w/ Azure AD Auth &amp; consume in SPFx.</title>
+    <link>http://example.org/2020/10/create-asp-net-core-api-w-azure-ad-auth-consume-in-sp-fx/</link>
+    <pubDate>Tue, 13 Oct 2020 21:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/2020/10/create-asp-net-core-api-w-azure-ad-auth-consume-in-sp-fx/</guid>
+    <description><![CDATA[Introduction The practice of creating Custom APIs using ASP.NET core is increasing day by day as ASP.NET core is platform agnostic and is based on the C# language. Securing your API is very important as we do not want everyone to access the data, hence we will explore Azure AD based authentication in ASP.NET Core Web API and consume the API using SharePoint Framework.
+There are two aspects to this article:]]></description>
+</item>
+<item>
+    <title>Outgoing Web Hook In Teams Using Yeoman Teams Generator</title>
+    <link>http://example.org/2020/10/outgoing-web-hook-in-teams-using-yeoman-teams-generator/</link>
+    <pubDate>Mon, 12 Oct 2020 12:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/2020/10/outgoing-web-hook-in-teams-using-yeoman-teams-generator/</guid>
+    <description><![CDATA[Introduction This article will help us understand Outgoing Webhook in MS Teams, and is a step by step guid for creating outgoing webhook using yeoman teams generator.
+Outgoing Webhook in MS Teams acts like a bot which can be triggered from channel using @mention, web hook can receive messages posted along with the @mention and can send reply based on the incoming message.
+In this article we will focus on creating Outgoing web hook using yeoman generator and use it in MS Teams.]]></description>
+</item>
+<item>
+    <title>Working With Timezone In SPFx</title>
+    <link>http://example.org/2020/09/working-with-timezone-in-sp-fx/</link>
+    <pubDate>Mon, 21 Sep 2020 21:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/2020/09/working-with-timezone-in-sp-fx/</guid>
+    <description><![CDATA[Introduction While designing applications, we may come across multiple scenarios where our application could run across multiple locations and timezones, and working with all these timezones could be a difficult task.
+With the introduction of SharePoint framework, creating a scalable and UI friendly application is very easy. With modern SharePoint, creating an Intelligent intranet is very easy and is becoming popular. There can be a scenario where intranet users are across multiple locations, therefore we need to create an SPFx solution considering all these locations.]]></description>
+</item>
+<item>
+    <title>Function And Class Component In React With SPFx</title>
+    <link>http://example.org/2020/08/function-and-class-component-in-react-with-sp-fx/</link>
+    <pubDate>Mon, 31 Aug 2020 21:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/2020/08/function-and-class-component-in-react-with-sp-fx/</guid>
+    <description><![CDATA[Introduction In this article, we will learn the different types of components that we can create in React
+We will also learn which should be used in which conditions.
+React provides us two different types of components:
+Function component Class component React documentation for different components can be found in the below link.
+Difference Function component
+In the syntax point of view, we do not write class for function component rather we create it as a function It only accepts props as an argument We can not use state with functional component i.]]></description>
+</item>
+<item>
+    <title>Update Profile Picture Using Graph API In SPFx</title>
+    <link>http://example.org/2020/08/update-profile-picture-using-graph-api-in-sp-fx/</link>
+    <pubDate>Tue, 11 Aug 2020 21:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/2020/08/update-profile-picture-using-graph-api-in-sp-fx/</guid>
+    <description><![CDATA[Introduction Microsoft 365 has a different application in its suite. To combine all these data for developers Microsoft came up with Graph API. This has helped developers to access data across applications in Microsoft 365. One such example which we would leverage today is to save profile picture which would reflect across all the applications in Microsoft 365.
+In this article, we will create a SPFx webpart where user can select their profile picture and on click of the save button, the profile picture will be updated for all apps in Microsoft 365.]]></description>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,30 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>PnP Search - Tag - Kunj Sangani</title>
+        <link>http://example.org/tags/pnp-search/</link>
+        <description>PnP Search - Tag - Kunj Sangani</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>sangani.kunj@gmail.com (Kunj Sangani)</managingEditor>
+            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 27 May 2020 21:57:40 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/pnp-search/" rel="self" type="application/rss+xml" /><item>
+    <title>How To Use And Configure PnP Search WebPart</title>
+    <link>http://example.org/2020/05/how-to-use-and-configure-pn-p-search-web-part/</link>
+    <pubDate>Wed, 27 May 2020 21:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/2020/05/how-to-use-and-configure-pn-p-search-web-part/</guid>
+    <description><![CDATA[Overview In this article we will understand the complete process of using PnP search webpart in SharePoint Modern Pages.
+Introduction In SharePoint, with the introduction of Modern Sites and Modern Pages, we aren&rsquo;t able to change templates in Modern Pages, so if we want to use a customized search in SharePoint Modern sites it would be best to use some existing webparts. To that end, PnP has released Modern Search webparts which will be very helpful and easy to configure.]]></description>
+</item>
+<item>
+    <title>How To Use PnP Search Filters And Search Vertical Web Parts</title>
+    <link>http://example.org/1/01/how-to-use-pn-p-search-filters-and-search-vertical-web-parts/</link>
+    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>http://example.org/1/01/how-to-use-pn-p-search-filters-and-search-vertical-web-parts/</guid>
+    <description><![CDATA[Introduction In this article, we will learn how to use the PnP search filter and search a vertical web part
+Prerequisites
+- PnP search result and search box web part added in Modern Page
+- To understand better, check out my article on how to use and configure the PnP search Web part
+Setup Below are the steps to use PnP Search Filters and Search Vertical Web part
+Step 1 Add PnP Search Filters and Search Vertical Web part to an existing search modern page]]></description>
+</item>
+</channel>
+</rss>
