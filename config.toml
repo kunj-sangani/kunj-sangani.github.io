@@ -324,7 +324,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
           social = true
           disclaimer = ""
       [languages.en.params.social]
-        Linkedin= "/in/kunj-sangani"
+        Linkedin= "/kunj-sangani"
         GitHub = "kunj-sangani"
         Twitter = "sanganikunj"
         Phone = "+919130304293"
