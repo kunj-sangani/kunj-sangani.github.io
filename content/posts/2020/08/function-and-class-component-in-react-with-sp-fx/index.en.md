@@ -8,6 +8,8 @@ author: "Kunj Sangani"
 authorLink: "https://www.linkedin.com/in/kunj-sangani/"
 description: "Understanding the different types of components in React and their usage."
 
+canonicalurl: "https://www.c-sharpcorner.com/article/function-and-class-component-in-react-with-spfx/"
+
 tags: ["SPFx", "SharePoint Online", "React"]
 categories: ["SPFx"]
 

@@ -1,33 +1,33 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>SharePoint Online - Category - Kunj Sangani</title>
-        <link>http://example.org/categories/sharepoint-online/</link>
+        <link>https://kunjsangani.com/categories/sharepoint-online/</link>
         <description>SharePoint Online - Category - Kunj Sangani</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>sangani.kunj@gmail.com (Kunj Sangani)</managingEditor>
-            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 08 Aug 2021 21:57:40 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/sharepoint-online/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 08 Aug 2021 21:57:40 &#43;0800</lastBuildDate><atom:link href="https://kunjsangani.com/categories/sharepoint-online/" rel="self" type="application/rss+xml" /><item>
     <title>Connect SharePoint Online w/ Azure Function &amp; Certificates.</title>
-    <link>http://example.org/2021/08/connecting-to-share-point-online-using-certificate-based-authentication-in-azure-function/</link>
+    <link>https://kunjsangani.com/2021/08/connecting-to-share-point-online-using-certificate-based-authentication-in-azure-function/</link>
     <pubDate>Sun, 08 Aug 2021 21:57:40 &#43;0800</pubDate>
     <author>Kunj Sangani</author>
-    <guid>http://example.org/2021/08/connecting-to-share-point-online-using-certificate-based-authentication-in-azure-function/</guid>
+    <guid>https://kunjsangani.com/2021/08/connecting-to-share-point-online-using-certificate-based-authentication-in-azure-function/</guid>
     <description><![CDATA[Introduction In this article, we will understand how we can connect SharePoint Online from Azure Function using Application based authentication.
 Previously we learned to use Azure Access Control (ACS) where we used to create client id and client secret (from _layouts/15/appregnew.aspx) but this method has been retired and is not recommended to use and hence in the new Tenants, ACS app-only access is disabled by default. So to overcome this we can use Certificate-based Authentication for connection to SharePoint online.]]></description>
 </item>
 <item>
     <title>How To Use And Configure PnP Search WebPart</title>
-    <link>http://example.org/2020/05/how-to-use-and-configure-pn-p-search-web-part/</link>
+    <link>https://kunjsangani.com/2020/05/how-to-use-and-configure-pn-p-search-web-part/</link>
     <pubDate>Wed, 27 May 2020 21:57:40 &#43;0800</pubDate>
     <author>Kunj Sangani</author>
-    <guid>http://example.org/2020/05/how-to-use-and-configure-pn-p-search-web-part/</guid>
+    <guid>https://kunjsangani.com/2020/05/how-to-use-and-configure-pn-p-search-web-part/</guid>
     <description><![CDATA[Overview In this article we will understand the complete process of using PnP search webpart in SharePoint Modern Pages.
 Introduction In SharePoint, with the introduction of Modern Sites and Modern Pages, we aren&rsquo;t able to change templates in Modern Pages, so if we want to use a customized search in SharePoint Modern sites it would be best to use some existing webparts. To that end, PnP has released Modern Search webparts which will be very helpful and easy to configure.]]></description>
 </item>
 <item>
     <title>How To Use PnP Search Filters And Search Vertical Web Parts</title>
-    <link>http://example.org/1/01/how-to-use-pn-p-search-filters-and-search-vertical-web-parts/</link>
+    <link>https://kunjsangani.com/1/01/how-to-use-pn-p-search-filters-and-search-vertical-web-parts/</link>
     <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
     <author>Kunj Sangani</author>
-    <guid>http://example.org/1/01/how-to-use-pn-p-search-filters-and-search-vertical-web-parts/</guid>
+    <guid>https://kunjsangani.com/1/01/how-to-use-pn-p-search-filters-and-search-vertical-web-parts/</guid>
     <description><![CDATA[Introduction In this article, we will learn how to use the PnP search filter and search a vertical web part
 Prerequisites
 - PnP search result and search box web part added in Modern Page

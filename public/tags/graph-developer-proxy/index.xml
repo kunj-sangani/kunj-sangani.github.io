@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Graph Developer Proxy - Tag - Kunj Sangani</title>
+        <link>https://kunjsangani.com/tags/graph-developer-proxy/</link>
+        <description>Graph Developer Proxy - Tag - Kunj Sangani</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>sangani.kunj@gmail.com (Kunj Sangani)</managingEditor>
+            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 25 Mar 2023 21:57:40 &#43;0800</lastBuildDate><atom:link href="https://kunjsangani.com/tags/graph-developer-proxy/" rel="self" type="application/rss+xml" /><item>
+    <title>Overview of Graph Developer Proxy</title>
+    <link>https://kunjsangani.com/2023/03/overview-graph-developer-proxy/</link>
+    <pubDate>Sat, 25 Mar 2023 21:57:40 &#43;0800</pubDate>
+    <author>Kunj Sangani</author>
+    <guid>https://kunjsangani.com/2023/03/overview-graph-developer-proxy/</guid>
+    <description><![CDATA[Introduction Graph Developer Proxy is a tool that simulates API errors using the command line. This tool works for the Microsoft Graph API but can also be extended for other APIs as well. This tool can help applications catch API errors and handle them gracefully. This tool will even help mock the API response so that we do not need to hit the server while we are developing our application.]]></description>
+</item>
+</channel>
+</rss>

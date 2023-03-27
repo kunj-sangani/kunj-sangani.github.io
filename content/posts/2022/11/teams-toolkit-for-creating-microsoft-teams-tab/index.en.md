@@ -8,6 +8,8 @@ author: "Kunj Sangani"
 authorLink: "https://www.linkedin.com/in/kunj-sangani/"
 description: "Learn how to create Tabs in Microsoft Teams using the Teams Toolkit with this step-by-step guide."
 
+canonicalurl: "https://www.c-sharpcorner.com/article/teams-toolkit-for-creating-microsoft-teams-tab/"
+
 tags: ["Teams Tab", "TeamsFx", "Teams Toolkit"]
 categories: ["Microsoft Teams"]
 

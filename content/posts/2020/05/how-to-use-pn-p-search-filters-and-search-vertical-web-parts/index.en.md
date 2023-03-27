@@ -1,12 +1,14 @@
 ---
 weight: 4
 title: "How To Use PnP Search Filters And Search Vertical Web Parts"
-date: 2020-05-27T27:57:40+08:00
-lastmod: 2020-05-27T27:57:40+08:00
+date: 2020-05-27T22:57:40+08:00
+lastmod: 2020-05-22T27:57:40+08:00
 draft: false
 author: "Kunj Sangani"
 authorLink: "https://www.linkedin.com/in/kunj-sangani/"
 description: "In this article, we will learn how to use the PnP search filter and search a vertical web part"
+
+canonicalurl: "https://www.c-sharpcorner.com/article/how-to-use-pnp-search-filters-and-search-vertical-webpart/"
 
 tags: ["PnP Search", "SPFx", "SharePoint Online"]
 categories: ["SharePoint Online", "SPFx"]

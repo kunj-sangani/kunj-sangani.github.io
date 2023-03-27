@@ -8,6 +8,8 @@ author: "Kunj Sangani"
 authorLink: "https://www.linkedin.com/in/kunj-sangani/"
 description: "Using PowerShell in macOS and automating Microsoft 365 tasks with cross-platform PnP PowerShell."
 
+canonicalurl: "https://www.c-sharpcorner.com/article/how-to-run-pnp-powershell-in-macos/"
+
 tags: ["macOs", "PnP PowerShell"]
 categories: ["PowerShell"]
 

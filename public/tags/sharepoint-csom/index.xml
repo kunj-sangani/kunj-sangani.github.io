@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>SharePoint CSOM - Tag - Kunj Sangani</title>
-        <link>http://example.org/tags/sharepoint-csom/</link>
+        <link>https://kunjsangani.com/tags/sharepoint-csom/</link>
         <description>SharePoint CSOM - Tag - Kunj Sangani</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>sangani.kunj@gmail.com (Kunj Sangani)</managingEditor>
-            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 29 Jun 2020 21:57:40 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/sharepoint-csom/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 29 Jun 2020 21:57:40 &#43;0800</lastBuildDate><atom:link href="https://kunjsangani.com/tags/sharepoint-csom/" rel="self" type="application/rss+xml" /><item>
     <title>SharePoint CSOM For .NET Standard</title>
-    <link>http://example.org/2020/06/share-point-csom-for-net-standard/</link>
+    <link>https://kunjsangani.com/2020/06/share-point-csom-for-net-standard/</link>
     <pubDate>Mon, 29 Jun 2020 21:57:40 &#43;0800</pubDate>
     <author>Kunj Sangani</author>
-    <guid>http://example.org/2020/06/share-point-csom-for-net-standard/</guid>
+    <guid>https://kunjsangani.com/2020/06/share-point-csom-for-net-standard/</guid>
     <description><![CDATA[Introduction SharePoint has an object model known as Client-side object model (CSOM) which is available for .net framework. It wasn&rsquo;t available for .NET standard, but now Microsoft has provided a much-awaited CSOM for .NET standard.
 With the release of this, we can easily connect to SharePoint using an Azure AD OAuth based approach from .net core applications. So to understand how CSOM for .NET standard work let&rsquo;s create a .net core console application and connect to SharePoint and fetch all the items from the list]]></description>
 </item>

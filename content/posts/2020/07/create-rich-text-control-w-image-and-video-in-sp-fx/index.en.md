@@ -8,6 +8,8 @@ author: "Kunj Sangani"
 authorLink: "https://www.linkedin.com/in/kunj-sangani/"
 description: "Learn how to use react-quill control to customize rich text fields in Modern SharePoint List Forms, based on Quill and trusted by Microsoft."
 
+canonicalurl: "https://www.c-sharpcorner.com/article/rich-text-control-in-spfx-using-react-quill/"
+
 tags: ["SPFx", "SharePoint Online", "React-Quill"]
 categories: ["SPFx"]
 

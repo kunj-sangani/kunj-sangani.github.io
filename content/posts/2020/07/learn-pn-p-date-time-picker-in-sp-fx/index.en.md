@@ -8,6 +8,8 @@ author: "Kunj Sangani"
 authorLink: "https://www.linkedin.com/in/kunj-sangani/"
 description: "Learn how to use PnP DateTimePicker Control in SPFx to add date and time control in SharePoint form customization with the step-by-step guide."
 
+canonicalurl: "https://www.c-sharpcorner.com/article/how-to-use-pnp-datetimepicker-in-sharepoint-framework-webpartspfxs/"
+
 tags: ["SPFx", "SharePoint Online", "PnP Controls"]
 categories: ["SPFx"]
 

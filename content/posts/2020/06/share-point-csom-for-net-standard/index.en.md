@@ -8,6 +8,8 @@ author: "Kunj Sangani"
 authorLink: "https://www.linkedin.com/in/kunj-sangani/"
 description: "How to connect to SharePoint using the Client-side Object Model for .NET Standard with Azure AD OAuth-based authentication from a .NET Core console application."
 
+canonicalurl: "https://www.c-sharpcorner.com/article/sharepoint-csom-for-net-standard/"
+
 tags: ["SharePoint Online", "SharePoint CSOM"]
 categories: ["SharePoint CSOM"]
 

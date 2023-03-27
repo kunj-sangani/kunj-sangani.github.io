@@ -8,6 +8,8 @@ author: "Kunj Sangani"
 authorLink: "https://www.linkedin.com/in/kunj-sangani/"
 description: "The article explains how the introduction of variables in PowerApps has made it a powerful no-code tool for easy development, and provides a comprehensive guide on how to use variables in PowerApps."
 
+canonicalurl: "https://www.c-sharpcorner.com/article/variables-in-powerapps/"
+
 tags: ["PowerApps"]
 categories: ["PowerApps"]
 

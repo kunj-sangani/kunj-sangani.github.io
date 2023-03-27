@@ -8,6 +8,8 @@ author: "Kunj Sangani"
 authorLink: "https://www.linkedin.com/in/kunj-sangani/"
 description: "Learn how to create a custom connector for Microsoft Graph API in PowerApps to access data sources across Microsoft 365 platform for app development."
 
+canonicalurl: "https://www.c-sharpcorner.com/article/custom-connector-to-connect-graph-api-in-powerapps/"
+
 tags: ["PowerApps", "Custom Connector"]
 categories: ["PowerApps"]
 

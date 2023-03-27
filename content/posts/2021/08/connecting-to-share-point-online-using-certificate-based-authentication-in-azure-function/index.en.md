@@ -8,6 +8,8 @@ author: "Kunj Sangani"
 authorLink: "https://www.linkedin.com/in/kunj-sangani/"
 description: "Connecting to SharePoint Online with Azure Function using Certificate-based authentication and PnP Core."
 
+canonicalurl: "https://www.c-sharpcorner.com/article/connecting-to-sharepoint-online-using-certificate-based-authentication-in-azure/"
+
 tags: ["Azure Function", "SharePoint Online", "Azure AD", "Certificate Authentication"]
 categories: ["SharePoint Online"]
 

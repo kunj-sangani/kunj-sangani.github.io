@@ -12,6 +12,8 @@ resources:
 - name: "featured-image"
   src: "4_GraphDeveloperProxy.gif"
 
+canonicalurl: "https://kunjsangani.com/2023/03/overview-graph-developer-proxy/"
+
 tags: ["Microsoft Graph", "Graph Developer Proxy"]
 categories: ["Microsoft Graph"]
 

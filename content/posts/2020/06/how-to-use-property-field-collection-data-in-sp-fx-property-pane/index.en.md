@@ -7,10 +7,8 @@ draft: false
 author: "Kunj Sangani"
 authorLink: "https://www.linkedin.com/in/kunj-sangani/"
 description: "This article shows the basic Markdown syntax and format."
-images: []
-resources:
-- name: "featured-image"
-  src: "featured-image.png"
+
+canonicalurl: "https://www.c-sharpcorner.com/article/how-to-use-propertyfieldcollectiondata-in-spfx-property-pane/"
 
 tags: ["SPFx", "SharePoint Online"]
 categories: ["SPFx"]

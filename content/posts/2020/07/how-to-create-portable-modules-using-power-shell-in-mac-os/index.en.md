@@ -8,6 +8,8 @@ author: "Kunj Sangani"
 authorLink: "https://www.linkedin.com/in/kunj-sangani/"
 description: "The article explains how to create custom PowerShell modules using PowerShell 7 and .NET Core, which allows developers to use PowerShell on all platforms, and provides guidance on installing PowerShell on macOS."
 
+canonicalurl: "https://www.c-sharpcorner.com/article/how-to-create-portable-modules-using-powershell-in-macos2/"
+
 tags: ["PowerShell", "macOS"]
 categories: ["PowerShell"]
 

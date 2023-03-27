@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>PnP Controls - Tag - Kunj Sangani</title>
-        <link>http://example.org/tags/pnp-controls/</link>
+        <link>https://kunjsangani.com/tags/pnp-controls/</link>
         <description>PnP Controls - Tag - Kunj Sangani</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>sangani.kunj@gmail.com (Kunj Sangani)</managingEditor>
-            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 21 Jul 2020 21:57:40 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/pnp-controls/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 21 Jul 2020 21:57:40 &#43;0800</lastBuildDate><atom:link href="https://kunjsangani.com/tags/pnp-controls/" rel="self" type="application/rss+xml" /><item>
     <title>Learn PnP DateTimePicker in SPFx.</title>
-    <link>http://example.org/2020/07/learn-pn-p-date-time-picker-in-sp-fx/</link>
+    <link>https://kunjsangani.com/2020/07/learn-pn-p-date-time-picker-in-sp-fx/</link>
     <pubDate>Tue, 21 Jul 2020 21:57:40 &#43;0800</pubDate>
     <author>Kunj Sangani</author>
-    <guid>http://example.org/2020/07/learn-pn-p-date-time-picker-in-sp-fx/</guid>
+    <guid>https://kunjsangani.com/2020/07/learn-pn-p-date-time-picker-in-sp-fx/</guid>
     <description><![CDATA[Introduction When customizing the form with the help of SPFx, we may come across the requirement of using Date Time control. However, if we are using fluent UI react controls, formally known as Office UI fabric React controls, then we do not have control with both date and time. Rather, we only have date picker to overcome this PnP Team has created a DateTimePicker Control this can be easily used and configured in SPFx.]]></description>
 </item>
 </channel>

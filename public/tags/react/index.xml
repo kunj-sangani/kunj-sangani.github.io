@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>React - Tag - Kunj Sangani</title>
-        <link>http://example.org/tags/react/</link>
+        <link>https://kunjsangani.com/tags/react/</link>
         <description>React - Tag - Kunj Sangani</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>sangani.kunj@gmail.com (Kunj Sangani)</managingEditor>
-            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 31 Aug 2020 21:57:40 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/react/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 31 Aug 2020 21:57:40 &#43;0800</lastBuildDate><atom:link href="https://kunjsangani.com/tags/react/" rel="self" type="application/rss+xml" /><item>
     <title>Function And Class Component In React With SPFx</title>
-    <link>http://example.org/2020/08/function-and-class-component-in-react-with-sp-fx/</link>
+    <link>https://kunjsangani.com/2020/08/function-and-class-component-in-react-with-sp-fx/</link>
     <pubDate>Mon, 31 Aug 2020 21:57:40 &#43;0800</pubDate>
     <author>Kunj Sangani</author>
-    <guid>http://example.org/2020/08/function-and-class-component-in-react-with-sp-fx/</guid>
+    <guid>https://kunjsangani.com/2020/08/function-and-class-component-in-react-with-sp-fx/</guid>
     <description><![CDATA[Introduction In this article, we will learn the different types of components that we can create in React
 We will also learn which should be used in which conditions.
 React provides us two different types of components:

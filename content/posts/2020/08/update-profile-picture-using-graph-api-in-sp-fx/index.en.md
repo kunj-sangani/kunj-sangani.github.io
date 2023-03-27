@@ -8,6 +8,8 @@ author: "Kunj Sangani"
 authorLink: "https://www.linkedin.com/in/kunj-sangani/"
 description: "Using Microsoft Graph API to update profile picture for all Microsoft 365 applications via SPFx webpart."
 
+canonicalurl: "https://www.c-sharpcorner.com/article/update-profile-picture-using-graph-api-spfx/"
+
 tags: ["Teams Tab", "TeamsFx", "Teams Toolkit"]
 categories: ["SPFx"]
 

@@ -8,6 +8,8 @@ author: "Kunj Sangani"
 authorLink: "https://www.linkedin.com/in/kunj-sangani/"
 description: "Using PnPJs in SPFx to fetch cross-site collection data from SharePoint Online."
 
+canonicalurl: "https://www.c-sharpcorner.com/article/use-pnp-js-to-fetch-list-items-from-other-site-collection-in-sharepoint-online/"
+
 tags: ["SPFx", "SharePoint Online", "PnP Js"]
 categories: ["SPFx"]
 

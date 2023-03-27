@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Custom Connector - Tag - Kunj Sangani</title>
-        <link>http://example.org/tags/custom-connector/</link>
+        <link>https://kunjsangani.com/tags/custom-connector/</link>
         <description>Custom Connector - Tag - Kunj Sangani</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>sangani.kunj@gmail.com (Kunj Sangani)</managingEditor>
-            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 23 Jun 2020 21:57:40 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/custom-connector/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 23 Jun 2020 21:57:40 &#43;0800</lastBuildDate><atom:link href="https://kunjsangani.com/tags/custom-connector/" rel="self" type="application/rss+xml" /><item>
     <title>Custom Connector To Connect Graph API In PowerApps</title>
-    <link>http://example.org/2020/06/custom-connector-to-connect-graph-api-in-power-apps/</link>
+    <link>https://kunjsangani.com/2020/06/custom-connector-to-connect-graph-api-in-power-apps/</link>
     <pubDate>Tue, 23 Jun 2020 21:57:40 &#43;0800</pubDate>
     <author>Kunj Sangani</author>
-    <guid>http://example.org/2020/06/custom-connector-to-connect-graph-api-in-power-apps/</guid>
+    <guid>https://kunjsangani.com/2020/06/custom-connector-to-connect-graph-api-in-power-apps/</guid>
     <description><![CDATA[Introduction PowerApps is a platform where we can build no code or less code application. This tool is available with Microsoft 365 suit and is very powerful in terms of application development with lots of functions available as per your needs.
 But in most cases, when we create a custom application, we would like to connect to the different data sources. One of those data sources for Microsoft 365 is Graph API.]]></description>
 </item>

@@ -8,6 +8,8 @@ author: "Kunj Sangani"
 authorLink: "https://www.linkedin.com/in/kunj-sangani/"
 description: "The article guides readers on using PnP PowerShell to perform CRUD operations for SharePoint Framework webparts, simplifying maintenance and automation."
 
+canonicalurl: "https://www.c-sharpcorner.com/article/crud-operation-on-sharepoint-spfx-webpart-using-pnp-powershell/"
+
 tags: ["SPFx", "PowerShell"]
 categories: ["PowerShell"]
 

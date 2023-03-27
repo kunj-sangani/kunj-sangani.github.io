@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>S3 Storage - Tag - Kunj Sangani</title>
-        <link>http://example.org/tags/s3-storage/</link>
+        <link>https://kunjsangani.com/tags/s3-storage/</link>
         <description>S3 Storage - Tag - Kunj Sangani</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>sangani.kunj@gmail.com (Kunj Sangani)</managingEditor>
-            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 06 Aug 2021 21:57:40 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/s3-storage/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Fri, 06 Aug 2021 21:57:40 &#43;0800</lastBuildDate><atom:link href="https://kunjsangani.com/tags/s3-storage/" rel="self" type="application/rss+xml" /><item>
     <title>Creating Free Tier AWS Account With Free S3 Storage Account</title>
-    <link>http://example.org/2021/08/creating-free-tier-aws-account-with-free-s-3-storage-account/</link>
+    <link>https://kunjsangani.com/2021/08/creating-free-tier-aws-account-with-free-s-3-storage-account/</link>
     <pubDate>Fri, 06 Aug 2021 21:57:40 &#43;0800</pubDate>
     <author>Kunj Sangani</author>
-    <guid>http://example.org/2021/08/creating-free-tier-aws-account-with-free-s-3-storage-account/</guid>
+    <guid>https://kunjsangani.com/2021/08/creating-free-tier-aws-account-with-free-s-3-storage-account/</guid>
     <description><![CDATA[Introduction In this article, we will go through the step by step process of creating an AWS account and using their free tier services such as Amazon S3.
 To create a free AWS account follow the below steps,
 Step 1

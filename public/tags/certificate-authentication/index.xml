@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Certificate Authentication - Tag - Kunj Sangani</title>
-        <link>http://example.org/tags/certificate-authentication/</link>
+        <link>https://kunjsangani.com/tags/certificate-authentication/</link>
         <description>Certificate Authentication - Tag - Kunj Sangani</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>sangani.kunj@gmail.com (Kunj Sangani)</managingEditor>
-            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 08 Aug 2021 21:57:40 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/certificate-authentication/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 08 Aug 2021 21:57:40 &#43;0800</lastBuildDate><atom:link href="https://kunjsangani.com/tags/certificate-authentication/" rel="self" type="application/rss+xml" /><item>
     <title>Connect SharePoint Online w/ Azure Function &amp; Certificates.</title>
-    <link>http://example.org/2021/08/connecting-to-share-point-online-using-certificate-based-authentication-in-azure-function/</link>
+    <link>https://kunjsangani.com/2021/08/connecting-to-share-point-online-using-certificate-based-authentication-in-azure-function/</link>
     <pubDate>Sun, 08 Aug 2021 21:57:40 &#43;0800</pubDate>
     <author>Kunj Sangani</author>
-    <guid>http://example.org/2021/08/connecting-to-share-point-online-using-certificate-based-authentication-in-azure-function/</guid>
+    <guid>https://kunjsangani.com/2021/08/connecting-to-share-point-online-using-certificate-based-authentication-in-azure-function/</guid>
     <description><![CDATA[Introduction In this article, we will understand how we can connect SharePoint Online from Azure Function using Application based authentication.
 Previously we learned to use Azure Access Control (ACS) where we used to create client id and client secret (from _layouts/15/appregnew.aspx) but this method has been retired and is not recommended to use and hence in the new Tenants, ACS app-only access is disabled by default. So to overcome this we can use Certificate-based Authentication for connection to SharePoint online.]]></description>
 </item>

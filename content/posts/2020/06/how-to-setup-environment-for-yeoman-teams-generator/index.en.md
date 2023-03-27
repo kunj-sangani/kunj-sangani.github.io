@@ -8,6 +8,8 @@ author: "Kunj Sangani"
 authorLink: "https://www.linkedin.com/in/kunj-sangani/"
 description: "Setting up the PnP Yeoman scaffolder for Teams applications to extend the capabilities of Microsoft Teams and creating a sample bot for better collaboration."
 
+canonicalurl: "https://www.c-sharpcorner.com/article/how-to-setup-enviornment-for-yeoman-teams-generator/"
+
 tags: ["Yo Teams", "Teams Tab"]
 categories: ["Microsoft Teams"]
 

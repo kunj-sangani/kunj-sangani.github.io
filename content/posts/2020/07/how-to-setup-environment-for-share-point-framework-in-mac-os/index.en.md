@@ -8,6 +8,8 @@ author: "Kunj Sangani"
 authorLink: "https://www.linkedin.com/in/kunj-sangani/"
 description: "Learn how to set up SharePoint Framework (SPFx) for cross-platform SharePoint development with ReactJS, VueJS, and Angular on Mac OS."
 
+canonicalurl: "https://www.c-sharpcorner.com/article/how-to-setup-environment-for-sharepoint-framework-in-macos/"
+
 tags: ["SPFx", "SharePoint Online", "macOS"]
 categories: ["SPFx"]
 

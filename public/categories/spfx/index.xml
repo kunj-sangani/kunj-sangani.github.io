@@ -1,33 +1,33 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>SPFx - Category - Kunj Sangani</title>
-        <link>http://example.org/categories/spfx/</link>
+        <link>https://kunjsangani.com/categories/spfx/</link>
         <description>SPFx - Category - Kunj Sangani</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>sangani.kunj@gmail.com (Kunj Sangani)</managingEditor>
-            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 13 Oct 2020 21:57:40 &#43;0800</lastBuildDate><atom:link href="http://example.org/categories/spfx/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>sangani.kunj@gmail.com (Kunj Sangani)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 13 Oct 2020 21:57:40 &#43;0800</lastBuildDate><atom:link href="https://kunjsangani.com/categories/spfx/" rel="self" type="application/rss+xml" /><item>
     <title>Create ASP.NET Core API w/ Azure AD Auth &amp; consume in SPFx.</title>
-    <link>http://example.org/2020/10/create-asp-net-core-api-w-azure-ad-auth-consume-in-sp-fx/</link>
+    <link>https://kunjsangani.com/2020/10/create-asp-net-core-api-w-azure-ad-auth-consume-in-sp-fx/</link>
     <pubDate>Tue, 13 Oct 2020 21:57:40 &#43;0800</pubDate>
     <author>Kunj Sangani</author>
-    <guid>http://example.org/2020/10/create-asp-net-core-api-w-azure-ad-auth-consume-in-sp-fx/</guid>
+    <guid>https://kunjsangani.com/2020/10/create-asp-net-core-api-w-azure-ad-auth-consume-in-sp-fx/</guid>
     <description><![CDATA[Introduction The practice of creating Custom APIs using ASP.NET core is increasing day by day as ASP.NET core is platform agnostic and is based on the C# language. Securing your API is very important as we do not want everyone to access the data, hence we will explore Azure AD based authentication in ASP.NET Core Web API and consume the API using SharePoint Framework.
 There are two aspects to this article:]]></description>
 </item>
 <item>
     <title>Working With Timezone In SPFx</title>
-    <link>http://example.org/2020/09/working-with-timezone-in-sp-fx/</link>
+    <link>https://kunjsangani.com/2020/09/working-with-timezone-in-sp-fx/</link>
     <pubDate>Mon, 21 Sep 2020 21:57:40 &#43;0800</pubDate>
     <author>Kunj Sangani</author>
-    <guid>http://example.org/2020/09/working-with-timezone-in-sp-fx/</guid>
+    <guid>https://kunjsangani.com/2020/09/working-with-timezone-in-sp-fx/</guid>
     <description><![CDATA[Introduction While designing applications, we may come across multiple scenarios where our application could run across multiple locations and timezones, and working with all these timezones could be a difficult task.
 With the introduction of SharePoint framework, creating a scalable and UI friendly application is very easy. With modern SharePoint, creating an Intelligent intranet is very easy and is becoming popular. There can be a scenario where intranet users are across multiple locations, therefore we need to create an SPFx solution considering all these locations.]]></description>
 </item>
 <item>
     <title>Function And Class Component In React With SPFx</title>
-    <link>http://example.org/2020/08/function-and-class-component-in-react-with-sp-fx/</link>
+    <link>https://kunjsangani.com/2020/08/function-and-class-component-in-react-with-sp-fx/</link>
     <pubDate>Mon, 31 Aug 2020 21:57:40 &#43;0800</pubDate>
     <author>Kunj Sangani</author>
-    <guid>http://example.org/2020/08/function-and-class-component-in-react-with-sp-fx/</guid>
+    <guid>https://kunjsangani.com/2020/08/function-and-class-component-in-react-with-sp-fx/</guid>
     <description><![CDATA[Introduction In this article, we will learn the different types of components that we can create in React
 We will also learn which should be used in which conditions.
 React provides us two different types of components:
@@ -37,64 +37,64 @@ In the syntax point of view, we do not write class for function component rather
 </item>
 <item>
     <title>Update Profile Picture Using Graph API In SPFx</title>
-    <link>http://example.org/2020/08/update-profile-picture-using-graph-api-in-sp-fx/</link>
+    <link>https://kunjsangani.com/2020/08/update-profile-picture-using-graph-api-in-sp-fx/</link>
     <pubDate>Tue, 11 Aug 2020 21:57:40 &#43;0800</pubDate>
     <author>Kunj Sangani</author>
-    <guid>http://example.org/2020/08/update-profile-picture-using-graph-api-in-sp-fx/</guid>
+    <guid>https://kunjsangani.com/2020/08/update-profile-picture-using-graph-api-in-sp-fx/</guid>
     <description><![CDATA[Introduction Microsoft 365 has a different application in its suite. To combine all these data for developers Microsoft came up with Graph API. This has helped developers to access data across applications in Microsoft 365. One such example which we would leverage today is to save profile picture which would reflect across all the applications in Microsoft 365.
 In this article, we will create a SPFx webpart where user can select their profile picture and on click of the save button, the profile picture will be updated for all apps in Microsoft 365.]]></description>
 </item>
 <item>
     <title>Fetch SP list items from another site using PnP JS.</title>
-    <link>http://example.org/2020/08/fetch-share-point-online-list-items-from-another-site-collection-using-pn-p-js/</link>
+    <link>https://kunjsangani.com/2020/08/fetch-share-point-online-list-items-from-another-site-collection-using-pn-p-js/</link>
     <pubDate>Mon, 03 Aug 2020 21:57:40 &#43;0800</pubDate>
     <author>Kunj Sangani</author>
-    <guid>http://example.org/2020/08/fetch-share-point-online-list-items-from-another-site-collection-using-pn-p-js/</guid>
+    <guid>https://kunjsangani.com/2020/08/fetch-share-point-online-list-items-from-another-site-collection-using-pn-p-js/</guid>
     <description><![CDATA[Introduction SharePoint Online has gained more popularity with the release of REST API and SPFx. Data operation becomes easy in Client-Side Solution with the help of REST API. All these APIs work under current user permission and there could be a scenario that current users can have access to multiple site collection and we would need to fetch data for cross-site collection.
 How we can fetch cross-site collection data is a question, but with the help of PnPJs this question can be easily solved.]]></description>
 </item>
 <item>
     <title>Create Rich Text control w/ image and video in SPFx.</title>
-    <link>http://example.org/2020/07/create-rich-text-control-w-image-and-video-in-sp-fx/</link>
+    <link>https://kunjsangani.com/2020/07/create-rich-text-control-w-image-and-video-in-sp-fx/</link>
     <pubDate>Wed, 22 Jul 2020 21:57:40 &#43;0800</pubDate>
     <author>Kunj Sangani</author>
-    <guid>http://example.org/2020/07/create-rich-text-control-w-image-and-video-in-sp-fx/</guid>
+    <guid>https://kunjsangani.com/2020/07/create-rich-text-control-w-image-and-video-in-sp-fx/</guid>
     <description><![CDATA[Introduction Rich Text Control is one of the most-used controls in classic SharePoint Lists but if we need to create a customization for Modern SharePoint List form using SharePoint Framework there is no easy way to do so. But in this article, we will understand how we can use react-quill control to save the rich text field and also display it for the existing items.
 react-quill is based on Quill which is trusted by Microsoft.]]></description>
 </item>
 <item>
     <title>Learn PnP DateTimePicker in SPFx.</title>
-    <link>http://example.org/2020/07/learn-pn-p-date-time-picker-in-sp-fx/</link>
+    <link>https://kunjsangani.com/2020/07/learn-pn-p-date-time-picker-in-sp-fx/</link>
     <pubDate>Tue, 21 Jul 2020 21:57:40 &#43;0800</pubDate>
     <author>Kunj Sangani</author>
-    <guid>http://example.org/2020/07/learn-pn-p-date-time-picker-in-sp-fx/</guid>
+    <guid>https://kunjsangani.com/2020/07/learn-pn-p-date-time-picker-in-sp-fx/</guid>
     <description><![CDATA[Introduction When customizing the form with the help of SPFx, we may come across the requirement of using Date Time control. However, if we are using fluent UI react controls, formally known as Office UI fabric React controls, then we do not have control with both date and time. Rather, we only have date picker to overcome this PnP Team has created a DateTimePicker Control this can be easily used and configured in SPFx.]]></description>
 </item>
 <item>
     <title>How To Setup Environment For SharePoint Framework In macOS</title>
-    <link>http://example.org/2020/07/how-to-setup-environment-for-share-point-framework-in-mac-os/</link>
+    <link>https://kunjsangani.com/2020/07/how-to-setup-environment-for-share-point-framework-in-mac-os/</link>
     <pubDate>Fri, 03 Jul 2020 21:57:40 &#43;0800</pubDate>
     <author>Kunj Sangani</author>
-    <guid>http://example.org/2020/07/how-to-setup-environment-for-share-point-framework-in-mac-os/</guid>
+    <guid>https://kunjsangani.com/2020/07/how-to-setup-environment-for-share-point-framework-in-mac-os/</guid>
     <description><![CDATA[Introduction SharePoint Framework is one of the most loved development frameworks for the SharePoint developer, as it is cross-platform and completely based on front end technologies like reactjs, vuejs, and angular.
 Let&rsquo;s understand how we can set up SharePoint Framework (SPFx) in Mac OS.
 Step 1 - Install Node.js The first step for setting up our development environment in Mac OS is to install Node.js which is the building block. To install Node.]]></description>
 </item>
 <item>
     <title>How To Use PropertyFieldCollectionData In SPFx Property Pane</title>
-    <link>http://example.org/2020/06/how-to-use-property-field-collection-data-in-sp-fx-property-pane/</link>
+    <link>https://kunjsangani.com/2020/06/how-to-use-property-field-collection-data-in-sp-fx-property-pane/</link>
     <pubDate>Mon, 22 Jun 2020 21:57:40 &#43;0800</pubDate>
     <author>Kunj Sangani</author>
-    <guid>http://example.org/2020/06/how-to-use-property-field-collection-data-in-sp-fx-property-pane/</guid>
+    <guid>https://kunjsangani.com/2020/06/how-to-use-property-field-collection-data-in-sp-fx-property-pane/</guid>
     <description><![CDATA[Introduction With the introduction of the SharePoint Framework (SPFx) , front end development has become very easy and hosting of the webpart is taken care of by SharePoint, which does not require an additional server. So the use of SPFx is growing exponentially and the best part of SPFx webparts is they are easy to configure.
 To Configure SPFx web part we have Property Pane which opens up in a panel and we can add any controls as per our need.]]></description>
 </item>
 <item>
     <title>How To Use And Configure PnP Search WebPart</title>
-    <link>http://example.org/2020/05/how-to-use-and-configure-pn-p-search-web-part/</link>
+    <link>https://kunjsangani.com/2020/05/how-to-use-and-configure-pn-p-search-web-part/</link>
     <pubDate>Wed, 27 May 2020 21:57:40 &#43;0800</pubDate>
     <author>Kunj Sangani</author>
-    <guid>http://example.org/2020/05/how-to-use-and-configure-pn-p-search-web-part/</guid>
+    <guid>https://kunjsangani.com/2020/05/how-to-use-and-configure-pn-p-search-web-part/</guid>
     <description><![CDATA[Overview In this article we will understand the complete process of using PnP search webpart in SharePoint Modern Pages.
 Introduction In SharePoint, with the introduction of Modern Sites and Modern Pages, we aren&rsquo;t able to change templates in Modern Pages, so if we want to use a customized search in SharePoint Modern sites it would be best to use some existing webparts. To that end, PnP has released Modern Search webparts which will be very helpful and easy to configure.]]></description>
 </item>

@@ -11,6 +11,8 @@ description: "PnP has released Modern Search webparts to enable customized searc
 tags: ["PnP Search", "SPFx", "SharePoint Online"]
 categories: ["SPFx","SharePoint Online"]
 
+canonicalurl: "https://www.c-sharpcorner.com/article/how-to-use-and-configure-pnp-search-webpart"
+
 lightgallery: true
 ---
 

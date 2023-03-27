@@ -8,6 +8,8 @@ author: "Kunj Sangani"
 authorLink: "https://www.linkedin.com/in/kunj-sangani/"
 description: "Working with timezones in SharePoint Framework (SPFx) using Moment Timezone and jstz."
 
+canonicalurl: "https://www.c-sharpcorner.com/article/working-with-timezone-in-spfx/"
+
 tags: ["SharePoint Online", "SPFx", "Moment", "jstz"]
 categories: ["SPFx"]
 

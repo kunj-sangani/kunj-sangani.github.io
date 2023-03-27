@@ -8,6 +8,8 @@ author: "Kunj Sangani"
 authorLink: "https://www.linkedin.com/in/kunj-sangani/"
 description: "Step-by-step guide to creating an Outgoing Webhook in MS Teams using Yeoman Teams generator."
 
+canonicalurl: "https://www.c-sharpcorner.com/article/outgoing-web-hook-in-teams-using-yeoman-teams-generator/"
+
 tags: ["outgoing webhook teams", "yo teams"]
 categories: ["Microsoft Teams"]
 

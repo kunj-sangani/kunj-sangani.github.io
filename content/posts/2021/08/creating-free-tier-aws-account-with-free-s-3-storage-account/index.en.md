@@ -8,6 +8,8 @@ author: "Kunj Sangani"
 authorLink: "https://www.linkedin.com/in/kunj-sangani/"
 description: "Step-by-step guide to creating an AWS account and utilizing their free tier services, including Amazon S3."
 
+canonicalurl: "https://www.c-sharpcorner.com/article/creating-free-tier-aws-account-with-free-s3-storage-account/"
+
 tags: ["AWS", "S3 Storage"]
 categories: ["AWS"]
 

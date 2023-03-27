@@ -8,6 +8,8 @@ author: "Kunj Sangani"
 authorLink: "https://www.linkedin.com/in/kunj-sangani/"
 description: "This article shows the basic Markdown syntax and format."
 
+canonicalurl: "https://www.c-sharpcorner.com/article/create-an-asp-net-core-api-with-azure-ad-authentication-and-consuming-it-in-spfx/"
+
 tags: ["SPFx","WebAPI", "Azure AD", "MSAL.js"]
 categories: ["SPFx"]
 
