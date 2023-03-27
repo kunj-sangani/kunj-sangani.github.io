@@ -292,6 +292,14 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         title = ""
       [[languages.en.menu.main]]
         weight = 6
+        identifier = "linkedin"
+        pre = "<i class='fab fa-linkedin fa-fw' aria-hidden='true'></i>"
+        post = ""
+        name = ""
+        url = "https://www.linkedin.com/in/kunj-sangani/"
+        title = "LinkedIn"
+      [[languages.en.menu.main]]
+        weight = 6
         identifier = "github"
         pre = "<i class='fab fa-github fa-fw' aria-hidden='true'></i>"
         post = ""
@@ -324,9 +332,8 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
           social = true
           disclaimer = ""
       [languages.en.params.social]
-        Linkedin= "/kunj-sangani"
+        Linkedin= "kunj-sangani"
         GitHub = "kunj-sangani"
         Twitter = "sanganikunj"
-        Phone = "+919130304293"
-        Email = "sangani.kunj@gmail.com"
+        Email = "me@kunjsangani.com"
         RSS = true
