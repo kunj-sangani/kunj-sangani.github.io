@@ -1,8 +1,8 @@
 ---
 weight: 4
 title: "Extend Graph Developer Proxy using custom plugin"
-date: 2023-03-25T21:57:40+08:00
-lastmod: 2023-03-25T21:57:40+08:00
+date: 2023-04-09T21:57:40+08:00
+lastmod: 2023-04-09T21:57:40+08:00
 draft: false
 author: "Kunj Sangani"
 authorLink: "https://www.linkedin.com/in/kunj-sangani/"
@@ -97,7 +97,7 @@ dotnet add package Microsoft.Extensions.Configuration.Binder
 dotnet add package Titanium.Web.Proxy
 ```
 3) Open the project in Visual studio code and add reference to a dll msgraph-developer-proxy-abstractions by opening the CustomPlugin.csproj file and adding the below code. **Please update the file path to the dll as per your folder structure**.
-Download the [dll]()
+Download the [dll](msgraph-developer-proxy-abstractions.dll)
 ```
 <ItemGroup>
 <Reference  Include="msgraph-developer-proxy-abstractions">
