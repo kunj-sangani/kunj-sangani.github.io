@@ -12,7 +12,7 @@ resources:
 - name: "featured-image"
   src: "Mocking_API_response_using_Graph_Developer_Proxy.png"
 
-canonicalurl: "https://kunjsangani.com/2023/04/mocking-api-responses-made-easy-with-graph-developer-proxy/"
+canonicalurl: "https://www.c-sharpcorner.com/article/mocking-api-responses-made-easy-with-graph-developer-proxy/"
 
 tags: ["Microsoft Graph", "Graph Developer Proxy"]
 categories: ["Microsoft Graph"]
