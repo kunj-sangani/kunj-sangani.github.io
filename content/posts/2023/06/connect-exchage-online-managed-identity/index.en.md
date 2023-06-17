@@ -1,8 +1,8 @@
 ---
 weight: 4
 title: "Azure Function to Exchange Online using Managed Identity"
-date: 2023-04-03T10:00:40+08:00
-lastmod: 2023-04-03T10:00:40+08:00
+date: 2023-06-17T10:00:40+08:00
+lastmod: 2023-06-17T10:00:40+08:00
 draft: false
 author: "Kunj Sangani"
 authorLink: "https://www.linkedin.com/in/kunj-sangani/"
@@ -36,7 +36,7 @@ To achieve the above scenario let us divide the tasks in two sections
 ![connect-exchage-online-managed-identity-01](connect-exchage-online-managed-identity-01.png)
 
 3) Create a new Function App 
-![connect-exchage-online-managed-identity-02](connect-exchage-online-managed-identity-02.png.png)
+![connect-exchage-online-managed-identity-02](connect-exchage-online-managed-identity-02.png)
 
 ### Step 2:  Enable Managed Identity for the Azure Function
 
@@ -44,7 +44,6 @@ To achieve the above scenario let us divide the tasks in two sections
 2) Select Identity under settings
 3) Change the status from Off to On and save the changes
 Note: We are using System assigned Managed Identity if you want to use user assigned managed identity the steps would be 
-
 ![connect-exchage-online-managed-identity-04](connect-exchage-online-managed-identity-04.png)
 
 ### Step 3: Add Exchange Online PowerShell
@@ -54,7 +53,6 @@ Note: We are using System assigned Managed Identity if you want to use user assi
 3) Add the Exchange Online PowerShell Module using the below code
 
 `'ExchangeONlineManagement' = '3.*'`
-
 ![connect-exchage-online-managed-identity-03](connect-exchage-online-managed-identity-03.png)
 
 ## Section 2 Managed Identity Permission
@@ -90,8 +88,6 @@ Note: The Id 00000002-0000-0ff1-ce00-000000000000 is for Exchange online
 `New-MgServicePrincipalAppRoleAssignment -ServicePrincipalId $ServicePrincipal.Id -PrincipalId $ServicePrincipal.Id -ResourceId $ApiServicePrincipal.Id -AppRoleId dc50a0fb-09a3-484d-be87-e023b12c6440`
 
 Note: The Id dc50a0fb-09a3-484d-be87-e023b12c6440 is Exchange.ManageAsApp 
-
-
 ![connect-exchage-online-managed-identity-08](connect-exchage-online-managed-identity-08.png)
 
 ### Step 4: Provide Exchange Administration Role
@@ -100,13 +96,9 @@ Note: The Id dc50a0fb-09a3-484d-be87-e023b12c6440 is Exchange.ManageAsApp
 2) Select Azure Active Directory
 3) Navigate to Roles and administrators
 4) Search for Exchange Administrator
-
 ![connect-exchage-online-managed-identity-05](connect-exchage-online-managed-identity-05.png)
-
 5) Select and provide the Azure Function name for the Exchange Administration role
-
 ![connect-exchage-online-managed-identity-06](connect-exchage-online-managed-identity-06.png)
-
 ## Section 3 Test Azure Function
 
 Now create a new Azure function make it HTTP trigger and add the below command to connect to Exchange Online using Managed Identity
@@ -119,7 +111,6 @@ Add the below code to get all the mailboxes in the organization this is just to 
 `$mailbox = WriteGet-Mailbox -ResultSize unlimited`
 `Write-Host $mailbox`
 
-Conclusion
+# Conclusion
 We can leverage Managed Identity in Azure Function to connect to Exchange Online using PowerShell
-
 ![connect-exchage-online-managed-identity-07](connect-exchage-online-managed-identity-07.png)
