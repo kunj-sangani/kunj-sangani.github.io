@@ -68,7 +68,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         hugo = false
         copyright = true
         author = true
-        since = 2023
+        since = 2024
         icp = ""
         license= ''
     [params.section]
